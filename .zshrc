@@ -203,6 +203,7 @@ LS_COLORS=$LS_COLORS:'di=1;104:' ; export LS_COLORS
 
 # although rm in aliases-common plugin, I should ensure that in case .oh-my-zsh is not exist
 alias rm='rm -i'
+alias le='less'
 
 alias ls='ls -ACGhX --file-type --time-style=iso --color=tty --group-directories-first'
 
