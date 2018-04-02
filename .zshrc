@@ -61,6 +61,9 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
   common-aliases
+  docker
+  docker-compose
+  docker-machine
  # zsh-completions
 )
 
@@ -68,9 +71,7 @@ plugins=(
 
 #autoload -U compinit && compinit
 
-
 source $ZSH/oh-my-zsh.sh
-
 
 
 
@@ -108,6 +109,15 @@ source $ZSH/oh-my-zsh.sh
 
 ######################################## vvv ########################################
 
+################################################################################
+
+#docker completion
+
+#Check ~/.zsh/completion/_docker
+#fpath=(~/.zsh/completion $fpath)
+#autoload -Uz compinit && compinit -i
+#
+#Not used, oh my zsh use plugin docker instead.
 
 
 
@@ -190,7 +200,9 @@ extract () {
     esac
 }
 
-webp=45.77.197.178
+#my server ip
+webt=45.77.197.178
+zztj=45.76.158.108
 
 
 #color
@@ -199,6 +211,7 @@ LS_COLORS=$LS_COLORS:'di=1;104:' ; export LS_COLORS
 
 
 ########################################
+#alias
 
 
 # although rm in aliases-common plugin, I should ensure that in case .oh-my-zsh is not exist
