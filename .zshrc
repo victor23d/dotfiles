@@ -64,6 +64,9 @@ plugins=(
   docker
   docker-compose
   docker-machine
+  kubectl
+  firewalld
+  fedora
  # zsh-completions
 )
 
@@ -271,4 +274,11 @@ alias se_restorecon='restorecon'
 
 alias info='info --vi-keys'
 
+alias du='du --time'
+
+
+if [[ "" == "docker1" ]] ; 
+then
+    echo "No NO NO ..."
+fi
 
