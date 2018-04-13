@@ -59,22 +59,27 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+  #aws
   common-aliases
   docker
   docker-compose
   docker-machine
-  kubectl
   firewalld
   fedora
+  git
+  kubectl
  # zsh-completions
 )
 
 
 
-#autoload -U compinit && compinit
+# autoload -U compinit && compinit
+
+# source
 
 source $ZSH/oh-my-zsh.sh
+
+source ~/.local/bin/aws_zsh_completer.sh
 
 
 
@@ -177,6 +182,7 @@ fi
 
 ### VARIABLES
 EDITOR=vim
+export PATH=~/.local/bin:$PATH
 
 
 extract () {
