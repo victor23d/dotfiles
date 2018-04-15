@@ -79,8 +79,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+if [ -e ~/.local/bin/aws_zsh_completer.sh ];then
 source ~/.local/bin/aws_zsh_completer.sh
-
+fi
 
 
 # User configuration
