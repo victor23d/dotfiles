@@ -212,6 +212,7 @@ extract () {
 #my server ip
 webt=45.77.197.178
 zztj=45.76.158.108
+aws_tokyo=13.231.103.2
 
 
 #color
