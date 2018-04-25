@@ -68,12 +68,10 @@ plugins=(
   fedora
   git
   kubectl
- # zsh-completions
+  zsh-completions
 )
 
-
-
-# autoload -U compinit && compinit
+autoload -U compinit && compinit
 
 # source
 
@@ -183,7 +181,7 @@ fi
 
 ### VARIABLES
 EDITOR=vim
-export PATH=~/.local/bin:$PATH
+export PATH=~/.local/bin:/opt/puppetlabs/bin:$PATH$PATH
 
 
 extract () {
