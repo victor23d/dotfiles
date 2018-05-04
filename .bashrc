@@ -80,9 +80,9 @@ extract () {
     esac
 }
 
-webp=45.77.197.178
+webt=45.77.197.178
 project=/mnt/d/project/webapp/
-
 zztj=45.76.158.108
 aws_tokyo=13.231.103.2
+devops=54.250.205.240
 

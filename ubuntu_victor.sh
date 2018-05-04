@@ -42,11 +42,9 @@ cp .tmux/.tmux.conf.local .
 
 # dotfile
 cd ~
-git clone https://github.com/victor23d/dotfile.git
-mv dotfile dotfile
-~/dotfile/start_backup.sh
+# git clone https://github.com/victor23d/dotfile.git
+# ~/dotfile/start_backup.sh
 
-exec zsh
 
 echo '================================================================================'
 echo 'Done, exit and login back...'
