@@ -43,8 +43,8 @@ cp .tmux/.tmux.conf.local .
 # dotfile
 cd ~
 git clone https://github.com/victor23d/dotfile.git
-mv dotfile .dotfile
-~/.dotfile/start_backup.sh
+mv dotfile dotfile
+~/dotfile/start_backup.sh
 
 exec zsh
 
