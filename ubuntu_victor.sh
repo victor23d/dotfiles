@@ -7,7 +7,7 @@ mkdir init_install_temp
 cd init_install_temp
 
 # python
-apt-get install -y python3
+apt-get install -y python3.6
 
 # pip
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
