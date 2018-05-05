@@ -6,7 +6,9 @@ apt-get upgrade -y
 mkdir init_install_temp
 cd init_install_temp
 
-# python
+# python3.6
+add-apt-repository -y ppa:deadsnakes/ppa
+apt-get -y update
 apt-get install -y python3.6
 
 # pip
@@ -27,6 +29,10 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 # zsh-completions
 git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 
+# vim 8
+add-apt-repository -y ppa:jonathonf/vim
+apt update -y
+apt install -y vim
 
 # percol
 pip install percol
