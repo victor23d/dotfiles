@@ -12,10 +12,11 @@ apt-get -y update
 apt-get install -y python3.6
 
 # pip
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3 get-pip.py
+curl https://bootstrap.pypa.io/get-pip.py | python3
 
-# apt install -y python3-venv python3-pip
+apt-get install build-essential libssl-dev libffi-dev python3-dev
+apt install -y python3-venv python3-pip
+
 
 # zsh
 apt-get install -y zsh
