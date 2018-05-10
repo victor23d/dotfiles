@@ -7,6 +7,7 @@ mkdir init_install_temp
 cd init_install_temp
 
 # python3.6
+apt-get install software-properties-common
 add-apt-repository -y ppa:deadsnakes/ppa
 apt-get -y update
 apt-get install -y python3.6
