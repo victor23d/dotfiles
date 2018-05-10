@@ -180,8 +180,9 @@ fi
 
 
 ### VARIABLES
-EDITOR=vim
+export EDITOR=vim
 export PATH=~/.local/bin:/opt/puppetlabs/bin:$PATH$PATH
+export export GIT_EDITOR=vim
 
 
 extract () {
