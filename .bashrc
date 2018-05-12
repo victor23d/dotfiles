@@ -86,3 +86,6 @@ zztj=45.76.158.108
 aws_tokyo=13.231.103.2
 devops=54.250.205.240
 
+
+# added by Miniconda3 installer
+export PATH="/root/miniconda3/bin:$PATH"

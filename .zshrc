@@ -181,9 +181,9 @@ fi
 
 ### VARIABLES
 export EDITOR=vim
-export PATH=~/.local/bin:/opt/puppetlabs/bin:$PATH$PATH
-export export GIT_EDITOR=vim
-
+export PATH=~/.local/bin:/opt/puppetlabs/bin:$PATH
+export GIT_EDITOR=vim
+export PATH="/root/miniconda3/bin:$PATH"
 
 extract () {
     if [ ! -f "$1" ] ; then
