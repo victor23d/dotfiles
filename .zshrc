@@ -21,7 +21,7 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+ HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -64,8 +64,6 @@ plugins=(
   docker
   docker-compose
   docker-machine
-  firewalld
-  fedora
   git
   kubectl
   zsh-completions
@@ -87,14 +85,14 @@ fi
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+ export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='mvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -216,9 +214,16 @@ devops=13.112.11.10
 
 
 #color
-#LS_COLORS=$LS_COLORS:'di=1;034:' ; export LS_COLORS
-LS_COLORS=$LS_COLORS:'di=1;104:' ; export LS_COLORS
-
+#LS_COLORS=$LS_COLORS:'di=1;034:' ; 
+#LS_COLORS=$LS_COLORS:'di=1;104:' ; 
+#LS_COLORS=$LS_COLORS:'di=1;044:' ; 
+#LS_COLORS=$LS_COLORS:'di=0;34:' ;  
+#LS_COLORS=$LS_COLORS:'di=1;157:' ; 
+ if [[ -n $SSH_CONNECTION ]]; then
+#LS_COLORS=$LS_COLORS:'di=1;044:' ; 
+LS_COLORS=$LS_COLORS:'di=0;044:' ; 
+fi
+export LS_COLORS
 
 ########################################
 #alias
@@ -259,8 +264,21 @@ function cs2() {
     builtin cd "${new_directory}" && ls
 }
 
+function vl() {
+    vim `locate $1|percol`
+}
 
-alias dstat='dstat --nocolor'
+function cl(){
+    cd `locate $1|percol`
+}
+
+function cow(){
+    cowsay $1|lolcat
+}
+
+
+
+# alias dstat='dstat --nocolor'
 
 alias grep='grep -i -P --color=auto'
 alias date='date +%Y-%m-%d\ %H:%M:%S'

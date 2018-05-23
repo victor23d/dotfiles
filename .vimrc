@@ -71,8 +71,8 @@ inoremap <C-e> <End>
 "inoremap <C-n> <Down>
 "inoremap <C-b> <Left>
 "inoremap <C-f> <Right>
-"inoremap <M-b> <C-o>b
-"inoremap <M-f> <C-o>w
+inoremap <M-b> <C-o>b
+inoremap <M-f> <C-o>w
 
 " delete
 " kill ring
@@ -111,6 +111,10 @@ command PWD cd %:p:h
 " nmap / /\v
 
  nnoremap / /\v
+
+
+" http://vim.wikia.com/wiki/256_colors_in_vim
+set t_Co=256
 
 
 
