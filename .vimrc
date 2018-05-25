@@ -53,7 +53,8 @@
 " colorscheme elflord
 " colorscheme koehler
 " colorscheme murphy
- colorscheme py
+" colorscheme py
+ colorscheme desert256
 " colorscheme lucariox
 
 syntax enable
