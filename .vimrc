@@ -52,7 +52,14 @@
 " colorscheme darkblue
 " colorscheme elflord
 " colorscheme koehler
-colorscheme murphy
+" colorscheme murphy
+ colorscheme py
+" colorscheme lucariox
+
+syntax enable
+" set background=light
+" set background=dark
+" colorscheme solarized
 
 
 set encoding=utf-8
@@ -118,5 +125,6 @@ command PWD cd %:p:h
 " http://vim.wikia.com/wiki/256_colors_in_vim
 set t_Co=256
 
+let g:airline_powerline_fonts = 1
 
 
