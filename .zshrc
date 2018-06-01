@@ -60,13 +60,15 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   #aws
-  common-aliases
+  #common-aliases
   docker
   docker-compose
   docker-machine
+  fasd
   git
   kubectl
   zsh-completions
+
 )
 
 autoload -U compinit && compinit
@@ -125,8 +127,6 @@ fi
 #Not used, oh my zsh use plugin docker instead.
 
 
-
-
 ######################################## percol
 #For zsh users, command versions are here (ppkill accepts options like -9).
 
@@ -173,6 +173,15 @@ fi
 
 
 
+########################################fzf
+
+
+
+# If you use vi mode on bash, you need to add set -o vi before source ~/.fzf.bash in your .bashrc, so that it correctly sets up key bindings for vi mode.
+set -o vi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
 ########################################
 
@@ -182,6 +191,8 @@ export EDITOR=vim
 export PATH=~/.local/bin:/opt/puppetlabs/bin:$PATH
 export GIT_EDITOR=vim
 export PATH="/root/miniconda3/bin:$PATH"
+
+export FZF_DEFAULT_OPTS='--height 40% --reverse'
 
 extract () {
     if [ ! -f "$1" ] ; then
@@ -272,13 +283,6 @@ function cs2() {
     builtin cd "${new_directory}" && ls
 }
 
-function vl() {
-    vim `locate $1|percol`
-}
-
-function cl(){
-    cd `locate $1|percol`
-}
 
 function cow(){
     cowsay $1|lolcat
@@ -314,4 +318,8 @@ if [[ "" == "docker1" ]] ;
 then
     echo "No NO NO ..."
 fi
+
+
+
+
 

@@ -53,10 +53,17 @@ cp .tmux/.tmux.conf.local .
 echo '--------------------install ag--------------------'
 apt-get install silversearcher-ag
 
-# dotfile
-cd ~
-# git clone https://github.com/victor23d/dotfile.git
-# ~/dotfile/start_backup.sh
+
+# fzf
+echo '--------------------install fzf--------------------'
+t clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --all
+
+
+echo '--------------------install fasd--------------------'
+add-apt-repository ppa:aacebedo/fasd
+apt-get update
+apt-get install fasd
 
 
 echo '================================================================================'
@@ -64,8 +71,9 @@ echo 'Done, after run start_backup then exit and login back...'
 
 
 
-
-
+# TODO
+# check version which
+# Oh-my-zsh exit
 
 
 

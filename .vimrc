@@ -128,4 +128,16 @@ set t_Co=256
 
 let g:airline_powerline_fonts = 1
 
+set runtimepath^=~/.vim/pack/foo/start/ctrlp.vim
+let g:ctrlp_cmd = 'CtrlPMRU'
+
+
+" nerdtree
+map <C-n> :NERDTreeToggle<CR>
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+    let g:NERDTreeDirArrowExpandable = '+'
+    let g:NERDTreeDirArrowCollapsible = '-'
+
 

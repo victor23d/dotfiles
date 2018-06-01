@@ -89,3 +89,5 @@ devops=54.250.205.240
 
 # added by Miniconda3 installer
 export PATH="/root/miniconda3/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
