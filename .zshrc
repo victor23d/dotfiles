@@ -219,10 +219,18 @@ devops=13.112.11.10
 #LS_COLORS=$LS_COLORS:'di=1;044:' ; 
 #LS_COLORS=$LS_COLORS:'di=0;34:' ;  
 #LS_COLORS=$LS_COLORS:'di=1;157:' ; 
- if [[ -n $SSH_CONNECTION ]]; then
+if [[ -n $SSH_CONNECTION ]]; then
 #LS_COLORS=$LS_COLORS:'di=1;044:' ; 
-LS_COLORS=$LS_COLORS:'di=0;044:' ; 
+    LS_COLORS=$LS_COLORS:'di=0;044:' ; 
 fi
+if [[ $TERM == 'linux' ]];then
+    LS_COLORS=$LS_COLORS:'di=0;044:' ;
+fi
+if [[ $TERM == 'xterm-256' ]];then
+    LS_COLORS=$LS_COLORS:'di=0;034:' ;
+fi
+    
+
 export LS_COLORS
 
 ########################################
@@ -281,7 +289,7 @@ function cow(){
 # alias dstat='dstat --nocolor'
 
 alias grep='grep -i -P --color=auto'
-alias date='date +%Y-%m-%d\ %H:%M:%S'
+alias date='date +%Y-%m-%dT%H:%M:%S'
 
 alias pe='percol'
 alias lo='locate'
