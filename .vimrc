@@ -135,7 +135,11 @@ let g:ctrlp_cmd = 'CtrlPMRU'
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" when open with dir 
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" :E conflict
+command E Ex
 
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
@@ -154,7 +158,6 @@ let g:syntastic_check_on_wq = 0
 
 " python mode
 let g:pymode_python = 'python3'
-" let g:pymode_python = 'python3.6'
 
 
 
