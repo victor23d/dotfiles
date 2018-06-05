@@ -1,14 +1,14 @@
 
 
-apt-get update -y
-# apt-get upgrade -y
+apt update -y
+# apt upgrade -y
 
 # python3.6
 echo '--------------------install python3.6--------------------'
-apt-get install -y software-properties-common
+apt install -y software-properties-common
 add-apt-repository -y ppa:deadsnakes/ppa
-apt-get -y update
-apt-get install -y python3.6
+apt -y update
+apt install -y python3.6
 
 # pip
 echo '--------------------install pip--------------------'
@@ -16,7 +16,7 @@ curl https://bootstrap.pypa.io/get-pip.py | python3.6
 
 # zsh
 echo '--------------------install zsh--------------------'
-apt-get install -y zsh
+apt install -y zsh
 # chsh -s $(which zsh)
 
 
@@ -40,7 +40,7 @@ pip install percol
 
 # tmux
 echo '--------------------install tmux--------------------'
-apt-get install -y tmux
+apt install -y tmux
 
 # oh-my-tmux
 echo '--------------------install oh-my-tmux--------------------'
@@ -51,7 +51,7 @@ cp .tmux/.tmux.conf.local .
 
 # not ack2
 echo '--------------------install ag--------------------'
-apt-get install silversearcher-ag
+apt install silversearcher-ag
 
 
 # fzf
@@ -62,8 +62,8 @@ t clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 echo '--------------------install fasd--------------------'
 add-apt-repository ppa:aacebedo/fasd
-apt-get update
-apt-get install fasd
+apt update
+apt install fasd
 
 
 echo '================================================================================'
