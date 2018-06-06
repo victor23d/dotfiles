@@ -190,7 +190,7 @@ fi
 
 ### VARIABLES
 export EDITOR=vim
-export PATH=~/.local/bin:/opt/puppetlabs/bin:$PATH
+export PATH=~/.local/bin:/usr/local/bin:$PATH
 export GIT_EDITOR=vim
 export PATH="/root/miniconda3/bin:$PATH"
 
@@ -251,7 +251,7 @@ export LS_COLORS
 alias rm='rm -i'
 alias le='less'
 
-alias ls='ls -ACGhX --file-type --time-style=iso --color=tty --group-directories-first'
+alias ls='ls -ACGh'
 
 #-A	--almost-all
 #-C	 list entries by columns
@@ -291,7 +291,11 @@ function cow(){
 
 # alias dstat='dstat --nocolor'
 
-alias grep='grep -i -P --color=auto'
+# alias grep='grep -i -P --color=auto'
+
+if [[ `which ggrep` == 0 ]];then
+    alias grep='ggrep'
+fi
 alias date='date +%Y-%m-%dT%H:%M:%S'
 
 alias pe='percol'
