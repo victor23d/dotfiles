@@ -190,9 +190,12 @@ fi
 
 ### VARIABLES
 export EDITOR=vim
-export PATH=~/.local/bin:/usr/local/bin:$PATH
 export GIT_EDITOR=vim
-export PATH="/root/miniconda3/bin:$PATH"
+PATH="/root/miniconda3/bin:$PATH"
+PATH=~/.local/bin:/usr/local/bin:$PATH
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH
 
 export FZF_DEFAULT_OPTS='--height 40% --reverse'
 
