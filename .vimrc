@@ -120,8 +120,8 @@ command PWD cd %:p:h
 
 " nmap / /\v
 
- nnoremap / /\v
-
+nnoremap / /\v
+set backspace=2
 
 " http://vim.wikia.com/wiki/256_colors_in_vim
 set t_Co=256
