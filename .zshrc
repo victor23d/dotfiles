@@ -58,6 +58,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# fasd plugin need $EDITOR
+export EDITOR='vim'
+
 plugins=(
   #aws
   #common-aliases
@@ -187,6 +191,19 @@ fi
 
 ########################################
 
+#bindkey '^[[1;5C' forward-word                        # [Ctrl-RightArrow] - move forward one word
+#bindkey '^[[1;5D' backward-word                       # [Ctrl-LeftArrow] - move backward one word
+
+if [[ "${terminfo[kcbt]}" != "" ]]; then
+  bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
+fi
+
+
+
+bindkey "^[[C" forward-word
+bindkey "^[[D" backward-word
+
+########################################
 
 ### VARIABLES
 export EDITOR=vim
@@ -249,7 +266,6 @@ export LS_COLORS
 
 # although rm in aliases-common plugin, I should ensure that in case .oh-my-zsh is not exist
 alias rm='rm -i'
-alias le='less'
 
 alias ls='ls -ACGhX --file-type --time-style=iso --color=tty --group-directories-first'
 
@@ -268,7 +284,12 @@ alias ls='ls -ACGhX --file-type --time-style=iso --color=tty --group-directories
 # to use default ls 	 \ls
 
 
-alias cd='cs'
+alias c='fasd_cd -d'
+# `-d` option present for bash completion
+# function fasd_cd is defined in posix-alias
+
+
+# alias cd='cs'
 
 function cs () {
     builtin cd "$@" && ls
