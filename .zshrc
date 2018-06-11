@@ -207,9 +207,11 @@ bindkey "^[[D" backward-word
 
 ### VARIABLES
 export EDITOR=vim
-export PATH=~/.local/bin:/opt/puppetlabs/bin:$PATH
 export GIT_EDITOR=vim
-export PATH="/root/miniconda3/bin:$PATH"
+PATH="~/miniconda3/bin:$PATH"
+PATH=~/.local/bin:/usr/local/bin:$PATH
+
+export PATH
 
 export FZF_DEFAULT_OPTS='--height 40% --reverse'
 
@@ -339,7 +341,16 @@ then
     echo "No NO NO ..."
 fi
 
+########################################
+#mac
 
+if [[ `uname` != 'Linux' ]];then
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+alias updatedb='/usr/libexec/locate.updatedb'
+export PATH
 
+#alias grep='grep -i --color=auto'
+#alias ls='ls -ACGh --color'
 
-
+fi
