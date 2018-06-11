@@ -4,19 +4,24 @@ brew update -y
 # brew upgrade -y
 
 # python3.6
+if [[ `which python3.6` ]];then
 echo '--------------------install python3.6--------------------'
 brew install -y python3
 ln -s /usr/local/bin/python3 /usr/local/bin/python3.6
+fi
 
 # pip
+if [[ ! `which pip` ]];then
 echo '--------------------install pip--------------------'
 curl https://bootstrap.pypa.io/get-pip.py | python3.6
+fi
 
 echo '--------------------install gnu--------------------'
 brew install coreutils
 
 # Then you may probably want to install the following ones (For some of the packages, you need to run brew tap homebrew/dupes first, but only once for your system):
- brew tap homebrew/dupes
+# brew tap homebrew/dupes
+brew tap Homebrew/homebrew-core
 
 brew install findutils --with-default-names
 brew install gnu-indent --with-default-names
@@ -64,12 +69,16 @@ brew install -y zsh
 
 
 # oh-my-zsh
+if [[ ! -e ~/.oh-my-zsh ]];then
 echo '--------------------install oh-my-zsh--------------------'
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+fi
 
 # zsh-completions
+if [[ ! -e ~/.oh-my-zsh/custom/plugins/zsh-completions ]];then
 cd ~
 git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+fi
 
 # vim 8
 echo '--------------------install vim8--------------------'
@@ -85,11 +94,13 @@ echo '--------------------install tmux--------------------'
 brew install -y tmux
 
 # oh-my-tmux
+if [[ ! -e ~/.tmux ]];then
 echo '--------------------install oh-my-tmux--------------------'
-cd ~
-git clone https://github.com/gpakosz/.tmux.git
-ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
+git clone https://github.com/gpakosz/.tmux.git ~
+ln -s -f .tmux/.tmux.conf ~/
+cp .tmux/.tmux.conf.local ~/
+fi
+
 
 # not ack2
 echo '--------------------install ag--------------------'
@@ -97,9 +108,11 @@ brew install ag
 
 
 # fzf
+if [[ ! -e ~/.fzf ]];then
 echo '--------------------install fzf--------------------'
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
+fi
 
 
 echo '--------------------install fasd--------------------'

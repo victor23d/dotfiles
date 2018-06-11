@@ -147,7 +147,8 @@ let g:NERDTreeDirArrowCollapsible = '-'
 
 " Syntastic Recommended settings
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" when not submodule update, this will cause error SyntasticStatuslineFlag()
+"set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
