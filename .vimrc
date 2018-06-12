@@ -72,6 +72,14 @@ set textwidth=0
 set textwidth=999
 
 
+" Uncomment the following to have Vim jump to the last position when                                                       
+" reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
+
 " Readline key bindings
 
 " Move
@@ -114,6 +122,12 @@ inoremap <C-_> <Esc>mtI#<Esc>`ta
 nmap <C-_> I#<Esc>
 vmap <C-_> I#<Esc>
 
+" Todo
+map <C-Left> w
+map <C-Right> b
+map "OD" b
+map "OC" w
+
 
 " CDC = Change to Directory of Current file
 command PWD cd %:p:h
@@ -148,7 +162,7 @@ let g:NERDTreeDirArrowCollapsible = '-'
 " Syntastic Recommended settings
 set statusline+=%#warningmsg#
 " when not submodule update, this will cause error SyntasticStatuslineFlag()
-"set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1

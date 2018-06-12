@@ -200,18 +200,26 @@ fi
 
 
 
+# tmux doesnt work
 bindkey "^[[C" forward-word
 bindkey "^[[D" backward-word
+
+# normal move without Ctrl
+#bindkey "^[OC" forward-word
+#bindkey "^[OD" backward-word
+
+
 
 ########################################
 
 ### VARIABLES
 export EDITOR=vim
 export GIT_EDITOR=vim
+
 PATH="~/miniconda3/bin:$PATH"
 PATH=~/.local/bin:/usr/local/bin:$PATH
-
 export PATH
+
 
 export FZF_DEFAULT_OPTS='--height 40% --reverse'
 
@@ -341,6 +349,7 @@ then
     echo "No NO NO ..."
 fi
 
+
 ########################################
 #mac
 
@@ -354,3 +363,7 @@ export PATH
 #alias ls='ls -ACGh --color'
 
 fi
+
+
+
+
