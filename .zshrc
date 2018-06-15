@@ -322,7 +322,7 @@ function cow(){
 
 # alias dstat='dstat --nocolor'
 
-alias grep='grep -i -P --color=auto'
+alias grep='grep -P --color=auto'
 alias date='date +%Y-%m-%dT%H:%M:%S'
 
 alias pe='percol'
@@ -359,7 +359,6 @@ MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 alias updatedb='/usr/libexec/locate.updatedb'
 export PATH
 
-#alias grep='grep -i --color=auto'
 #alias ls='ls -ACGh --color'
 
 fi
