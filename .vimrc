@@ -72,6 +72,16 @@ set textwidth=0
 set textwidth=999
 
 
+
+"set tabstop 8    " - tabs are at proper location
+set expandtab    " - don't use actual tab character (ctrl-v)
+set shiftwidth=4 " - indenting is 4 spaces
+set autoindent   " - turns it on
+set smartindent  " - does the right thing (mostly) in programs
+set cindent      " - stricter rules for C programs
+
+
+
 " Uncomment the following to have Vim jump to the last position when                                                       
 " reopening a file
 if has("autocmd")
@@ -89,8 +99,27 @@ inoremap <C-e> <End>
 "inoremap <C-n> <Down>
 "inoremap <C-b> <Left>
 "inoremap <C-f> <Right>
-inoremap <M-b> <C-o>b
+"inoremap <M-b> <C-o>b
 inoremap <M-f> <C-o>w
+inoremap ^[<Right> W
+inoremap b B
+inoremap f W
+
+
+" Do NOT use these in oh-my-tmux
+inoremap [D B
+inoremap [C W
+
+inoremap <Left> B
+inoremap <Right> W
+
+"map <C-Left> B
+"map <C-Right> W
+
+" Why this directly map to arrrow key?
+"nmap OD W
+
+
 
 " delete
 " kill ring
@@ -122,14 +151,10 @@ inoremap <C-_> <Esc>mtI#<Esc>`ta
 nmap <C-_> I#<Esc>
 vmap <C-_> I#<Esc>
 
-" Todo
-map <C-Left> w
-map <C-Right> b
-map "OD" b
-map "OC" w
 
 
 " CDC = Change to Directory of Current file
+command CDC cd %:p:h
 command PWD cd %:p:h
 
 " nmap / /\v
@@ -173,6 +198,7 @@ let g:syntastic_check_on_wq = 0
 
 " python mode
 let g:pymode_python = 'python3'
+
 
 
 

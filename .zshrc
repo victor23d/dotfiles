@@ -191,8 +191,6 @@ fi
 
 ########################################
 
-#bindkey '^[[1;5C' forward-word                        # [Ctrl-RightArrow] - move forward one word
-#bindkey '^[[1;5D' backward-word                       # [Ctrl-LeftArrow] - move backward one word
 
 if [[ "${terminfo[kcbt]}" != "" ]]; then
   bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
@@ -200,13 +198,6 @@ fi
 
 
 
-# tmux doesnt work
-bindkey "^[[C" forward-word
-bindkey "^[[D" backward-word
-
-# normal move without Ctrl
-#bindkey "^[OC" forward-word
-#bindkey "^[OD" backward-word
 
 
 

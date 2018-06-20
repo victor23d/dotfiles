@@ -7,8 +7,7 @@ cd YouCompleteMe
 git submodule update --init --recursive
 
 sudo apt-get install build-essential cmake
-sudo apt-get install python3.6-dev
-# sudo apt-get install python-dev python3-dev
+sudo apt-get install python-dev python3-dev
 
 ./install.py
 # ./install.py --js-completer

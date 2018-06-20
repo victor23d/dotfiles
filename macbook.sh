@@ -94,12 +94,12 @@ echo '--------------------install tmux--------------------'
 brew install -y tmux
 
 # oh-my-tmux
-if [[ ! -e ~/.tmux ]];then
-echo '--------------------install oh-my-tmux--------------------'
-git clone https://github.com/gpakosz/.tmux.git ~
-ln -s -f .tmux/.tmux.conf ~/
-cp .tmux/.tmux.conf.local ~/
-fi
+# if [[ ! -e ~/.tmux ]];then
+# echo '--------------------install oh-my-tmux--------------------'
+# git clone https://github.com/gpakosz/.tmux.git ~
+# ln -s -f .tmux/.tmux.conf ~/
+# cp .tmux/.tmux.conf.local ~/
+# fi
 
 
 # not ack2

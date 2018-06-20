@@ -1,4 +1,8 @@
 
 .vim/.netrwhist
 .vim/pack/foo/start/ctrlp.vim/netrwhist
-.vim/pack/foo/start/ctrlp.vim
+.vim/pack/foo/start/YouCompleteMe
+
+
+#.vim/pack/foo/start/ctrlp.vim
+
