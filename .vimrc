@@ -90,6 +90,10 @@ if has("autocmd")
 endif
 
 
+"Highlighting search matches
+:set hlsearch
+
+
 " Readline key bindings
 
 " Move
