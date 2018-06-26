@@ -75,9 +75,9 @@ set textwidth=999
 
 "set tabstop 8    " - tabs are at proper location
 set expandtab    " - don't use actual tab character (ctrl-v)
-set shiftwidth=4 " - indenting is 4 spaces
-set autoindent   " - turns it on
-set smartindent  " - does the right thing (mostly) in programs
+"set shiftwidth=4 " - indenting is 4 spaces
+"set autoindent   " - turns it on
+"set smartindent  " - does the right thing (mostly) in programs
 set cindent      " - stricter rules for C programs
 
 
@@ -90,10 +90,6 @@ if has("autocmd")
 endif
 
 
-"Highlighting search matches
-:set hlsearch
-
-
 " Readline key bindings
 
 " Move
@@ -104,10 +100,10 @@ inoremap <C-e> <End>
 "inoremap <C-b> <Left>
 "inoremap <C-f> <Right>
 "inoremap <M-b> <C-o>b
-inoremap <M-f> <C-o>w
-inoremap ^[<Right> W
-inoremap b B
-inoremap f W
+"inoremap <M-f> <C-o>w
+
+inoremap b b
+inoremap f w
 
 
 " Do NOT use these in oh-my-tmux
