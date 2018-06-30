@@ -8,7 +8,7 @@ fi
 
 mkdir dotfiles_bak
 
-mv -f .zshrc .bashrc .vimrc .tmux.conf .tmux.conf.local .editrc .vim dotfiles_bak
+mv -f .zshrc .bashrc .vimrc .tmux.conf .tmux.conf.local .editrc .vim .gitconfig dotfiles_bak
 
 ln -s ~/dotfiles/.zshrc ~/
 ln -s ~/dotfiles/.bashrc ~/
@@ -17,5 +17,6 @@ ln -s ~/dotfiles/.tmux.conf ~/
 ln -s ~/dotfiles/.tmux.conf.local ~/
 ln -s ~/dotfiles/.editrc ~/
 ln -s ~/dotfiles/.vim ~/
+ln -s ~/dotfiles/.gitconfig ~/
 
 

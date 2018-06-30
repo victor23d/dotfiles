@@ -72,8 +72,6 @@ set textwidth=0
 set textwidth=999
 
 
-:set hlsearch
-
 
 "set tabstop 8    " - tabs are at proper location
 set expandtab    " - don't use actual tab character (ctrl-v)
@@ -90,6 +88,10 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
 endif
+
+
+:set hlsearch
+
 
 
 " Readline key bindings
@@ -202,6 +204,8 @@ let g:syntastic_check_on_wq = 0
 let g:pymode_python = 'python3'
 
 
+" YCM
+let g:ycm_key_select_completion = '<Tab>'
 
 
 
