@@ -72,6 +72,8 @@ set textwidth=0
 set textwidth=999
 
 
+:set hlsearch
+
 
 "set tabstop 8    " - tabs are at proper location
 set expandtab    " - don't use actual tab character (ctrl-v)
