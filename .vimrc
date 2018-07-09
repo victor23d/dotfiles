@@ -144,7 +144,9 @@ inoremap <C-k> <Esc>C
 
 
 " IDE
+" CR Up Down works for GVim but not works for terminal vim
 inoremap <S-CR> <Esc>o
+
 
 inoremap <S-M-Down> <Esc>ddpA
 inoremap <S-M-Up> <Esc>dd<Up>PA
@@ -161,7 +163,6 @@ vmap <C-_> I#<Esc>
 command CDC cd %:p:h
 command PWD cd %:p:h
 
-" nmap / /\v
 
 nnoremap / /\v
 set backspace=2

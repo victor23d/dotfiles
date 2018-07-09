@@ -70,6 +70,8 @@ plugins=(
   docker-machine
   fasd
   git
+  node
+  npm
   kubectl
   zsh-completions
 
