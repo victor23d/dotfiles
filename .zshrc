@@ -72,9 +72,10 @@ plugins=(
   git
   node
   npm
+  nvm
+  npx
   kubectl
   zsh-completions
-
 )
 
 autoload -U compinit && compinit
@@ -356,6 +357,8 @@ export PATH
 
 fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
 
