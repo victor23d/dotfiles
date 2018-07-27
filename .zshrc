@@ -73,7 +73,6 @@ plugins=(
   node
   npm
   nvm
-  npx
   kubectl
   zsh-completions
 )
