@@ -210,7 +210,7 @@ export EDITOR=vim
 export GIT_EDITOR=vim
 
 PATH="~/miniconda3/bin:$PATH"
-PATH=~/.local/bin:/usr/local/bin:$PATH
+PATH=~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share:$PATH
 export PATH
 
 
@@ -361,3 +361,9 @@ export NVM_DIR="$HOME/.nvm"
 
 
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/google-cloud-sdk/completion.zsh.inc'; fi
