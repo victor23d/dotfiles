@@ -62,6 +62,11 @@ ZSH_THEME="robbyrussell"
 # fasd plugin need $EDITOR
 export EDITOR='vim'
 
+# Before plugin kubectl
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google-cloud-sdk/path.zsh.inc'; fi
+
+
 plugins=(
   #aws
   #common-aliases
@@ -74,6 +79,7 @@ plugins=(
   npm
   nvm
   kubectl
+  kube-ps1
   zsh-completions
 )
 
@@ -82,6 +88,13 @@ autoload -U compinit && compinit
 # source
 
 source $ZSH/oh-my-zsh.sh
+
+
+# After source
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/google-cloud-sdk/completion.zsh.inc'; fi
+
+
 
 if [ -e ~/.local/bin/aws_zsh_completer.sh ];then
 source ~/.local/bin/aws_zsh_completer.sh
@@ -360,10 +373,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/google-cloud-sdk/completion.zsh.inc'; fi
