@@ -72,13 +72,14 @@ set textwidth=0
 set textwidth=999
 
 
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 
-"set tabstop 8    " - tabs are at proper location
-set expandtab    " - don't use actual tab character (ctrl-v)
-set shiftwidth=4 " - indenting is 4 spaces
-"set autoindent   " - turns it on
-"set smartindent  " - does the right thing (mostly) in programs
-"set cindent      " - stricter rules for C programs
 
 set nopaste
 filetype indent off
