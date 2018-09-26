@@ -75,6 +75,8 @@ plugins=(
   docker-machine
   fasd
   git
+  go
+  golang
   node
   npm
   nvm
