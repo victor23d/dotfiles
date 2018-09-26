@@ -1,4 +1,5 @@
 
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 brew update -y
 # brew upgrade -y
