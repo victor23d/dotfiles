@@ -227,6 +227,7 @@ export GIT_EDITOR=vim
 PATH="~/miniconda3/bin:$PATH"
 PATH=~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share:$PATH
 PATH=$PATH:/usr/local/go/bin
+PATH=$PATH:$GOPATH/bin
 export PATH
 
 
