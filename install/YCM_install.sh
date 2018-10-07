@@ -10,7 +10,5 @@ sudo apt-get install build-essential cmake
 sudo apt-get install python-dev python3-dev
 
 ./install.py
-# ./install.py --js-completer
-
-
+# ./install.py --js-completer --go-completer
 
