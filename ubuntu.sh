@@ -4,7 +4,7 @@ apt update -y
 # apt upgrade -y
 
 # python3.6
-if [[ `which python3.6` ]];then
+if [[ ! `which python3.6` ]];then
 echo '--------------------install python3.6--------------------'
 apt install -y software-properties-common
 add-apt-repository -y ppa:deadsnakes/ppa
