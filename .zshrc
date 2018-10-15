@@ -288,6 +288,7 @@ export LS_COLORS
 alias rm='rm -i'
 
 alias ls='ls -ACGhX --file-type --time-style=iso --color=tty --group-directories-first'
+alias sl=ls
 
 #-A	--almost-all
 #-C	 list entries by columns
