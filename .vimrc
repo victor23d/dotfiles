@@ -154,16 +154,16 @@ inoremap <S-CR> <Esc>o
 inoremap <S-M-Down> <Esc>ddpA
 inoremap <S-M-Up> <Esc>dd<Up>PA
 
-inoremap <C-/> <Esc>mtI#<Esc>`ta
-inoremap <C-_> <Esc>mtI#<Esc>`ta
+inoremap <C-/> <Esc>mtI# <Esc>`ta
+inoremap <C-_> <Esc>mtI# <Esc>`ta
 
 nmap <C-_> I#<Esc>
 vmap <C-_> I#<Esc>
 
 
 
-" CDC = Change to Directory of Current file
-command CDC cd %:p:h
+" CWD = Change to Directory of Current file
+command CWD cd %:p:h
 command PWD cd %:p:h
 
 

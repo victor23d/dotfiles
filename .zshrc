@@ -289,6 +289,9 @@ alias rm='rm -i'
 
 alias ls='ls -ACGhX --file-type --time-style=iso --color=tty --group-directories-first'
 alias sl=ls
+alias ks=ls
+alias nv=nvim
+# alias vim=nvim
 
 #-A	--almost-all
 #-C	 list entries by columns
