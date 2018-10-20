@@ -4,13 +4,13 @@ apt update -y
 # apt upgrade -y
 
 # python3.7
-if [[ `python -V` =~ 3.7 ]];then
-# echo '--------------------install python3.7--------------------'
+if [[ `python3 -V` =~ 3.7 ]];then
+  echo '--------------------install python3.7--------------------'
 fi
 
 # pip
 if [[ ! `which pip` ]];then
-# echo '--------------------install pip--------------------'
+  echo '--------------------install pip--------------------'
 # curl https://bootstrap.pypa.io/get-pip.py | python3
 fi
 
@@ -34,7 +34,7 @@ fi
 
 # vim 8
 if [[ `vim --version` =~ 8.1 ]];then
-#echo '--------------------install vim8--------------------'
+  echo '--------------------install vim8--------------------'
 #add-apt-repository -y ppa:jonathonf/vim
 #apt update -y
 #apt install -y vim
