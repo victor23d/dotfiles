@@ -59,8 +59,10 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# fasd plugin need $EDITOR
-export EDITOR='vim'
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+export GIT_EDITOR=nvim
+
 
 # Before plugin kubectl
 # The next line updates PATH for the Google Cloud SDK.

@@ -5,3 +5,4 @@
         lg = !"git lg1"
 [core]
 	quotepath = off
+	editor = nvim

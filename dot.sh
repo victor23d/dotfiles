@@ -28,9 +28,10 @@ ln -s ~/dotfiles/.SpaceVim.d ~/
 
 if [[ -e ~/.SpaceVim ]];then
     rm -rf ~/.vim
-    rm -rf ~/.config/nvim
     rm -rf ~/.vim_back
+    rm -rf ~/.config/nvim
     rm -rf ~/.config/nvim_back
+    rm -rf ~/.vimrc
     rm -rf ~/.vimrc_back
     ln -s ~/.SpaceVim ~/.vim
     ln -s ~/.SpaceVim ~/.config/nvim
