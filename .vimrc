@@ -81,7 +81,8 @@ set shiftwidth=4
 set expandtab
 
 
-set nopaste
+" set nopaste
+set paste
 filetype indent off
 
 
@@ -157,8 +158,8 @@ inoremap <S-M-Up> <Esc>dd<Up>PA
 inoremap <C-/> <Esc>mtI# <Esc>`ta
 inoremap <C-_> <Esc>mtI# <Esc>`ta
 
-nmap <C-_> I#<Esc>
-vmap <C-_> I#<Esc>
+nmap <C-_> I# <Esc>
+vmap <C-_> I# <Esc>
 
 
 
