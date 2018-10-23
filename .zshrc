@@ -295,7 +295,7 @@ alias sl=ls
 alias ks=ls
 alias nv=nvim
 alias vn=nv
-alias vim=nvim
+# alias vim=nvim
 
 #-A	--almost-all
 #-C	 list entries by columns
