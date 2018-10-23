@@ -81,8 +81,12 @@ set shiftwidth=4
 set expandtab
 
 
-" set nopaste
-set paste
+" will cause paste improper indent
+ set nopaste
+
+" will cause <C-e> <C-a> don't work
+" set paste
+
 filetype indent off
 
 
@@ -182,12 +186,18 @@ let g:ctrlp_cmd = 'CtrlPMRU'
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
+" open a NERDTree automatically when vim starts up
+" autocmd vimenter * NERDTree
 
-" when open with dir 
+" close vim if the only window left open is a NERDTree
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " :E conflict
 command E Ex
+
 
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
