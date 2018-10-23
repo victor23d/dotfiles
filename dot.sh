@@ -18,8 +18,8 @@ ln -s ~/dotfiles/.zshrc ~/
 ln -s ~/dotfiles/.bashrc ~/
 ln -s ~/dotfiles/.tmux.conf ~/
 ln -s ~/dotfiles/.tmux.conf.local ~/
-ln -s ~/dotfiles/.editrc ~/
-ln -s ~/dotfiles/.inputrc ~/
+# ln -s ~/dotfiles/.editrc ~/
+# ln -s ~/dotfiles/.inputrc ~/
 ln -s ~/dotfiles/.gitconfig ~/
 ln -s ~/dotfiles/.vim ~/
 ln -s ~/dotfiles/.vimrc ~/
