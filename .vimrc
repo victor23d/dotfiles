@@ -66,6 +66,7 @@ syntax enable
 set encoding=utf-8
 set fileencoding=utf-8
 set ff=unix
+set relativenumber
 
 
 set textwidth=0
