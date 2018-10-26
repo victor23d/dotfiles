@@ -288,7 +288,8 @@ export LS_COLORS
 
 # although rm in aliases-common plugin, I should ensure that in case .oh-my-zsh is not exist
 # alias rm='rm -i'
-alias rm -rf='echo "Please form a good habit :)"'
+alias 'rm'='echo "Please form a good habit :)"'
+alias 'rm -rf'='echo "Please form a good habit :)"'
 
 alias ls='ls -ACGhX --file-type --time-style=iso --color=tty --group-directories-first'
 alias sl=ls
