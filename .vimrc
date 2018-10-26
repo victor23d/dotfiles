@@ -101,6 +101,8 @@ endif
 
 :set hlsearch
 
+let mapleader = "\<Space>"
+
 
 
 " Readline key bindings
