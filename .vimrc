@@ -173,6 +173,28 @@ let mapleader = "\<Space>"
 
 
 " Readline key bindings
+nnoremap <A-1> 1gt
+nnoremap <A-2> 2gt
+nnoremap <A-3> 3gt
+nnoremap <A-4> 4gt
+nnoremap <A-5> 5gt
+nnoremap <A-6> 6gt
+nnoremap <A-7> 7gt
+nnoremap <A-8> 8gt
+nnoremap <A-9> 9gt
+
+
+
+
+" Switch to last-active tab
+if !exists('g:lasttab')
+  let g:lasttab = 1
+endif
+nmap <Leader><tab> :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
+
+
 
 " Move
 inoremap <C-a> <Home>
@@ -181,8 +203,8 @@ inoremap <C-e> <End>
 "inoremap <C-n> <Down>
 "inoremap <C-b> <Left>
 "inoremap <C-f> <Right>
-"inoremap <M-b> <C-o>b
-"inoremap <M-f> <C-o>w
+inoremap <M-b> <C-o>b
+inoremap <M-f> <C-o>w
 
 inoremap b b
 inoremap f w
@@ -195,8 +217,9 @@ inoremap [C W
 inoremap <Left> B
 inoremap <Right> W
 
-"map <C-Left> B
-"map <C-Right> W
+inoremap <C-Left> B
+inoremap <C-Right> W
+
 
 " Why this directly map to arrrow key?
 "nmap OD W
