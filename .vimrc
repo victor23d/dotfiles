@@ -47,6 +47,46 @@
 
 
 " -------------------------------------------------------------------------------- 
+" nvim default config
+"
+syntax on
+syntax enable
+filetype plugin indent on
+set autoindent
+set autoread
+set backspace=2 " 2	same as ":set backspace=indent,eol,start"
+set backupdir=.,$XDG_DATA_HOME/nvim/backup
+set belloff=all
+set complete=.,w,b,u,t
+set cscopeverbose
+set directory=$XDG_DATA_HOME/nvim/swap//
+if has('nvim')
+    set display=lastline,msgsep
+endif
+set encoding=utf-8
+set fillchars=""
+" set fsync off
+set nofsync
+set formatoptions=tcqj
+set history=10000
+set hlsearch
+set incsearch
+
+
+
+
+" -------------------------------------------------------------------------------- 
+" nvim option
+
+if has('nvim')
+    set termguicolors
+endif
+
+
+
+"
+"
+" -------------------------------------------------------------------------------- 
 " Linux config
 
 " colorscheme darkblue
@@ -57,13 +97,13 @@
  colorscheme desert256
 " colorscheme lucariox
 
-syntax enable
+
+
 " set background=light
 " set background=dark
 " colorscheme solarized
 
 
-set encoding=utf-8
 set fileencoding=utf-8
 set ff=unix
 set relativenumber
@@ -88,7 +128,7 @@ set expandtab
 " will cause <C-e> <C-a> don't work
 " set paste
 
-filetype indent off
+" filetype indent off
 
 
 " Uncomment the following to have Vim jump to the last position when                                                       
@@ -198,7 +238,7 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-" :E conflict
+" resolve :E conflict
 command E Ex
 
 

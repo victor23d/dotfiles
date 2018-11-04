@@ -296,7 +296,9 @@ alias sl=ls
 alias ks=ls
 alias nv=nvim
 alias vn=nv
+
 # alias vim=nvim
+# alias vimdiff='nvim -d'
 
 #-A	--almost-all
 #-C	 list entries by columns
@@ -341,7 +343,7 @@ function cow(){
 
 # alias dstat='dstat --nocolor'
 
-alias grep='grep -P --color=auto'
+# alias grep='grep -P --color=auto'
 alias date='date +%Y-%m-%dT%H:%M:%S'
 
 alias pe='percol'
