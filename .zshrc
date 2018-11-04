@@ -114,9 +114,7 @@ fi
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
- else
-   export EDITOR='mvim'
+   export EDITOR='nvim'
  fi
 
 # Compilation flags
@@ -223,8 +221,8 @@ fi
 ########################################
 
 ### VARIABLES
-export EDITOR=vim
-export GIT_EDITOR=vim
+export EDITOR=nvim
+export GIT_EDITOR=nvim
 
 PATH="~/miniconda3/bin:$PATH"
 PATH=~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share:$PATH
@@ -297,8 +295,8 @@ alias ks=ls
 alias nv=nvim
 alias vn=nv
 
-# alias vim=nvim
-# alias vimdiff='nvim -d'
+alias vim=nvim
+alias vimdiff='nvim -d'
 
 #-A	--almost-all
 #-C	 list entries by columns

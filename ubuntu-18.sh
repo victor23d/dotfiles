@@ -11,7 +11,8 @@ fi
 # pip
 if [[ ! `which pip` ]];then
   echo '--------------------install pip--------------------'
-# curl https://bootstrap.pypa.io/get-pip.py | python3
+# curl https://bootstrap.pypa.io/get-pip.py | python3       # broken
+# apt install -y python3-venv python3-pip       # very big
 fi
 
 # zsh

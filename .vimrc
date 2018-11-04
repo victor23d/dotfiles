@@ -55,11 +55,11 @@ filetype plugin indent on
 set autoindent
 set autoread
 set backspace=2 " 2	same as ":set backspace=indent,eol,start"
-set backupdir=.,$XDG_DATA_HOME/nvim/backup
+"set backupdir=.,$XDG_DATA_HOME/nvim/backup
 set belloff=all
 set complete=.,w,b,u,t
 set cscopeverbose
-set directory=$XDG_DATA_HOME/nvim/swap//
+"set directory=$XDG_DATA_HOME/nvim/swap//
 if has('nvim')
     set display=lastline,msgsep
 endif
@@ -83,8 +83,38 @@ if has('nvim')
 endif
 
 
+" -------------------------------------------------------------------------------- 
+"  vim-plug
 
-"
+call plug#begin('~/.vim/plugged')
+
+   	Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'scrooloose/nerdtree'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'vim-syntastic/syntastic'
+
+    Plug 'Shougo/denite.nvim'
+  
+  
+
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+"let g:deoplete#enable_at_startup = 1
+
+
+call plug#end()
+
+
+
 "
 " -------------------------------------------------------------------------------- 
 " Linux config
@@ -113,7 +143,6 @@ set textwidth=0
 set textwidth=999
 
 
-filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
@@ -128,11 +157,9 @@ set expandtab
 " will cause <C-e> <C-a> don't work
 " set paste
 
-" filetype indent off
 
 
-" Uncomment the following to have Vim jump to the last position when                                                       
-" reopening a file
+" jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
@@ -219,21 +246,37 @@ nnoremap / /\v
 set backspace=2
 
 " http://vim.wikia.com/wiki/256_colors_in_vim
-set t_Co=256
+" set t_Co=256
 
+
+
+
+" --------------------------------------------------------------------------------
+"  Plugin config
+
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
+"
+" let g:airline_theme='badcat' " doesn't work
+let g:airline_theme='deus'
 
-set runtimepath^=~/.vim/pack/foo/start/ctrlp.vim
+" set runtimepath^=~/.vim/pack/foo/start/ctrlp.vim
 let g:ctrlp_cmd = 'CtrlPMRU'
 
 
-" nerdtree
+" nerdtree{{{
 map <C-n> :NERDTreeToggle<CR>
 " open a NERDTree automatically when vim starts up
 " autocmd vimenter * NERDTree
 
+" open NERDTree automatically when vim starts up on opening a directory?
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
 " close vim if the only window left open is a NERDTree
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
@@ -241,10 +284,12 @@ let NERDTreeDirArrows = 1
 " resolve :E conflict
 command E Ex
 
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
-
+" let g:NERDTreeDirArrowExpandable = '+'
+" let g:NERDTreeDirArrowCollapsible = '-'
+"}}}
 
 " Syntastic Recommended settings
 set statusline+=%#warningmsg#
@@ -264,6 +309,5 @@ let g:pymode_python = 'python3'
 
 " YCM
 let g:ycm_key_select_completion = '<Tab>'
-
 
 
