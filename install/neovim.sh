@@ -1,4 +1,3 @@
-wget https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage
-mv nvim.appimage /opt
-ln -s /opt/nvim.appimage /usr/local/bin/
+curl -Sslo /opt/nvim https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage
+ln -s /opt/nvim /usr/local/bin/
 
