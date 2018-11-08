@@ -266,6 +266,10 @@ command PWD cd %:p:h
 
 
 nnoremap / /\v
+nnoremap <leader>ft :NERDTreeToggle<CR>
+
+
+
 set backspace=2
 
 " http://vim.wikia.com/wiki/256_colors_in_vim
@@ -290,7 +294,6 @@ let g:ctrlp_cmd = 'CtrlPMRU'
 
 
 " nerdtree{{{
-map <C-n> :NERDTreeToggle<CR>
 " open a NERDTree automatically when vim starts up
 " autocmd vimenter * NERDTree
 
