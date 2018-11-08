@@ -92,10 +92,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'scrooloose/nerdtree'
+    "Plug '~/.fzf'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'junegunn/fzf.vim'
+    "Plug 'ctrlpvim/ctrlp.vim'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-syntastic/syntastic'
+    Plug 'SirVer/ultisnips'
+
 
     Plug 'Shougo/denite.nvim'
   
@@ -268,6 +272,8 @@ command PWD cd %:p:h
 nnoremap / /\v
 nnoremap <leader>ft :NERDTreeToggle<CR>
 
+nnoremap <C-p> :FZF<CR>
+
 
 
 set backspace=2
@@ -283,7 +289,7 @@ set backspace=2
 
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline_powerline_fonts = 1
 "
 " let g:airline_theme='badcat' " doesn't work
@@ -315,6 +321,44 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 " let g:NERDTreeDirArrowExpandable = '+'
 " let g:NERDTreeDirArrowCollapsible = '-'
+"}}}
+
+
+" fzf {{{
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+
+
+
 "}}}
 
 " Syntastic Recommended settings
