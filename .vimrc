@@ -203,10 +203,6 @@ au TabLeave * let g:lasttab = tabpagenr()
 " Move
 inoremap <C-a> <Home>
 inoremap <C-e> <End>
-"inoremap <C-p> <Up>
-"inoremap <C-n> <Down>
-"inoremap <C-b> <Left>
-"inoremap <C-f> <Right>
 inoremap <M-b> <C-o>b
 inoremap <M-f> <C-o>w
 
@@ -272,7 +268,7 @@ command PWD cd %:p:h
 nnoremap / /\v
 nnoremap <leader>ft :NERDTreeToggle<CR>
 
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-p> :History<CR>
 
 
 
