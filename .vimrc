@@ -29,7 +29,7 @@ Plug 'justinmk/vim-gtfo'
 Plug 'SirVer/ultisnips'
 
 Plug 'airblade/vim-gitgutter'
-Plug 'rafi/awesome-vim-colorschemes '
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'junegunn/goyo.vim'
 Plug 'w0rp/ale'
 Plug 'easymotion/vim-easymotion'
