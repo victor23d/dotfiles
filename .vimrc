@@ -1,54 +1,32 @@
-" " --------------------------------------------------------------------------------
-" " Windos GVim config
-" source $VIMRUNTIME/vimrc_example.vim
-" source $VIMRUNTIME/mswin.vim
-" behave mswin
-" 
-" set diffexpr=MyDiff()
-" function MyDiff()
-"   let opt = '-a --binary '
-"   if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-"   if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-"   let arg1 = v:fname_in
-"   if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-"   let arg2 = v:fname_new
-"   if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-"   let arg3 = v:fname_out
-"   if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-"   if $VIMRUNTIME =~ ' '
-"     if &sh =~ '\<cmd'
-"       if empty(&shellxquote)
-"         let l:shxq_sav = ''
-"         set shellxquote&
-"       endif
-"       let cmd = '"' . $VIMRUNTIME . '\diff"'
-"     else
-"       let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-"     endif
-"   else
-"     let cmd = $VIMRUNTIME . '\diff'
-"   endif
-"   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
-"   if exists('l:shxq_sav')
-"     let &shellxquote=l:shxq_sav
-"   endif
-" endfunction
-" 
-" " GVim
-" " set guifont=Consolas:h16:b:cDEFAULT
-" set guifont=Iosevka:h16:b:cDEFAULT
-" 
-" :set guioptions-=T  "remove toolbar
-" :set guioptions-=r  "remove right-hand scroll bar
-" :set guioptions-=L  "remove left-hand scroll bar
-" 
-" set nobackup
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree'
+"Plug '~/.fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-syntastic/syntastic'
+Plug 'SirVer/ultisnips'
+
+Plug 'airblade/vim-gitgutter'
+Plug 'rafi/awesome-vim-colorschemes '
+Plug 'junegunn/goyo.vim'
+Plug 'w0rp/ale'
+
+Plug 'Shougo/denite.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
 
-" -------------------------------------------------------------------------------- 
-" nvim default config
-"
+call plug#end()
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Differences between Nvim and Vim			       *vim-differences*<Paste>
 syntax on
 syntax enable
 filetype plugin indent on
@@ -61,7 +39,7 @@ set complete=.,w,b,u,t
 set cscopeverbose
 "set directory=$XDG_DATA_HOME/nvim/swap//
 if has('nvim')
-    set display=lastline,msgsep
+	set display=lastline,msgsep
 endif
 set encoding=utf-8
 set fillchars=""
@@ -72,63 +50,46 @@ set history=10000
 set hlsearch
 set incsearch
 
+set nolangremap
+set laststatus=2
+set listchars=tab:>-,trail:-
+set nocompatible
+set nrformats=bin,hex
+set ruler
+set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
+set shortmess=filnxtToOF
+set showcmd
+set sidescroll=1
+set smarttab
+set tabpagemax=50
+set tags=./tags;,tags
+set ttimeoutlen=50
+set ttyfast
+"set undodir=~/.local/share/nvim/undo
+set shada=!,'100,<50,s10,h
+set wildmenu
 
 
 
-" -------------------------------------------------------------------------------- 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim option
 
 if has('nvim')
-    set termguicolors
+	set termguicolors
 endif
 
 
-" -------------------------------------------------------------------------------- 
-"  vim-plug
 
-call plug#begin('~/.vim/plugged')
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" config
 
-   	Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'scrooloose/nerdtree'
-    "Plug '~/.fzf'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-    "Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'tpope/vim-fugitive'
-    Plug 'vim-syntastic/syntastic'
-    Plug 'SirVer/ultisnips'
-
-
-    Plug 'Shougo/denite.nvim'
-  
-  
-
-"if has('nvim')
-"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-"  Plug 'Shougo/deoplete.nvim'
-"  Plug 'roxma/nvim-yarp'
-"  Plug 'roxma/vim-hug-neovim-rpc'
-"endif
-"let g:deoplete#enable_at_startup = 1
-
-
-call plug#end()
-
-
-
-"
-" -------------------------------------------------------------------------------- 
-" Linux config
 
 " colorscheme darkblue
 " colorscheme elflord
 " colorscheme koehler
 " colorscheme murphy
 " colorscheme py
- colorscheme desert256
+colorscheme desert256
 " colorscheme lucariox
 
 
@@ -141,7 +102,6 @@ call plug#end()
 set fileencoding=utf-8
 set ff=unix
 set relativenumber
-
 
 set textwidth=0
 set textwidth=999
@@ -156,25 +116,23 @@ set expandtab
 
 
 " will cause paste improper indent
- set nopaste
+set nopaste
 
 " will cause <C-e> <C-a> don't work
 " set paste
 
-
-
 " jump to the last position when reopening a file
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
+	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+				\| exe "normal! g'\"" | endif
 endif
 
 
-:set hlsearch
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" maps
 let mapleader = "\<Space>"
-
-
 
 " Readline key bindings
 nnoremap <A-1> 1gt
@@ -189,90 +147,57 @@ nnoremap <A-9> 9gt
 
 
 
-
 " Switch to last-active tab
 if !exists('g:lasttab')
-  let g:lasttab = 1
+	let g:lasttab = 1
 endif
 nmap <Leader><tab> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 
-
-
 " Move
-inoremap <C-a> <Home>
+inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
 inoremap <M-b> <C-o>b
 inoremap <M-f> <C-o>w
 
-inoremap b b
-inoremap f w
-
-
-" Do NOT use these in oh-my-tmux
-inoremap [D B
-inoremap [C W
-
-inoremap <Left> B
-inoremap <Right> W
-
-inoremap <C-Left> B
-inoremap <C-Right> W
-
-
-" Why this directly map to arrrow key?
-"nmap OD W
-
-
-
-" delete
-" kill ring
-" only one ring can paste, a small bug is that if kill first character then
-" previous word will be killed
-" reg t and u are used for kill ring
-"
-inoremap <C-w> <Esc>"tdb"us
-inoremap <C-u> <Esc>"td0"us
-
-" paste
-inoremap <C-y> <Esc>"tp"upa
-"
-
-"inoremap <C-w> <Esc>dbs
-"inoremap <C-u> <Esc>d0s
+inoremap <C-u> <Esc>d0s
 inoremap <C-k> <Esc>C
 
 
-" IDE
-" CR Up Down works for GVim but not works for terminal vim
+" Todo
 inoremap <S-CR> <Esc>o
+" Todo
 
 
-inoremap <S-M-Down> <Esc>ddpA
-inoremap <S-M-Up> <Esc>dd<Up>PA
+inoremap <M-Down> <Esc>ddpA
+inoremap <M-Up> <Esc>dd<Up>PA
 
 inoremap <C-/> <Esc>mtI# <Esc>`ta
 inoremap <C-_> <Esc>mtI# <Esc>`ta
 
-nmap <C-_> I# <Esc>
-vmap <C-_> I# <Esc>
+nnoremap <C-_> I# <Esc>
+vnoremap <C-_> I# <Esc>
+
+nnoremap / /\v
 
 
 
 " CWD = Change to Directory of Current file
 command CWD cd %:p:h
 command PWD cd %:p:h
+command F Files
+command B Buffers
 
 
-nnoremap / /\v
-nnoremap <leader>ft :NERDTreeToggle<CR>
-
+" Plug map
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <leader>d :Denite 
 nnoremap <C-p> :History<CR>
 
 
 
-set backspace=2
+" set backspace=2
 
 " http://vim.wikia.com/wiki/256_colors_in_vim
 " set t_Co=256
@@ -321,11 +246,11 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 
 " fzf {{{
-
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+			\ 'enter': 'tab split',
+			\ 'ctrl-t': 'tab split',
+			\ 'ctrl-x': 'split',
+			\ 'ctrl-v': 'vsplit' }
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
@@ -340,9 +265,9 @@ let g:fzf_tags_command = 'ctags -R'
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
 " Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
+" nmap <leader><tab> <plug>(fzf-maps-n)
+" xmap <leader><tab> <plug>(fzf-maps-x)
+" omap <leader><tab> <plug>(fzf-maps-o)
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
@@ -377,3 +302,33 @@ let g:pymode_python = 'python3'
 let g:ycm_key_select_completion = '<Tab>'
 
 
+
+" denite {{{
+call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
+call denite#custom#map('insert', '<C-[>', '<denite:enter_mode:normal>', 'noremap')
+call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>', 'noremap')
+call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
+call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
+call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', '<CR>', '<denite:do_action:tabopen>', 'noremap')
+call denite#custom#map('normal', '<Esc>', '<NOP>', 'noremap')
+call denite#custom#map('normal', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
+call denite#custom#map('normal', '<Down>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('normal', '<CR>', '<denite:do_action:tabopen>', 'noremap')
+
+call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>', 'noremap')
+
+nnoremap <C-p> :<C-u>Denite file_old<CR>
+"}}}
+
+
+" deplete {{{
+let g:deoplete#enable_at_startup = 1
+" reset 50% winheight on window resize
+augroup deniteresize
+	autocmd!
+	autocmd VimResized,VimEnter * call denite#custom#option('default',
+				\'winheight', winheight(0) / 2)
+augroup end
+"}}}

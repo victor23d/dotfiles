@@ -5,14 +5,14 @@ apt update -y
 
 # python3.7
 if [[ `python3 -V` =~ '3.7' ]];then
-  echo '--------------------install python3.7--------------------'
+    echo '--------------------install python3.7--------------------'
 fi
 
 # pip
 if [[ ! `which pip` ]];then
-  echo '--------------------install pip--------------------'
-# curl https://bootstrap.pypa.io/get-pip.py | python3       # broken
-# apt install -y python3-venv python3-pip       # very big
+    echo '--------------------install pip--------------------'
+    # curl https://bootstrap.pypa.io/get-pip.py | python3       # broken
+    apt install -y python3-venv python3-pip       # very big
 fi
 
 # zsh
@@ -23,25 +23,25 @@ apt install -y zsh
 
 # oh-my-zsh
 if [[ ! -e ~/.oh-my-zsh ]];then
-echo '--------------------install oh-my-zsh--------------------'
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    echo '--------------------install oh-my-zsh--------------------'
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
 
 # zsh-completions
 if [[ ! -e ~/.oh-my-zsh/custom/plugins/zsh-completions ]];then
-cd ~
-git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+    cd ~
+    git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 fi
 
 # vim 8
-if [[ `vim --version` =~ '8.1' ]];then
-  echo '--------------------install vim8--------------------'
-#add-apt-repository -y ppa:jonathonf/vim
-#apt update -y
-#apt install -y vim
+if [[ ! `nvim -v` =~ '0.3' ]];then
+    echo '--------------------install neovim--------------------'
+    curl -SsLo /opt/nvim https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage
+    chmod 700 /opt/nvim
+    ln -s /opt/nvim /usr/local/bin/
+    pip3 install neovim
 fi
 
-# neovim
 
 
 # percol
@@ -68,9 +68,9 @@ apt install silversearcher-ag
 
 # fzf
 if [[ ! -e ~/.fzf ]];then
-echo '--------------------install fzf--------------------'
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all
+    echo '--------------------install fzf--------------------'
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install --all
 fi
 
 
