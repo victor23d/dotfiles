@@ -193,7 +193,7 @@ command B Buffers
 " Plug map
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>d :Denite 
-nnoremap <leader>tn :set norelativenumber
+nnoremap <leader>tn :set norelativenumber<CR>
 nnoremap <C-p> :History<CR>
 
 
