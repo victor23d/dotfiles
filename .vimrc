@@ -4,21 +4,44 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdtree'
-"Plug '~/.fzf'
+" Plug '~/.fzf'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'ctrlpvim/ctrlp.vim'
+
+
+" Plug 'ctrlpvim/ctrlp.vim'
+"
 Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+" Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-unimpaired'
+
 Plug 'vim-syntastic/syntastic'
+
+Plug 'justinmk/vim-sneak'
+Plug 'justinmk/vim-dirvish'
+Plug 'justinmk/vim-gtfo'
+
+
 Plug 'SirVer/ultisnips'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'rafi/awesome-vim-colorschemes '
 Plug 'junegunn/goyo.vim'
 Plug 'w0rp/ale'
+Plug 'easymotion/vim-easymotion'
+
+" Plug 'michaeljsmith/vim-indent-object'
+
+
 
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+Plug 'hashivim/vim-terraform.git'
 
 
 
