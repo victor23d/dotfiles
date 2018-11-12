@@ -17,7 +17,7 @@ Plug 'rafi/awesome-vim-colorschemes '
 Plug 'junegunn/goyo.vim'
 Plug 'w0rp/ale'
 
-Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
@@ -193,6 +193,7 @@ command B Buffers
 " Plug map
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>d :Denite 
+nnoremap <leader>tn :set norelativenumber
 nnoremap <C-p> :History<CR>
 
 
