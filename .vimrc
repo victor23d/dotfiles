@@ -33,6 +33,8 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'junegunn/goyo.vim'
 Plug 'w0rp/ale'
 Plug 'easymotion/vim-easymotion'
+" Plug 'rainglow/vim'
+
 
 " Plug 'michaeljsmith/vim-indent-object'
 
@@ -41,7 +43,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-Plug 'hashivim/vim-terraform.git'
+" Plug 'hashivim/vim-terraform.git'
 
 
 
