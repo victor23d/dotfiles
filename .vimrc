@@ -373,8 +373,8 @@ let g:ycm_key_select_completion = '<Tab>'
 
 
 " denite {{{
-" reset 50% winheight on window resize
 if exists('g:plug["denite.nvim"]')
+" reset 50% winheight on window resize
 augroup deniteresize
     autocmd!
     autocmd VimResized,VimEnter * call denite#custom#option('default',
@@ -420,8 +420,5 @@ endfunction<Paste>
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 "}}}
-
-
-
 
 
