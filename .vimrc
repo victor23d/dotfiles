@@ -1,31 +1,14 @@
-if has('gui_running')
-
 " GVim
-" Set font on start
+" Doesn't work, don't know why
 " let g:Guifont="DejaVu Sans Mono for Powerline:h16"
-
-" Neovim-qt Guifont command, to change the font
-" Set font on start
-" Doesn't work don't know why
 " let g:guifont='Consolas:h16:b:cDEFAULT'
 " GuiFont Consolas:h12
 "
 " GVim original setting works
 " set guifont=Consolas:h16:b:cDEFAULT
 set guifont=Iosevka:h16:b:cDEFAULT
-cmap <S-Insert> +
-set -g status off
-
-inoremap <S-Insert> +
-set -g status off
-
-" colorscheme gruvbox
 " start nvim from powershell to debug
-
-endif
-
-
-
+" do NOT use nvim qt to edit init.vim, it's a bug on windows
 
 call plug#begin('~/.vim/plugged')
 
@@ -33,8 +16,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdtree'
-" Plug '~/.fzf'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 
@@ -59,6 +40,12 @@ Plug 'SirVer/ultisnips'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
+
+
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'fenetikm/falcon'
+
 Plug 'junegunn/goyo.vim'
 Plug 'w0rp/ale'
 Plug 'easymotion/vim-easymotion'
@@ -103,7 +90,7 @@ set complete=.,w,b,u,t
 set cscopeverbose
 "set directory=$XDG_DATA_HOME/nvim/swap//
 if has('nvim')
-    set display=lastline,msgsep
+	set display=lastline,msgsep
 endif
 set encoding=utf-8
 set fillchars=""
@@ -139,7 +126,10 @@ set wildmenu
 " nvim option
 
 if has('nvim')
-    set termguicolors
+
+	set termguicolors
+
+
 endif
 
 
@@ -148,9 +138,6 @@ endif
 " config
 
 
-if !has('gui_running')
-    colorscheme desert256
-endif
 " colorscheme darkblue
 " colorscheme elflord
 " colorscheme koehler
@@ -158,6 +145,8 @@ endif
 " colorscheme py
 " colorscheme lucariox
 " colorscheme solarized
+colorscheme desert256
+colorscheme gruvbox
 
 
 
@@ -191,8 +180,8 @@ set nopaste
 
 " jump to the last position when reopening a file
 if has("autocmd")
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-                \| exe "normal! g'\"" | endif
+	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+				\| exe "normal! g'\"" | endif
 endif
 
 
@@ -217,7 +206,7 @@ nnoremap <A-9> 9gt
 
 " Switch to last-active tab
 if !exists('g:lasttab')
-    let g:lasttab = 1
+	let g:lasttab = 1
 endif
 nmap <Leader><tab> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
@@ -248,6 +237,9 @@ nnoremap <C-_> I# <Esc>
 vnoremap <C-_> I# <Esc>
 
 nnoremap / /\v
+
+cnoremap <S-Insert> +
+inoremap <S-Insert> +
 
 
 
@@ -316,10 +308,10 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 " fzf {{{
 let g:fzf_action = {
-            \ 'enter': 'tab split',
-            \ 'ctrl-t': 'tab split',
-            \ 'ctrl-x': 'split',
-            \ 'ctrl-v': 'vsplit' }
+			\ 'enter': 'tab split',
+			\ 'ctrl-t': 'tab split',
+			\ 'ctrl-x': 'split',
+			\ 'ctrl-v': 'vsplit' }
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
@@ -373,52 +365,51 @@ let g:ycm_key_select_completion = '<Tab>'
 
 
 " denite {{{
-if exists('g:plug["denite.nvim"]')
-" reset 50% winheight on window resize
-augroup deniteresize
-    autocmd!
-    autocmd VimResized,VimEnter * call denite#custom#option('default',
-                \'winheight', winheight(0) / 2)
-augroup end
+" if exists('g:plug["denite.nvim"]')
+	" reset 50% winheight on window resize
+	augroup deniteresize
+		autocmd!
+		autocmd VimResized,VimEnter * call denite#custom#option('default',
+					\'winheight', winheight(0) / 2)
+	augroup end
 
-call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
-call denite#custom#map('insert', '<C-[>', '<denite:enter_mode:normal>', 'noremap')
-call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>', 'noremap')
-call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
-call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
-call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('insert', '<CR>', '<denite:do_action:tabopen>', 'noremap')
-call denite#custom#map('normal', '<Esc>', '<NOP>', 'noremap')
-call denite#custom#map('normal', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
-call denite#custom#map('normal', '<Down>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('normal', '<CR>', '<denite:do_action:tabopen>', 'noremap')
+	call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
+	call denite#custom#map('insert', '<C-[>', '<denite:enter_mode:normal>', 'noremap')
+	call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>', 'noremap')
+	call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
+	call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
+	call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+	call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
+	call denite#custom#map('insert', '<CR>', '<denite:do_action:tabopen>', 'noremap')
+	call denite#custom#map('normal', '<Esc>', '<NOP>', 'noremap')
+	call denite#custom#map('normal', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
+	call denite#custom#map('normal', '<Down>', '<denite:move_to_next_line>', 'noremap')
+	call denite#custom#map('normal', '<CR>', '<denite:do_action:tabopen>', 'noremap')
 
-call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>', 'noremap')
+	call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>', 'noremap')
 
-nnoremap <C-p> :<C-u>Denite file_old<CR>
-endif
+	nnoremap <C-p> :<C-u>Denite file_old<CR>
+" endif
 "}}}
 
 
 " deplete {{{
 let g:deoplete#enable_at_startup = 1
 " Use smartcase.
-	call deoplete#custom#option('smart_case', v:true)
+call deoplete#custom#option('smart_case', v:true)
 
-	" <C-h>, <BS>: close popup and delete backword char.
-	inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-	inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
-	" <CR>: close popup and save indent.
-	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-	function! s:my_cr_function() abort
-	  return deoplete#close_popup() . "\<CR>"
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+	return deoplete#close_popup() . "\<CR>"
 endfunction<Paste>
 
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 "}}}
-
 
