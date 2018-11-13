@@ -84,6 +84,7 @@ plugins=(
   kubectl
   kube-ps1
   zsh-completions
+  terraform
 )
 
 autoload -U compinit && compinit
