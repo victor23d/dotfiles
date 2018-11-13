@@ -1,0 +1,168 @@
+{
+    "editor.fontSize": 16,
+    "markdown.preview.fontSize": 18,
+    "terminal.integrated.fontSize": 16,
+    "files.autoSave": "afterDelay",
+    "typescript.useCodeSnippetsOnMethodSuggest": true,
+    "git.ignoreMissingGitWarning": true,
+    "window.zoomLevel": 0,
+    "python.autoComplete.addBrackets": true,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.activityBar.visible": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "u"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "undo"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-r>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "m"
+            ],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": [
+                "Z",
+                "Z"
+            ],
+            "commands": [
+                ":wq"
+            ]
+        },
+        {
+            "before": [
+                "j"
+            ],
+            "after": [
+                "g",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "after": [
+                "g",
+                "k"
+            ],
+        },
+        {
+            "before": [
+                "down"
+            ],
+            "after": [
+                "g",
+                "down"
+            ],
+        },
+        {
+            "before": [
+                "up"
+            ],
+            "after": [
+                "g",
+                "up"
+            ],
+        },
+        {
+            "before": [
+                "s"
+            ],
+            "after": [
+                "a",
+                "backspace"
+            ],
+        },
+        {
+            "before": [
+                "ctrl+p"
+            ],
+            "command": [
+                "workbench.action.quickOpen"
+            ],
+        }
+    ],
+    "vim.enableNeovim": true,
+    "vim.easymotionMarkerHeight": 18,
+    "vim.easymotionMarkerFontSize": "18",
+    "vim.neovimPath": "nvim",
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": false,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "d",
+                "d"
+            ],
+            "after": [
+                "<Esc>",
+                "d",
+                "d",
+            ]
+        },
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "ctrl+p",
+            ],
+            "commands": [
+                "selectPrevSuggestion",
+            ]
+        },
+        {
+            "before": [
+                "ctrl+n",
+            ],
+            "command": [
+                "selectNextSuggetion"
+            ],
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-e>": false,
+        "<C-/>": false
+    },
+    "vim.searchHighlightColor": "rgba(150, 150, 255, 0.6)",
+    "vim.changeWordIncludesWhitespace": false,
+    "vim.disableExtension": false,
+    // Langague specific option
+    // Golang
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "workbench.sideBar.location": "left",
+}

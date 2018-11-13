@@ -1,3 +1,32 @@
+if has('gui_running')
+
+" GVim
+" Set font on start
+" let g:Guifont="DejaVu Sans Mono for Powerline:h16"
+
+" Neovim-qt Guifont command, to change the font
+" Set font on start
+" Doesn't work don't know why
+" let g:guifont='Consolas:h16:b:cDEFAULT'
+" GuiFont Consolas:h12
+"
+" GVim original setting works
+" set guifont=Consolas:h16:b:cDEFAULT
+set guifont=Iosevka:h16:b:cDEFAULT
+cmap <S-Insert> +
+set -g status off
+
+inoremap <S-Insert> +
+set -g status off
+
+" colorscheme gruvbox
+" start nvim from powershell to debug
+
+endif
+
+
+
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
@@ -36,12 +65,22 @@ Plug 'easymotion/vim-easymotion'
 " Plug 'rainglow/vim'
 
 
-" Plug 'michaeljsmith/vim-indent-object'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'Chiel92/vim-autoformat'
+Plug 'jiangmiao/auto-pairs'
+
 
 
 
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/neopairs.vim'
+Plug 'Shougo/echodoc.vim'
+Plug 'Shougo/neoinclude.vim'
+Plug 'Konfekt/FastFold'
+
 
 " Plug 'hashivim/vim-terraform.git'
 
@@ -64,7 +103,7 @@ set complete=.,w,b,u,t
 set cscopeverbose
 "set directory=$XDG_DATA_HOME/nvim/swap//
 if has('nvim')
-	set display=lastline,msgsep
+    set display=lastline,msgsep
 endif
 set encoding=utf-8
 set fillchars=""
@@ -100,7 +139,7 @@ set wildmenu
 " nvim option
 
 if has('nvim')
-	set termguicolors
+    set termguicolors
 endif
 
 
@@ -109,19 +148,21 @@ endif
 " config
 
 
+if !has('gui_running')
+    colorscheme desert256
+endif
 " colorscheme darkblue
 " colorscheme elflord
 " colorscheme koehler
 " colorscheme murphy
 " colorscheme py
-colorscheme desert256
 " colorscheme lucariox
+" colorscheme solarized
 
 
 
 " set background=light
-" set background=dark
-" colorscheme solarized
+set background=dark
 
 
 set fileencoding=utf-8
@@ -130,6 +171,8 @@ set relativenumber
 
 set textwidth=0
 set textwidth=999
+
+set ignorecase
 
 
 " show existing tab with 4 spaces width
@@ -148,8 +191,8 @@ set nopaste
 
 " jump to the last position when reopening a file
 if has("autocmd")
-	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-				\| exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+                \| exe "normal! g'\"" | endif
 endif
 
 
@@ -174,7 +217,7 @@ nnoremap <A-9> 9gt
 
 " Switch to last-active tab
 if !exists('g:lasttab')
-	let g:lasttab = 1
+    let g:lasttab = 1
 endif
 nmap <Leader><tab> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
@@ -273,10 +316,10 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 " fzf {{{
 let g:fzf_action = {
-			\ 'enter': 'tab split',
-			\ 'ctrl-t': 'tab split',
-			\ 'ctrl-x': 'split',
-			\ 'ctrl-v': 'vsplit' }
+            \ 'enter': 'tab split',
+            \ 'ctrl-t': 'tab split',
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit' }
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
@@ -330,6 +373,14 @@ let g:ycm_key_select_completion = '<Tab>'
 
 
 " denite {{{
+" reset 50% winheight on window resize
+if exists('g:plug["denite.nvim"]')
+augroup deniteresize
+    autocmd!
+    autocmd VimResized,VimEnter * call denite#custom#option('default',
+                \'winheight', winheight(0) / 2)
+augroup end
+
 call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
 call denite#custom#map('insert', '<C-[>', '<denite:enter_mode:normal>', 'noremap')
 call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>', 'noremap')
@@ -346,15 +397,31 @@ call denite#custom#map('normal', '<CR>', '<denite:do_action:tabopen>', 'noremap'
 call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>', 'noremap')
 
 nnoremap <C-p> :<C-u>Denite file_old<CR>
+endif
 "}}}
 
 
 " deplete {{{
 let g:deoplete#enable_at_startup = 1
-" reset 50% winheight on window resize
-augroup deniteresize
-	autocmd!
-	autocmd VimResized,VimEnter * call denite#custom#option('default',
-				\'winheight', winheight(0) / 2)
-augroup end
+" Use smartcase.
+	call deoplete#custom#option('smart_case', v:true)
+
+	" <C-h>, <BS>: close popup and delete backword char.
+	inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+	inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+
+	" <CR>: close popup and save indent.
+	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+	function! s:my_cr_function() abort
+	  return deoplete#close_popup() . "\<CR>"
+endfunction<Paste>
+
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
 "}}}
+
+
+
+
+
