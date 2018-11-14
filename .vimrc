@@ -447,12 +447,23 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-k>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" It can write in this way
+" \ pumvisible() ? "\<C-n>" :
+" \ pumvisible() ? "\<Plug>(neosnippet_expand_or_jump)" :
+
+" Conflict with auto-pairs, this is a bug.
+imap <expr><CR>
+ \ pumvisible() ? "\<C-k>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
 
 " For conceal markers.
 if has('conceal')
