@@ -69,7 +69,7 @@ Plug 'Shougo/neosnippet-snippets'
 " come with deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/context_filetype.vim'
-Plug 'Shougo/neopairs.vim'
+" Plug 'Shougo/neopairs.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Konfekt/FastFold'
