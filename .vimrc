@@ -90,7 +90,7 @@ set complete=.,w,b,u,t
 set cscopeverbose
 "set directory=$XDG_DATA_HOME/nvim/swap//
 if has('nvim')
-	set display=lastline,msgsep
+    set display=lastline,msgsep
 endif
 set encoding=utf-8
 set fillchars=""
@@ -127,7 +127,7 @@ set wildmenu
 
 if has('nvim')
 
-	set termguicolors
+    set termguicolors
 
 
 endif
@@ -180,8 +180,8 @@ set nopaste
 
 " jump to the last position when reopening a file
 if has("autocmd")
-	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-				\| exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+                \| exe "normal! g'\"" | endif
 endif
 
 
@@ -206,7 +206,7 @@ nnoremap <A-9> 9gt
 
 " Switch to last-active tab
 if !exists('g:lasttab')
-	let g:lasttab = 1
+    let g:lasttab = 1
 endif
 nmap <Leader><tab> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
@@ -308,10 +308,10 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 " fzf {{{
 let g:fzf_action = {
-			\ 'enter': 'tab split',
-			\ 'ctrl-t': 'tab split',
-			\ 'ctrl-x': 'split',
-			\ 'ctrl-v': 'vsplit' }
+            \ 'enter': 'tab split',
+            \ 'ctrl-t': 'tab split',
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit' }
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
@@ -365,31 +365,31 @@ let g:ycm_key_select_completion = '<Tab>'
 
 
 " denite {{{
-" if exists('g:plug["denite.nvim"]')
-	" reset 50% winheight on window resize
-	augroup deniteresize
-		autocmd!
-		autocmd VimResized,VimEnter * call denite#custom#option('default',
-					\'winheight', winheight(0) / 2)
-	augroup end
+if exists('g:plugs["denite.nvim"]')
+    " reset 50% winheight on window resize
+    augroup deniteresize
+        autocmd!
+        autocmd VimResized,VimEnter * call denite#custom#option('default',
+                    \'winheight', winheight(0) / 2)
+    augroup end
 
-	call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
-	call denite#custom#map('insert', '<C-[>', '<denite:enter_mode:normal>', 'noremap')
-	call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>', 'noremap')
-	call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
-	call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
-	call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-	call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-	call denite#custom#map('insert', '<CR>', '<denite:do_action:tabopen>', 'noremap')
-	call denite#custom#map('normal', '<Esc>', '<NOP>', 'noremap')
-	call denite#custom#map('normal', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
-	call denite#custom#map('normal', '<Down>', '<denite:move_to_next_line>', 'noremap')
-	call denite#custom#map('normal', '<CR>', '<denite:do_action:tabopen>', 'noremap')
+    call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
+    call denite#custom#map('insert', '<C-[>', '<denite:enter_mode:normal>', 'noremap')
+    call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>', 'noremap')
+    call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
+    call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
+    call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+    call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
+    call denite#custom#map('insert', '<CR>', '<denite:do_action:tabopen>', 'noremap')
+    call denite#custom#map('normal', '<Esc>', '<NOP>', 'noremap')
+    call denite#custom#map('normal', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
+    call denite#custom#map('normal', '<Down>', '<denite:move_to_next_line>', 'noremap')
+    call denite#custom#map('normal', '<CR>', '<denite:do_action:tabopen>', 'noremap')
 
-	call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>', 'noremap')
+    call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>', 'noremap')
 
-	nnoremap <C-p> :<C-u>Denite file_old<CR>
-" endif
+    nnoremap <C-p> :<C-u>Denite file_old<CR>
+endif
 "}}}
 
 
@@ -405,7 +405,7 @@ inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function() abort
-	return deoplete#close_popup() . "\<CR>"
+    return deoplete#close_popup() . "\<CR>"
 endfunction<Paste>
 
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
