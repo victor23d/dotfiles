@@ -14,20 +14,22 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf.vim'
-
-
 " Plug 'ctrlpvim/ctrlp.vim'
-"
+
+
+" utils
 Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 " Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-eunuch'
+
 Plug 'tpope/vim-unimpaired'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'vim-syntastic/syntastic'
 
@@ -36,13 +38,13 @@ Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-gtfo'
 
 
+Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 
-Plug 'airblade/vim-gitgutter'
+
+" colors
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'flazz/vim-colorschemes'
-
-
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'fenetikm/falcon'
 
@@ -52,21 +54,32 @@ Plug 'easymotion/vim-easymotion'
 " Plug 'rainglow/vim'
 
 
+" format
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'Chiel92/vim-autoformat'
-Plug 'jiangmiao/auto-pairs'
-
-
 
 
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/neosnippet.vim'
+"Plug 'Shougo/neosnippet-snippets'
 
+" language supoort
+" Plug 'majutsushi/tagbar'
+
+" come with deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neopairs.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Konfekt/FastFold'
+
+
+" language specific
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Plug 'jodosha/vim-godebug'
 
 
 " Plug 'hashivim/vim-terraform.git'
@@ -145,8 +158,8 @@ endif
 " colorscheme py
 " colorscheme lucariox
 " colorscheme solarized
-colorscheme desert256
 colorscheme gruvbox
+colorscheme desert256
 
 
 
@@ -219,11 +232,11 @@ inoremap <M-b> <C-o>b
 inoremap <M-f> <C-o>w
 
 inoremap <C-u> <Esc>d0s
-inoremap <C-k> <Esc>C
+" inoremap <C-k> <Esc>C
 
 
 " Todo
-inoremap <S-CR> <Esc>o
+" inoremap <S-CR> <Esc>o
 " Todo
 
 
@@ -412,4 +425,16 @@ endfunction<Paste>
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 "}}}
+
+
+" deoplete-go{{{
+" TODO
+
+let g:deoplete#sources#go#gocode_binary = ''
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
+" deoplete.nvim recommend
+set completeopt+=noselect
+
+" }}}
 
