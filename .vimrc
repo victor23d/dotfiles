@@ -39,7 +39,7 @@ Plug 'justinmk/vim-gtfo'
 
 
 Plug 'airblade/vim-gitgutter'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 
 
 " colors
@@ -60,8 +60,8 @@ Plug 'Chiel92/vim-autoformat'
 
 
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'Shougo/neosnippet.vim'
-"Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " language supoort
 " Plug 'majutsushi/tagbar'
@@ -130,7 +130,6 @@ set tags=./tags;,tags
 set ttimeoutlen=50
 set ttyfast
 "set undodir=~/.local/share/nvim/undo
-set shada=!,'100,<50,s10,h
 set wildmenu
 
 
@@ -139,10 +138,8 @@ set wildmenu
 " nvim option
 
 if has('nvim')
-
     set termguicolors
-
-
+    set shada=!,'100,<50,s10,h
 endif
 
 
@@ -240,8 +237,10 @@ inoremap <C-u> <Esc>d0s
 " Todo
 
 
-inoremap <M-Down> <Esc>ddpA
 inoremap <M-Up> <Esc>dd<Up>PA
+inoremap <M-Down> <Esc>ddpA
+inoremap <S-Up> <Esc>YP
+inoremap <S-Down> <Esc>Yp
 
 inoremap <C-/> <Esc>mtI# <Esc>`ta
 inoremap <C-_> <Esc>mtI# <Esc>`ta
@@ -406,7 +405,8 @@ endif
 "}}}
 
 
-" deplete {{{
+
+" deoplete {{{
 let g:deoplete#enable_at_startup = 1
 " Use smartcase.
 call deoplete#custom#option('smart_case', v:true)
@@ -423,6 +423,7 @@ endfunction<Paste>
 
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+let g:neosnippet#enable_completed_snippet = 1
 
 "}}}
 
@@ -438,3 +439,22 @@ set completeopt+=noselect
 
 " }}}
 
+" neosnippet.vim
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
