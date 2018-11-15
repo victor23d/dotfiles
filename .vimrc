@@ -247,6 +247,7 @@ inoremap <S-Up> <Esc>YP
 inoremap <S-Down> <Esc>Yp
 
 imap <C-_> <Esc>mtgcc `ta
+nmap <C-_> <Esc>mtgcc `ta
 inoremap <C-j> <Esc>o
 
 nnoremap / /\v
@@ -282,102 +283,101 @@ nnoremap <C-p> :History<CR>
 " --------------------------------------------------------------------------------
 "  Plugin config
 
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline_powerline_fonts = 1
-"
-" let g:airline_theme='badcat' " doesn't work
-let g:airline_theme='deus'
-
-" set runtimepath^=~/.vim/pack/foo/start/ctrlp.vim
-let g:ctrlp_cmd = 'CtrlPMRU'
-
-
-" nerdtree{{{
-" open a NERDTree automatically when vim starts up
-" autocmd vimenter * NERDTree
-
-" open NERDTree automatically when vim starts up on opening a directory?
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-" close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-
-" resolve :E conflict
-command E Ex
-
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
-" let g:NERDTreeDirArrowExpandable = '+'
-" let g:NERDTreeDirArrowCollapsible = '-'
-"}}}
-
-
-" fzf {{{
-let g:fzf_action = {
-            \ 'enter': 'tab split',
-            \ 'ctrl-t': 'tab split',
-            \ 'ctrl-x': 'split',
-            \ 'ctrl-v': 'vsplit' }
-
-" [Buffers] Jump to the existing window if possible
-let g:fzf_buffers_jump = 1
-
-" [[B]Commits] Customize the options used by 'git log':
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-
-" [Tags] Command to generate tags file
-let g:fzf_tags_command = 'ctags -R'
-
-" [Commands] --expect expression for directly executing the command
-let g:fzf_commands_expect = 'alt-enter,ctrl-x'
-
-" Mapping selecting mappings
-" nmap <leader><tab> <plug>(fzf-maps-n)
-" xmap <leader><tab> <plug>(fzf-maps-x)
-" omap <leader><tab> <plug>(fzf-maps-o)
-
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
-" Advanced customization using autoload functions
-inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
-
-
-
-"}}}
-
-" Syntastic Recommended settings
-set statusline+=%#warningmsg#
-" when not submodule update, this will cause error SyntasticStatuslineFlag()
-" set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
-
 " python mode
 let g:pymode_python = 'python3'
 
 
-" YCM
-let g:ycm_key_select_completion = '<Tab>'
+if exists('g:plugs["vim-airline"]')
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#formatter = 'unique_tail'
+    let g:airline_powerline_fonts = 1
+    "
+    " let g:airline_theme='badcat' " doesn't work
+    let g:airline_theme='deus'
+
+    " set runtimepath^=~/.vim/pack/foo/start/ctrlp.vim
+    let g:ctrlp_cmd = 'CtrlPMRU'
+endif
+
+
+if exists('g:plugs["nerdtree"]')
+    " open a NERDTree automatically when vim starts up
+    " autocmd vimenter * NERDTree
+
+    " open NERDTree automatically when vim starts up on opening a directory?
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+    " close vim if the only window left open is a NERDTree
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+    let NERDTreeMinimalUI = 1
+    let NERDTreeDirArrows = 1
+
+    " resolve :E conflict
+    command E Ex
+
+    let g:NERDTreeDirArrowExpandable = '▸'
+    let g:NERDTreeDirArrowCollapsible = '▾'
+
+    " let g:NERDTreeDirArrowExpandable = '+'
+    " let g:NERDTreeDirArrowCollapsible = '-'
+endif
+
+
+if exists('g:plugs["fzf.vim"]')
+    let g:fzf_action = {
+                \ 'enter': 'tab split',
+                \ 'ctrl-t': 'tab split',
+                \ 'ctrl-x': 'split',
+                \ 'ctrl-v': 'vsplit' }
+
+    " [Buffers] Jump to the existing window if possible
+    let g:fzf_buffers_jump = 1
+
+    " [[B]Commits] Customize the options used by 'git log':
+    let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+    " [Tags] Command to generate tags file
+    let g:fzf_tags_command = 'ctags -R'
+
+    " [Commands] --expect expression for directly executing the command
+    let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+    " Mapping selecting mappings
+    " nmap <leader><tab> <plug>(fzf-maps-n)
+    " xmap <leader><tab> <plug>(fzf-maps-x)
+    " omap <leader><tab> <plug>(fzf-maps-o)
+
+    " Insert mode completion
+    imap <c-x><c-k> <plug>(fzf-complete-word)
+    imap <c-x><c-f> <plug>(fzf-complete-path)
+    imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+    imap <c-x><c-l> <plug>(fzf-complete-line)
+
+    " Advanced customization using autoload functions
+    inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+endif
 
 
 
-" denite {{{
+if exists('g:plugs["syntastic"]')
+    " nerdtree{{{
+    " Syntastic Recommended settings
+    set statusline+=%#warningmsg#
+    " when not submodule update, this will cause error SyntasticStatuslineFlag()
+    " set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    "let g:syntastic_always_populate_loc_list = 1
+    "let g:syntastic_auto_loc_list = 1
+    "let g:syntastic_check_on_open = 1
+    "let g:syntastic_check_on_wq = 0
+endif
+
+
+
+
 if exists('g:plugs["denite.nvim"]')
     " reset 50% winheight on window resize
     augroup deniteresize
@@ -397,100 +397,100 @@ if exists('g:plugs["denite.nvim"]')
     call denite#custom#map('normal', '<Esc>', '<NOP>', 'noremap')
     call denite#custom#map('normal', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
     call denite#custom#map('normal', '<Down>', '<denite:move_to_next_line>', 'noremap')
-    call denite#custom#map('normal', '<CR>', '<denite:do_action:tabopen>', 'noremap')
+    " call denite#custom#map('normal', '<CR>', '<denite:do_action:tabopen>', 'noremap')
 
     call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>', 'noremap')
 
     nnoremap <C-p> :<C-u>Denite file_old<CR>
 endif
-"}}}
 
 
 
-" deoplete {{{
-" Enable deoplete when InsertEnter.
-let g:deoplete#enable_at_startup = 0
-autocmd InsertEnter * call deoplete#enable()
 
-" Use smartcase.
-call deoplete#custom#option('smart_case', v:true)
+if exists('g:plugs["deoplete.nvim"]')
+    " Enable deoplete when InsertEnter.
+    let g:deoplete#enable_at_startup = 0
+    autocmd InsertEnter * call deoplete#enable()
 
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+    " Use smartcase.
+    call deoplete#custom#option('smart_case', v:true)
 
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-    return deoplete#close_popup() . "\<CR>"
-endfunction<Paste>
+    " <C-h>, <BS>: close popup and delete backword char.
+    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+    inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-let g:neosnippet#enable_completed_snippet = 1
+    " <CR>: close popup and save indent.
+    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+    function! s:my_cr_function() abort
+        return deoplete#close_popup() . "\<CR>"
+    endfunction<Paste>
 
-" I want to silence the |ins-completion-menu| messages in the command line
-" You can disable the messages through the 'shortmess' option.
-set shortmess+=c
+    " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+    let g:neosnippet#enable_completed_snippet = 1
 
-" I want to use the auto select feature like |neocomplete|.
-set completeopt+=noinsert
+    " I want to silence the |ins-completion-menu| messages in the command line
+    " You can disable the messages through the 'shortmess' option.
+    set shortmess+=c
 
-
-
-" I want to close the preview window after completion is done.
-autocmd CompleteDone * silent! pclose!
-" Or
-autocmd InsertLeave * silent! pclose!
-
-" control the colors used for popup menu using highlight
-	highlight Pmenu ctermbg=8 guibg=#606060
-	highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
-highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+    " I want to use the auto select feature like |neocomplete|.
+    set completeopt+=noinsert
 
 
 
-"}}}
+    " I want to close the preview window after completion is done.
+    autocmd CompleteDone * silent! pclose!
+    " Or
+    autocmd InsertLeave * silent! pclose!
+
+    " control the colors used for popup menu using highlight
+    highlight Pmenu ctermbg=8 guibg=#606060
+    highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
+    highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+endif
 
 
-" deoplete-go{{{
-" TODO
-
-let g:deoplete#sources#go#gocode_binary = ''
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-
-" deoplete.nvim recommend
-set completeopt+=noselect
-
-" }}}
-
-" neosnippet.vim
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <expr><TAB>
- \ pumvisible() ? "\<C-n><Plug>(neosnippet_expand_or_jump)" :
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" It can write in this way
-" \ pumvisible() ? "\<C-n>" :
-" \ pumvisible() ? "\<C-k>" :
-
-" Conflict with auto-pairs, this is a bug.
-" imap <expr><CR>
-"  \ pumvisible() ? "\<C-k>" :
-"  \ neosnippet#expandable_or_jumpable() ?
-"  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
+if exists('g:plugs["deoplete-go"]')
+    " TODO
+
+    let g:deoplete#sources#go#gocode_binary = ''
+    let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
+    " deoplete.nvim recommend
+    set completeopt+=noselect
+endif
+
+
+if exists('g:plugs["neosnippet.vim"]')
+    " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+    " SuperTab like snippets behavior.
+    " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+    imap <expr><TAB>
+                \ pumvisible() ? "\<C-n><Plug>(neosnippet_expand_or_jump)" :
+                \ neosnippet#expandable_or_jumpable() ?
+                \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+                \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+    " It can write in this way
+    " \ pumvisible() ? "\<C-n>" :
+    " \ pumvisible() ? "\<C-k>" :
+
+    " Conflict with auto-pairs, this is a bug.
+    " imap <expr><CR>
+    "  \ pumvisible() ? "\<C-k>" :
+    "  \ neosnippet#expandable_or_jumpable() ?
+    "  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+
+    " For conceal markers.
+    if has('conceal')
+        set conceallevel=2 concealcursor=niv
+    endif
 endif
