@@ -68,6 +68,8 @@ Plug 'Shougo/neosnippet-snippets'
 
 " language supoort
 " Plug 'majutsushi/tagbar'
+Plug 'autozimu/LanguageClient-neovim'
+
 
 " come with deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
