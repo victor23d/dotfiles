@@ -35,6 +35,16 @@
         {
             "before": [
                 "<leader>",
+                "t",
+                "e"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
                 "m"
             ],
             "commands": [

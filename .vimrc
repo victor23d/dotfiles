@@ -29,13 +29,15 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 
 Plug 'tpope/vim-unimpaired'
-Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
 
 Plug 'vim-syntastic/syntastic'
 
 Plug 'justinmk/vim-sneak'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-gtfo'
+Plug 'liuchengxu/vim-which-key'
+
 
 
 Plug 'airblade/vim-gitgutter'
@@ -47,6 +49,8 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'flazz/vim-colorschemes'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'fenetikm/falcon'
+Plug 'liuchengxu/space-vim-dark'
+
 
 Plug 'junegunn/goyo.vim'
 Plug 'w0rp/ale'
@@ -242,11 +246,8 @@ inoremap <M-Down> <Esc>ddpA
 inoremap <S-Up> <Esc>YP
 inoremap <S-Down> <Esc>Yp
 
-inoremap <C-/> <Esc>mtI# <Esc>`ta
-inoremap <C-_> <Esc>mtI# <Esc>`ta
-
-nnoremap <C-_> I# <Esc>
-vnoremap <C-_> I# <Esc>
+imap <C-_> <Esc>mtgcc `ta
+inoremap <C-j> <Esc>o
 
 nnoremap / /\v
 
