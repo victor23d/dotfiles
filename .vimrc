@@ -69,7 +69,7 @@ Plug 'Shougo/neosnippet-snippets'
 " come with deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/context_filetype.vim'
-" Plug 'Shougo/neopairs.vim'
+Plug 'Shougo/neopairs.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Konfekt/FastFold'
@@ -407,7 +407,10 @@ endif
 
 
 " deoplete {{{
-let g:deoplete#enable_at_startup = 1
+" Enable deoplete when InsertEnter.
+let g:deoplete#enable_at_startup = 0
+autocmd InsertEnter * call deoplete#enable()
+
 " Use smartcase.
 call deoplete#custom#option('smart_case', v:true)
 
@@ -424,6 +427,27 @@ endfunction<Paste>
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:neosnippet#enable_completed_snippet = 1
+
+" I want to silence the |ins-completion-menu| messages in the command line
+" You can disable the messages through the 'shortmess' option.
+set shortmess+=c
+
+" I want to use the auto select feature like |neocomplete|.
+set completeopt+=noinsert
+
+
+
+" I want to close the preview window after completion is done.
+autocmd CompleteDone * silent! pclose!
+" Or
+autocmd InsertLeave * silent! pclose!
+
+" control the colors used for popup menu using highlight
+	highlight Pmenu ctermbg=8 guibg=#606060
+	highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
+highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+
+
 
 "}}}
 
@@ -448,7 +472,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
 imap <expr><TAB>
- \ pumvisible() ? "\<C-k>" :
+ \ pumvisible() ? "\<C-n><Plug>(neosnippet_expand_or_jump)" :
  \ neosnippet#expandable_or_jumpable() ?
  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
@@ -456,13 +480,13 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 
 " It can write in this way
 " \ pumvisible() ? "\<C-n>" :
-" \ pumvisible() ? "\<Plug>(neosnippet_expand_or_jump)" :
+" \ pumvisible() ? "\<C-k>" :
 
 " Conflict with auto-pairs, this is a bug.
-imap <expr><CR>
- \ pumvisible() ? "\<C-k>" :
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" imap <expr><CR>
+"  \ pumvisible() ? "\<C-k>" :
+"  \ neosnippet#expandable_or_jumpable() ?
+"  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 
 " For conceal markers.
