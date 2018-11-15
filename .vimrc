@@ -36,7 +36,6 @@ Plug 'vim-syntastic/syntastic'
 Plug 'justinmk/vim-sneak'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-gtfo'
-Plug 'liuchengxu/vim-which-key'
 
 
 
