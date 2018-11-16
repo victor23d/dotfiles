@@ -171,6 +171,7 @@ set background=dark
 
 set fileencoding=utf-8
 set ff=unix
+set number
 set relativenumber
 
 set textwidth=0
