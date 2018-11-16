@@ -17,6 +17,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf.vim'
+Plug 'mhinz/vim-startify'
 " Plug 'ctrlpvim/ctrlp.vim'
 
 
@@ -160,8 +161,9 @@ endif
 " colorscheme py
 " colorscheme lucariox
 " colorscheme solarized
-colorscheme gruvbox
-colorscheme desert256
+" colorscheme gruvbox
+" colorscheme desert256
+colorscheme janah
 
 
 
