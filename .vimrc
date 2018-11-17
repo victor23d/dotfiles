@@ -500,8 +500,8 @@ if exists('g:plugs["neosnippet.vim"]')
     "  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 
-    " For conceal markers.
-    if has('conceal')
-        set conceallevel=2 concealcursor=niv
-    endif
+    " For conceal markers. quoto will disappear
+    " if has('conceal')
+    "     set conceallevel=2 concealcursor=niv
+    " endif
 endif

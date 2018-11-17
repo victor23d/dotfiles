@@ -107,12 +107,16 @@
         },
         {
             "before": [
-                "ctrl+p"
+                "ctrl+p",
             ],
-            "command": [
-                "workbench.action.quickOpen"
-            ],
-        }
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen",
+                    "args": []
+                }
+            ]
+        },
     ],
     "vim.enableNeovim": true,
     "vim.easymotionMarkerHeight": 18,
