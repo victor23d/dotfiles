@@ -16,6 +16,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 " Plug 'ctrlpvim/ctrlp.vim'
@@ -50,6 +51,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'fenetikm/falcon'
 Plug 'liuchengxu/space-vim-dark'
+
 
 
 Plug 'junegunn/goyo.vim'
@@ -254,6 +256,8 @@ imap <C-_> <Esc>mtgcc `ta
 nmap <C-_> <Esc>mtgcc `ta
 inoremap <C-j> <Esc>o
 
+nnoremap <M-C-F> :Denite grep<CR>
+
 nnoremap / /\v
 
 cnoremap <S-Insert> +
@@ -397,7 +401,7 @@ if exists('g:plugs["denite.nvim"]')
     call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
     call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
     call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-    call denite#custom#map('insert', '<CR>', '<denite:do_action:tabopen>', 'noremap')
+    " call denite#custom#map('insert', '<CR>', '<denite:do_action:tabopen>', 'noremap')
     call denite#custom#map('normal', '<Esc>', '<NOP>', 'noremap')
     call denite#custom#map('normal', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
     call denite#custom#map('normal', '<Down>', '<denite:move_to_next_line>', 'noremap')
@@ -479,6 +483,9 @@ if exists('g:plugs["neosnippet.vim"]')
                 \ pumvisible() ? "\<C-n><Plug>(neosnippet_expand_or_jump)" :
                 \ neosnippet#expandable_or_jumpable() ?
                 \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    imap <expr><C-k>
+                \ neosnippet#expandable_or_jumpable() ?
+                \    "\<Plug>(neosnippet_expand_or_jump)" : "\<C-y>"
     smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
                 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
