@@ -142,15 +142,6 @@
         },
         {
             "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        },
-        {
-            "before": [
                 "ctrl+p",
             ],
             "commands": [

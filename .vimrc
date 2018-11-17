@@ -19,7 +19,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
-" Plug 'ctrlpvim/ctrlp.vim'
 
 
 " utils
@@ -33,7 +32,6 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'Raimondi/delimitMate'
 
-Plug 'vim-syntastic/syntastic'
 
 Plug 'justinmk/vim-sneak'
 Plug 'justinmk/vim-dirvish'
@@ -253,7 +251,7 @@ inoremap <S-Up> <Esc>YP
 inoremap <S-Down> <Esc>Yp
 
 imap <C-_> <Esc>mtgcc `ta
-nmap <C-_> <Esc>mtgcc `ta
+nmap <C-_> <Esc>mtgcc `t
 inoremap <C-j> <Esc>o
 
 nnoremap <M-C-F> :Denite grep<CR>
