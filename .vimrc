@@ -240,9 +240,13 @@ inoremap <C-u> <Esc>d0s
 " inoremap <C-k> <Esc>C
 
 
-" Todo
-" inoremap <S-CR> <Esc>o
-" Todo
+" <S-CR> works in mintty but not in iTerm2
+inoremap <S-CR> <Esc>o
+
+inoremap <C-j> <Esc>o
+inoremap jj <C-o>j
+
+
 
 
 inoremap <M-Up> <Esc>dd<Up>PA
@@ -252,7 +256,6 @@ inoremap <S-Down> <Esc>Yp
 
 imap <C-_> <Esc>mtgcc `ta
 nmap <C-_> <Esc>mtgcc `t
-inoremap <C-j> <Esc>o
 
 nnoremap <M-C-F> :Denite grep<CR>
 

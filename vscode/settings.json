@@ -35,7 +35,6 @@
         {
             "before": [
                 "<leader>",
-                "t",
                 "e"
             ],
             "commands": [
@@ -49,6 +48,12 @@
             ],
             "commands": [
                 "bookmarks.toggle"
+            ]
+        },
+        {
+            "before":["<leader>","h"],
+            "commands": [
+                ":nohlsearch",
             ]
         },
         {
@@ -131,13 +136,12 @@
     "vim.insertModeKeyBindings": [
         {
             "before": [
-                "d",
-                "d"
+                "j",
+                "j"
             ],
             "after": [
-                "<Esc>",
-                "d",
-                "d",
+                "ctrl+o",
+                "j",
             ]
         },
         {
@@ -170,4 +174,15 @@
     // Golang
     "go.useCodeSnippetsOnFunctionSuggest": true,
     "workbench.sideBar.location": "left",
+    "vim.debug.loggingLevel": "debug"
+
+    // airline
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
+    "vim.statusBarColors.insert": "#BF616A",
+    "vim.statusBarColors.visual": "#B48EAD",
+    "vim.statusBarColors.visualline": "#B48EAD",
+    "vim.statusBarColors.visualblock": "#A3BE8C",
+    "vim.statusBarColors.replace": "#D08770"
+
 }
