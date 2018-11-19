@@ -49,6 +49,8 @@ Plug 'flazz/vim-colorschemes'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'fenetikm/falcon'
 Plug 'liuchengxu/space-vim-dark'
+Plug 'jacoborus/tender.vim'
+
 
 
 
