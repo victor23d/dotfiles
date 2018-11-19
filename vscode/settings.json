@@ -5,10 +5,11 @@
     "files.autoSave": "afterDelay",
     "typescript.useCodeSnippetsOnMethodSuggest": true,
     "git.ignoreMissingGitWarning": true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 0.8,
     "python.autoComplete.addBrackets": true,
     "explorer.confirmDragAndDrop": false,
     "workbench.activityBar.visible": true,
+    "editor.wordWrap": "off",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -125,7 +126,27 @@
                 }
             ]
         },
-    ],
+        {
+            "before": [
+                "ctrl+p",
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+                   }
+            ]
+        },
+        {
+            "before": [
+                "ctrl+n",
+            ],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+                }
+            ]
+        },
+],
     "vim.enableNeovim": true,
     "vim.easymotionMarkerHeight": 18,
     "vim.easymotionMarkerFontSize": "18",
@@ -143,8 +164,8 @@
                 "j"
             ],
             "after": [
-                "ctrl+o",
-                "j",
+                "ctrl+[",
+                "o",
             ]
         },
         {
@@ -190,13 +211,23 @@
     // Golang
     "go.useCodeSnippetsOnFunctionSuggest": true,
     "workbench.sideBar.location": "left",
-    "vim.debug.loggingLevel": "debug",
+    // "vim.debug.loggingLevel": "debug",
     // airline
-    // "vim.statusBarColorControl": true,
-    // "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
-    // "vim.statusBarColors.insert": "#BF616A",
-    // "vim.statusBarColors.visual": "#B48EAD",
-    // "vim.statusBarColors.visualline": "#B48EAD",
-    // "vim.statusBarColors.visualblock": "#A3BE8C",
-    // "vim.statusBarColors.replace": "#D08770"
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": [
+        "#8FBCBB",
+        "#000000"
+        // "#434C5E"
+    ],
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#8800FF",
+        "statusBar.noFolderBackground": "#8800FF",
+        "statusBar.debuggingBackground": "#8800FF"
+    },
+    "vim.statusBarColors.insert": ["#007ACC","#FFFFFF"],
+    "vim.statusBarColors.visual": "#8800FF",
+    "vim.statusBarColors.visualline": "#8800FF",
+    "vim.statusBarColors.visualblock": "#8800FF",
+    "vim.statusBarColors.replace": "#D08770"
 }
+
