@@ -106,15 +106,6 @@
         },
         {
             "before": [
-                "s"
-            ],
-            "after": [
-                "a",
-                "backspace"
-            ],
-        },
-        {
-            "before": [
                 "<leader>",
                 "'"
             ],
@@ -201,6 +192,7 @@
         "<C-e>": false,
         "<C-/>": true,
         "<C-]>": true,
+        // "<C-p>": true,
     },
     "vim.searchHighlightColor": "rgba(150, 150, 255, 0.6)",
     "vim.changeWordIncludesWhitespace": false,
