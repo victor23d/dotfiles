@@ -67,11 +67,11 @@
         "command": "-workbench.action.quickOpenNavigateNextInFilePicker",
         "when": "inFilesPicker && inQuickOpen"
     },
-    {
-        "key": "ctrl+/",
-        "command": "editor.action.commentLine",
-        "when": "editorTextFocus && !editorReadonly"
-    },
+    // {
+    //     "key": "ctrl+/",
+    //     "command": "editor.action.commentLine",
+    //     "when": "editorTextFocus && !editorReadonly"
+    // },
     {
         "key": "cmd+/",
         "command": "-editor.action.commentLine",
@@ -121,5 +121,17 @@
         "key": "down",
         "command": "selectNextSuggestion",
         "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+    },
+    {
+        // "key": "ctrl+p",
+        // "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "shift+right",
+        "command": "cursorWordEndRight"
+    },
+    {
+        "key": "shift+left",
+        "command": "cursorWordEndLeft"
     },
 ]

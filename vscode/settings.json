@@ -51,7 +51,10 @@
             ]
         },
         {
-            "before":["<leader>","h"],
+            "before": [
+                "<leader>",
+                "h"
+            ],
             "commands": [
                 ":nohlsearch",
             ]
@@ -112,6 +115,15 @@
         },
         {
             "before": [
+                "<leader>",
+                "'"
+            ],
+            "commands": [
+                "workbench.action.terminal.toggleTerminal"
+            ],
+        },
+        {
+            "before": [
                 "ctrl+p",
             ],
             "after": [],
@@ -133,7 +145,7 @@
     "vim.useSystemClipboard": false,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
-    "vim.insertModeKeyBindings": [
+    "vim.insertModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "j",
@@ -142,6 +154,17 @@
             "after": [
                 "ctrl+o",
                 "j",
+            ]
+        },
+        {
+            "before": [
+                "d",
+                "d"
+            ],
+            "after": [
+                "ctrl+[",
+                "d",
+                "d"
             ]
         },
         {
@@ -159,13 +182,25 @@
             "command": [
                 "selectNextSuggetion"
             ],
+        },
+        {
+            "before": [
+                "ctrl+/",
+            ],
+            "after": [
+                "<Esc>",
+                "g",
+                "c",
+                "c"
+            ],
         }
     ],
     "vim.leader": "<space>",
     "vim.handleKeys": {
         "<C-a>": false,
         "<C-e>": false,
-        "<C-/>": false
+        "<C-/>": true,
+        "<C-]>": true,
     },
     "vim.searchHighlightColor": "rgba(150, 150, 255, 0.6)",
     "vim.changeWordIncludesWhitespace": false,
@@ -175,7 +210,6 @@
     "go.useCodeSnippetsOnFunctionSuggest": true,
     "workbench.sideBar.location": "left",
     "vim.debug.loggingLevel": "debug",
-
     // airline
     // "vim.statusBarColorControl": true,
     // "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
@@ -184,5 +218,4 @@
     // "vim.statusBarColors.visualline": "#B48EAD",
     // "vim.statusBarColors.visualblock": "#A3BE8C",
     // "vim.statusBarColors.replace": "#D08770"
-
 }
