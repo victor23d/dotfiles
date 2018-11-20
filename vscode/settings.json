@@ -133,7 +133,8 @@
             "commands": [
                 {
                     "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
-                   }
+                    // "command": "workbench.action.quickOpenSelectPrevious",
+                }
             ]
         },
         {
@@ -143,10 +144,11 @@
             "commands": [
                 {
                     "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+                    // "command": "workbench.action.quickOpenSelectNext",
                 }
             ]
         },
-],
+    ],
     "vim.enableNeovim": true,
     "vim.easymotionMarkerHeight": 18,
     "vim.easymotionMarkerFontSize": "18",
@@ -220,14 +222,17 @@
         // "#434C5E"
     ],
     "workbench.colorCustomizations": {
-        "statusBar.background": "#8800FF",
-        "statusBar.noFolderBackground": "#8800FF",
-        "statusBar.debuggingBackground": "#8800FF"
+        "statusBar.background": "#8FBCBB",
+        "statusBar.noFolderBackground": "#8FBCBB",
+        "statusBar.debuggingBackground": "#8FBCBB",
+        "statusBar.foreground": "#000000"
     },
-    "vim.statusBarColors.insert": ["#007ACC","#FFFFFF"],
+    "vim.statusBarColors.insert": [
+        "#007ACC",
+        "#FFFFFF"
+    ],
     "vim.statusBarColors.visual": "#8800FF",
     "vim.statusBarColors.visualline": "#8800FF",
     "vim.statusBarColors.visualblock": "#8800FF",
     "vim.statusBarColors.replace": "#D08770"
 }
-

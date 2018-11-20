@@ -139,14 +139,6 @@ fi
 
 ################################################################################
 
-#docker completion
-
-#Check ~/.zsh/completion/_docker
-#fpath=(~/.zsh/completion $fpath)
-#autoload -Uz compinit && compinit -i
-#
-#Not used, oh my zsh use plugin docker instead.
-
 
 ######################################## percol
 #For zsh users, command versions are here (ppkill accepts options like -9).
@@ -223,6 +215,7 @@ fi
 ### VARIABLES
 export EDITOR=nvim
 export GIT_EDITOR=nvim
+export GOPATH=~/go
 
 PATH="~/miniconda3/bin:$PATH"
 PATH=~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share:$PATH
@@ -362,11 +355,6 @@ alias info='info --vi-keys'
 
 alias du='du --time'
 
-
-if [[ "" == "docker1" ]] ; 
-then
-    echo "No NO NO ..."
-fi
 
 
 ########################################
