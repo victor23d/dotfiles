@@ -431,12 +431,6 @@ if exists('g:plugs["deoplete.nvim"]')
     inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
     inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
-    " <CR>: close popup and save indent.
-    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-    function! s:my_cr_function() abort
-        return deoplete#close_popup() . "\<CR>"
-    endfunction<Paste>
-
     " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
     let g:neosnippet#enable_completed_snippet = 1
@@ -477,19 +471,20 @@ endif
 
 if exists('g:plugs["neosnippet.vim"]')
     " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    xmap <C-k>     <Plug>(neosnippet_expand_target)
+    " imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    " smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    " xmap <C-k>     <Plug>(neosnippet_expand_target)
 
     " SuperTab like snippets behavior.
     " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+    "
     imap <expr><TAB>
                 \ pumvisible() ? "\<C-n><Plug>(neosnippet_expand_or_jump)" :
                 \ neosnippet#expandable_or_jumpable() ?
                 \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-    imap <expr><C-k>
-                \ neosnippet#expandable_or_jumpable() ?
-                \    "\<Plug>(neosnippet_expand_or_jump)" : "\<C-y>"
+    " imap <expr><C-k>
+    "             \ neosnippet#expandable_or_jumpable() ?
+    "             \    "\<Plug>(neosnippet_expand_or_jump)" : "\<C-y>"
     smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
                 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
@@ -497,11 +492,8 @@ if exists('g:plugs["neosnippet.vim"]')
     " \ pumvisible() ? "\<C-n>" :
     " \ pumvisible() ? "\<C-k>" :
 
-    " Conflict with auto-pairs, this is a bug.
-    " imap <expr><CR>
-    "  \ pumvisible() ? "\<C-k>" :
-    "  \ neosnippet#expandable_or_jumpable() ?
-    "  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
+                \ "\<C-y>" : "\<CR>"
 
 
     " For conceal markers. quoto will disappear
