@@ -55,7 +55,9 @@ Plug 'jacoborus/tender.vim'
 
 
 Plug 'junegunn/goyo.vim'
-Plug 'w0rp/ale'
+Plug 'junegunn/limelight.vim'
+
+
 Plug 'easymotion/vim-easymotion'
 " Plug 'rainglow/vim'
 
