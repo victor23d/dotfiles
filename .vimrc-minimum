@@ -50,13 +50,17 @@ Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'fenetikm/falcon'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'jacoborus/tender.vim'
+" Plug 'rainglow/vim'
 
 
 
 
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'terryma/vim-expand-region'
 Plug 'easymotion/vim-easymotion'
-" Plug 'rainglow/vim'
+Plug 'terryma/vim-multiple-cursors'
+
 
 
 " format
@@ -64,33 +68,33 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'Chiel92/vim-autoformat'
 
 
-" Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/neosnippet.vim'
 " Plug 'Shougo/neosnippet-snippets'
 
-" language supoort
+" " language supoort
 " Plug 'w0rp/ale'
 " Plug 'autozimu/LanguageClient-neovim'
-" Plug 'majutsushi/tagbar'
+" " Plug 'majutsushi/tagbar'
 
 
-" come with deoplete
-" Plug 'Shougo/context_filetype.vim'
+" " come with deoplete
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/context_filetype.vim'
 " Plug 'Shougo/neopairs.vim'
 " Plug 'Shougo/echodoc.vim'
 " Plug 'Shougo/neoinclude.vim'
 " Plug 'Konfekt/FastFold'
 
 
-" language specific
+" " language specific
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 " Plug 'zchee/deoplete-go', { 'do': 'make'}
-" Plug 'jodosha/vim-godebug'
+" " Plug 'jodosha/vim-godebug'
 
 
-" Plug 'hashivim/vim-terraform.git'
+" " Plug 'hashivim/vim-terraform.git'
 
 
 
@@ -167,10 +171,18 @@ endif
 " colorscheme desert256
 colorscheme janah
 
+" doesn't work
+highlight LineNr ctermfg=grey
+highlight Search cterm=NONE ctermfg=grey ctermbg=blue 
+
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+highlight Search guibg=peru guifg=wheat
+highlight Search guibg=lightblue guifg=black
+highlight CursorLineNr guifg=#FF00FF
 
 
-" set background=light
-set background=dark
+" will cause highlight Search and CursorLineNr color invaild
+" set background=dark
 
 
 set fileencoding=utf-8
@@ -246,9 +258,6 @@ inoremap <C-u> <Esc>d0s
 inoremap <S-CR> <Esc>o
 
 inoremap <C-j> <Esc>o
-inoremap jj <C-o>j
-
-
 
 
 inoremap <M-Up> <Esc>dd<Up>PA
@@ -372,20 +381,37 @@ endif
 
 
 
-if exists('g:plugs["syntastic"]')
-    " nerdtree{{{
-    " Syntastic Recommended settings
-    set statusline+=%#warningmsg#
-    " when not submodule update, this will cause error SyntasticStatuslineFlag()
-    " set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
+if exists('g:plugs["Limelight"]')
+    " Color name (:help cterm-colors) or ANSI code
+    let g:limelight_conceal_ctermfg = 'gray'
+    let g:limelight_conceal_ctermfg = 240
 
-    "let g:syntastic_always_populate_loc_list = 1
-    "let g:syntastic_auto_loc_list = 1
-    "let g:syntastic_check_on_open = 1
-    "let g:syntastic_check_on_wq = 0
+    " Color name (:help gui-colors) or RGB color
+    let g:limelight_conceal_guifg = 'DarkGray'
+    let g:limelight_conceal_guifg = '#777777'
+
+    " Default: 0.5
+    let g:limelight_default_coefficient = 0.7
+
+    " Number of preceding/following paragraphs to include (default: 0)
+    let g:limelight_paragraph_span = 1
+
+    " Beginning/end of paragraph
+    "   When there's no empty line between the paragraphs
+    "   and each paragraph starts with indentation
+    let g:limelight_bop = '^\s'
+    let g:limelight_eop = '\ze\n^\s'
+
+    " Highlighting priority (default: 10)
+    "   Set it to -1 not to overrule hlsearch
+    let g:limelight_priority = -1
+
+    Goyo.vim integration
+
+    autocmd! User GoyoEnter Limelight
+    autocmd! User GoyoLeave Limelight!
+
 endif
-
 
 
 
@@ -430,12 +456,6 @@ if exists('g:plugs["deoplete.nvim"]')
     inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
     inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
-    " <CR>: close popup and save indent.
-    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-    function! s:my_cr_function() abort
-        return deoplete#close_popup() . "\<CR>"
-    endfunction<Paste>
-
     " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
     let g:neosnippet#enable_completed_snippet = 1
@@ -476,19 +496,20 @@ endif
 
 if exists('g:plugs["neosnippet.vim"]')
     " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    xmap <C-k>     <Plug>(neosnippet_expand_target)
+    " imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    " smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    " xmap <C-k>     <Plug>(neosnippet_expand_target)
 
     " SuperTab like snippets behavior.
     " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+    "
     imap <expr><TAB>
                 \ pumvisible() ? "\<C-n><Plug>(neosnippet_expand_or_jump)" :
                 \ neosnippet#expandable_or_jumpable() ?
                 \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-    imap <expr><C-k>
-                \ neosnippet#expandable_or_jumpable() ?
-                \    "\<Plug>(neosnippet_expand_or_jump)" : "\<C-y>"
+    " imap <expr><C-k>
+    "             \ neosnippet#expandable_or_jumpable() ?
+    "             \    "\<Plug>(neosnippet_expand_or_jump)" : "\<C-y>"
     smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
                 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
@@ -496,11 +517,8 @@ if exists('g:plugs["neosnippet.vim"]')
     " \ pumvisible() ? "\<C-n>" :
     " \ pumvisible() ? "\<C-k>" :
 
-    " Conflict with auto-pairs, this is a bug.
-    " imap <expr><CR>
-    "  \ pumvisible() ? "\<C-k>" :
-    "  \ neosnippet#expandable_or_jumpable() ?
-    "  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
+                \ "\<C-y>" : "\<CR>"
 
 
     " For conceal markers. quoto will disappear
@@ -508,3 +526,32 @@ if exists('g:plugs["neosnippet.vim"]')
     "     set conceallevel=2 concealcursor=niv
     " endif
 endif
+
+
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+    \ }
