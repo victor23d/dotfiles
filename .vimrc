@@ -50,16 +50,17 @@ Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'fenetikm/falcon'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'jacoborus/tender.vim'
+" Plug 'rainglow/vim'
 
 
 
 
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-
-
+Plug 'terryma/vim-expand-region'
 Plug 'easymotion/vim-easymotion'
-" Plug 'rainglow/vim'
+Plug 'terryma/vim-multiple-cursors'
+
 
 
 " format
@@ -375,20 +376,37 @@ endif
 
 
 
-if exists('g:plugs["syntastic"]')
-    " nerdtree{{{
-    " Syntastic Recommended settings
-    set statusline+=%#warningmsg#
-    " when not submodule update, this will cause error SyntasticStatuslineFlag()
-    " set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
+if exists('g:plugs["Limelight"]')
+    " Color name (:help cterm-colors) or ANSI code
+    let g:limelight_conceal_ctermfg = 'gray'
+    let g:limelight_conceal_ctermfg = 240
 
-    "let g:syntastic_always_populate_loc_list = 1
-    "let g:syntastic_auto_loc_list = 1
-    "let g:syntastic_check_on_open = 1
-    "let g:syntastic_check_on_wq = 0
+    " Color name (:help gui-colors) or RGB color
+    let g:limelight_conceal_guifg = 'DarkGray'
+    let g:limelight_conceal_guifg = '#777777'
+
+    " Default: 0.5
+    let g:limelight_default_coefficient = 0.7
+
+    " Number of preceding/following paragraphs to include (default: 0)
+    let g:limelight_paragraph_span = 1
+
+    " Beginning/end of paragraph
+    "   When there's no empty line between the paragraphs
+    "   and each paragraph starts with indentation
+    let g:limelight_bop = '^\s'
+    let g:limelight_eop = '\ze\n^\s'
+
+    " Highlighting priority (default: 10)
+    "   Set it to -1 not to overrule hlsearch
+    let g:limelight_priority = -1
+
+    Goyo.vim integration
+
+    autocmd! User GoyoEnter Limelight
+    autocmd! User GoyoLeave Limelight!
+
 endif
-
 
 
 

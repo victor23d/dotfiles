@@ -107,6 +107,22 @@
         },
         {
             "before": [
+                "+"
+            ],
+            "commands": [
+                "editor.action.smartSelect.grow"
+            ],
+        },
+        {
+            "before": [
+                "_"
+            ],
+            "commands": [
+                "editor.action.smartSelect.shrink"
+            ],
+        },
+        {
+            "before": [
                 "<leader>",
                 "'"
             ],
