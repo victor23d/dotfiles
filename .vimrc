@@ -171,10 +171,18 @@ endif
 " colorscheme desert256
 colorscheme janah
 
+" doesn't work
+highlight LineNr ctermfg=grey
+highlight Search cterm=NONE ctermfg=grey ctermbg=blue 
+
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+highlight Search guibg=peru guifg=wheat
+highlight Search guibg=lightblue guifg=black
+highlight CursorLineNr guifg=#FF00FF
 
 
-" set background=light
-set background=dark
+" will cause highlight Search and CursorLineNr color invaild
+" set background=dark
 
 
 set fileencoding=utf-8
@@ -250,9 +258,6 @@ inoremap <C-u> <Esc>d0s
 inoremap <S-CR> <Esc>o
 
 inoremap <C-j> <Esc>o
-inoremap jj <C-o>j
-
-
 
 
 inoremap <M-Up> <Esc>dd<Up>PA
@@ -521,3 +526,32 @@ if exists('g:plugs["neosnippet.vim"]')
     "     set conceallevel=2 concealcursor=niv
     " endif
 endif
+
+
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+    \ }

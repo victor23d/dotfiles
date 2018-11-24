@@ -178,8 +178,7 @@
     "vim.insertModeKeyBindingsNonRecursive": [
         {
             "before": [
-                "j",
-                "j"
+                "ctrl+j",
             ],
             "after": [
                 "ctrl+[",
