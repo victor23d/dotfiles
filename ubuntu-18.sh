@@ -10,9 +10,11 @@ fi
 
 # pip
 if [[ ! `which pip` ]];then
+# if [[ ! ` pip --version =~ 18` ]];then
     echo '--------------------install pip--------------------'
     # curl https://bootstrap.pypa.io/get-pip.py | python3       # broken
     apt install -y python3-venv python3-pip       # very big
+    pip3 install -U pip
 fi
 
 # zsh
@@ -37,9 +39,10 @@ fi
 if [[ ! `nvim -v` =~ '0.3' ]];then
     echo '--------------------install neovim--------------------'
     curl -SsLo /opt/nvim https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage
-    chmod 700 /opt/nvim
+    chmod 777 /opt/nvim
     ln -s /opt/nvim /usr/local/bin/
-    pip3 install neovim
+    # pip3 install neovim
+    pip install neovim
 fi
 
 

@@ -16,8 +16,9 @@ mv -f .zshrc .bashrc .tmux.conf .tmux.conf.local    .gitconfig .vim .vimrc .conf
 
 ln -s ~/dotfiles/.zshrc ~/
 ln -s ~/dotfiles/.bashrc ~/
-ln -s ~/dotfiles/.tmux.conf ~/
+# ln -s ~/dotfiles/.tmux.conf ~/
 ln -s ~/dotfiles/.tmux.conf.local ~/
+ln -s ~/dotfiles/.tmux.conf-minimum ~/.tmux.conf
 # ln -s ~/dotfiles/.editrc ~/
 # ln -s ~/dotfiles/.inputrc ~/
 ln -s ~/dotfiles/.gitconfig ~/

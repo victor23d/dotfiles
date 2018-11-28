@@ -1,3 +1,4 @@
+#! /bin/bash
 if [[ `uname -a` =~ 'Ubuntu' ]];then
 
     apt-get install -y \
