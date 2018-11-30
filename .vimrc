@@ -287,7 +287,12 @@ command B Buffers
 " Plug map
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>d :Denite 
-nnoremap <leader>tn :set norelativenumber<CR>:set nonumber<CR>
+nnoremap <silent> <leader>tn :set invrelativenumber<CR>:set invnumber<CR>
+nnoremap <silent> <Leader>tg :GitGutterSignsToggle<CR>
+nnoremap <silent> <Leader>tl :ALEToggle<CR>
+nnoremap <silent> <Leader>ta :set invrelativenumber<CR>:set invnumber<CR>:GitGutterSignsToggle<CR>:ALEToggle<CR>
+nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
+
 nnoremap <C-p> :History<CR>
 
 
