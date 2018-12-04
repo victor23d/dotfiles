@@ -522,8 +522,9 @@ if exists('g:plugs["neosnippet.vim"]')
     " \ pumvisible() ? "\<C-n>" :
     " \ pumvisible() ? "\<C-k>" :
 
-    imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
-                \ "\<C-y>" : "\<CR>"
+
+    " use <CR> to select or close complete
+    " imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
 
 
     " For conceal markers. quoto will disappear

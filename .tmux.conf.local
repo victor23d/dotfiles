@@ -73,7 +73,8 @@ tmux_conf_theme_pane_active_indicator='#00afff'         # light blue
 # status line style
 tmux_conf_theme_message_fg='#000000'                    # black
 # tmux_conf_theme_message_bg='#ffff00'                    # yellow
-tmux_conf_theme_message_bg='#ee9900'                    # vvv
+tmux_conf_theme_message_bg='#ee9900'                    # orange
+tmux_conf_theme_message_bg='#00cccc'                    # cyan
 tmux_conf_theme_message_attr='bold'
 
 # status line command style (<prefix> : Escape)
@@ -83,14 +84,16 @@ tmux_conf_theme_message_command_attr='bold'
 
 # window modes style
 tmux_conf_theme_mode_fg='#000000'                       # black
+tmux_conf_theme_mode_bg='#ff0000'                       # red
 # tmux_conf_theme_mode_bg='#ffff00'                       # yellow
-tmux_conf_theme_mode_bg='#ff0000'                       # vvv
+# tmux_conf_theme_mode_fg='#cccccc'                       # black
+# tmux_conf_theme_mode_bg='#0000ff'                       # blue
 tmux_conf_theme_mode_attr='bold'
 
 # status line style
 tmux_conf_theme_status_fg='#8a8a8a'                     # light gray
 # tmux_conf_theme_status_bg='#080808'                     # dark gray
-tmux_conf_theme_status_bg='#000000'                     # vvv
+tmux_conf_theme_status_bg='#000000'                     # 00
 tmux_conf_theme_status_attr='none'
 
 # terminal title
