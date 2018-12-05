@@ -19,7 +19,11 @@ highlight Normal guifg=#dadada ctermfg=253 guibg=#000000 gui=NONE cterm=NONE
 highlight Comment guifg=#585858 ctermfg=240 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
 " vvv
+" dark blue comment
 highlight Comment guifg=#587898 ctermfg=240 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+" dark green comment
+highlight Comment guifg=#589878 ctermfg=240 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+" highlight Comment guifg=#58a878 ctermfg=240 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
 
 highlight Constant guifg=#87dfdf ctermfg=116 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE

@@ -169,7 +169,7 @@ endif
 " colorscheme solarized
 " colorscheme gruvbox
 " colorscheme desert256
-colorscheme janah
+colorscheme janah-v
 
 " doesn't work
 highlight LineNr ctermfg=grey
