@@ -180,6 +180,12 @@ highlight Search guibg=peru guifg=wheat
 highlight Search guibg=lightblue guifg=black
 highlight CursorLineNr guifg=#FF00FF
 
+"Denite select line color
+highlight CursorLine guifg=#000000
+" highlight CursorLine guibg=#00aaff
+" highlight CursorLine guibg=#ee9900
+highlight CursorLine guibg=#ff0000
+
 
 " will cause highlight Search and CursorLineNr color invaild
 " set background=dark
@@ -458,8 +464,8 @@ if exists('g:plugs["deoplete.nvim"]')
     call deoplete#custom#option('smart_case', v:true)
 
     " <C-h>, <BS>: close popup and delete backword char.
-    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-    inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+    " inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+    " inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
     " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
