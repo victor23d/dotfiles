@@ -189,6 +189,7 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 #     - #{username}
 #     - #{username_ssh}
 
+### origin
 ### #{
 ### tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
 ### tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
@@ -214,15 +215,31 @@ tmux_conf_theme_status_left_attr='bold,none,none,none,none'
 
 # tmux_conf_theme_status_right='#{loadavg}  ,|  #{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_hbar, #{battery_hbar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '    #  1.67      ↑ █ 100%  12:42  05 Dec  vxia006  US-C02WV0EHHV2T
 
-tmux_conf_theme_status_right='#{loadavg}  ,|  #{prefix}#{pairing}#{synchronized}|#{?battery_status, #{battery_status},}#{?battery_hbar, #{battery_hbar},}#{?battery_percentage, #{battery_percentage},} ,| %m-%d %H:%M:%S '
+tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} | #{loadavg}  ,|#{?battery_status, #{battery_status},}#{?battery_hbar, #{battery_hbar},}#{?battery_percentage, #{battery_percentage},}  ,| %m-%d %H:%M:%S '
 
 # status left style
 # status right style
 # tmux_conf_theme_status_right_fg='#8a8a8a,#e4e4e4,#000000' # light gray, white, black
 # tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, red, white
-tmux_conf_theme_status_right_fg='#ff00af,#cccccc,#77aaff,#cccccc' # purple, sky blue, white gray
+tmux_conf_theme_status_right_fg='#cccccc,#ff00af,#77aaff,#cccccc' # white gray, purple, sky blue, white gray
 tmux_conf_theme_status_right_bg='#000000,#000000,#000000,#000000' # 000
 tmux_conf_theme_status_right_attr='bold,none,none,none'
+
+
+# With airline colorful bg
+#{
+tmux_conf_theme_left_separator_main=''
+tmux_conf_theme_right_separator_main=''
+tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} | #{loadavg}  |#{?battery_status, #{battery_status},}#{?battery_hbar, #{battery_hbar},}#{?battery_percentage, #{battery_percentage},}  | %m-%d %H:%M:%S  | thing| '
+# tmux_conf_theme_status_right_fg='#cccccc,#ff00af,#77aaff,#cccccc,#555555,#a55588' # white gray, purple, sky blue, white gray
+tmux_conf_theme_status_right_fg='#000000,#000000,#000000,#000000,#000000,#000000'
+# tmux_conf_theme_status_right_bg='#440044,#000099,#004444,#009900,#444400,#990000'
+tmux_conf_theme_status_right_bg='#dd7777,#7700cc,#0077ff,#77cc77,#cccc55,#dd7777' # 000
+tmux_conf_theme_status_right_attr='bold,none,none,none,  none,none'
+#}
+
+
+
 
 # pairing indicator
 tmux_conf_theme_pairing='👓 '          # U+1F453
