@@ -2,12 +2,16 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=~/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+
+# ❯
+# ZSH_THEME="refined" 
+ZSH_THEME="af-magic" 
+# use specturm_[b]ls choose color!
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -21,10 +25,10 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
- HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -33,13 +37,13 @@ ZSH_THEME="robbyrussell"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -70,21 +74,21 @@ if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google-cloud-s
 
 
 plugins=(
-  #aws
-  #common-aliases
-  docker
-  docker-compose
-  docker-machine
-  fasd
-  git
-  golang
-  node
-  npm
-  nvm
-  kubectl
-  kube-ps1
-  zsh-completions
-  terraform
+#aws
+#common-aliases
+docker
+docker-compose
+docker-machine
+fasd
+git
+golang
+node
+npm
+nvm
+kubectl
+kube-ps1
+# zsh-completions
+terraform
 )
 
 autoload -U compinit && compinit
@@ -101,7 +105,7 @@ if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/google-c
 
 
 if [ -e ~/.local/bin/aws_zsh_completer.sh ];then
-source ~/.local/bin/aws_zsh_completer.sh
+    source ~/.local/bin/aws_zsh_completer.sh
 fi
 
 
@@ -110,12 +114,12 @@ fi
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
- export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nvim'
- fi
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -137,51 +141,49 @@ fi
 
 ######################################## vvv ########################################
 
-################################################################################
 
-
-######################################## percol
-#For zsh users, command versions are here (ppkill accepts options like -9).
-
-function ppgrep() {
-    if [[ $1 == "" ]]; then
-        PERCOL=percol
-    else
-        PERCOL="percol --query $1"
-    fi
-    ps aux | eval $PERCOL | awk '{ print $2 }'
-}
-
-function ppkill() {
-    if [[ $1 =~ "^-" ]]; then
-        QUERY=""            # options only
-    else
-        QUERY=$1            # with a query
-        [[ $# > 0 ]] && shift
-    fi
-    ppgrep $QUERY | xargs kill $*
-}
-
-#zsh history search
-
-#In your .zshrc, put the lines below.
-
-function exists { which $1 &> /dev/null }
-
-if exists percol; then
-    function percol_select_history() {
-        local tac
-        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
-        CURSOR=$#BUFFER         # move cursor
-        zle -R -c               # refresh
-    }
-
-    zle -N percol_select_history
-    bindkey '^R' percol_select_history
-fi
-
-#Then, you can display and search your zsh histories incrementally by pressing Ctrl + r key.
+### ######################################## percol
+### #For zsh users, command versions are here (ppkill accepts options like -9).
+### 
+### function ppgrep() {
+###     if [[ $1 == "" ]]; then
+###         PERCOL=percol
+###     else
+###         PERCOL="percol --query $1"
+###     fi
+###     ps aux | eval $PERCOL | awk '{ print $2 }'
+### }
+### 
+### function ppkill() {
+###     if [[ $1 =~ "^-" ]]; then
+###         QUERY=""            # options only
+###     else
+###         QUERY=$1            # with a query
+###         [[ $# > 0 ]] && shift
+###     fi
+###     ppgrep $QUERY | xargs kill $*
+### }
+### 
+### #zsh history search
+### 
+### #In your .zshrc, put the lines below.
+### 
+### function exists { which $1 &> /dev/null }
+### 
+### if exists percol; then
+###     function percol_select_history() {
+###         local tac
+###         exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+###         BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
+###         CURSOR=$#BUFFER         # move cursor
+###         zle -R -c               # refresh
+###     }
+### 
+###     zle -N percol_select_history
+###     bindkey '^R' percol_select_history
+### fi
+### 
+### #Then, you can display and search your zsh histories incrementally by pressing Ctrl + r key.
 
 
 
@@ -202,7 +204,7 @@ fi
 
 
 if [[ "${terminfo[kcbt]}" != "" ]]; then
-  bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
+    bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
 fi
 
 
@@ -260,7 +262,7 @@ extract () {
 #LS_COLORS=$LS_COLORS:'di=0;34:' ;  
 #LS_COLORS=$LS_COLORS:'di=1;157:' ; 
 if [[ -n $SSH_CONNECTION ]]; then
-#LS_COLORS=$LS_COLORS:'di=1;044:' ; 
+    #LS_COLORS=$LS_COLORS:'di=1;044:' ; 
     LS_COLORS=$LS_COLORS:'di=0;044:' ; 
 fi
 if [[ $TERM == 'linux' ]];then
@@ -269,7 +271,7 @@ fi
 if [[ $TERM == 'xterm-256' ]];then
     LS_COLORS=$LS_COLORS:'di=0;034:' ;
 fi
-    
+
 
 export LS_COLORS
 
@@ -313,7 +315,7 @@ alias c='fasd_cd -d'
 
 function cs () {
     builtin cd "$@" && ls
-    }
+}
 
 function cs2() {
     new_directory="$*";
@@ -333,10 +335,10 @@ function cow(){
 # alias dstat='dstat --nocolor'
 
 # alias grep='grep -P --color=auto'
-alias date='date +%Y-%m-%dT%H:%M:%S'
+# some shell function will broken # theme refined
+# alias date='date +%Y-%m-%dT%H:%M:%S'
 
 alias pe='percol'
-alias lo='locate'
 
 alias mod_ls='lsmod'
 alias mod_ins='insmod'
@@ -359,12 +361,12 @@ alias du='du --time'
 #mac
 
 if [[ `uname` != 'Linux' ]];then
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-alias updatedb='/usr/libexec/locate.updatedb'
-export PATH
+    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+    alias updatedb='/usr/libexec/locate.updatedb'
+    export PATH
 
-#alias ls='ls -ACGh --color'
+    #alias ls='ls -ACGh --color'
 
 fi
 

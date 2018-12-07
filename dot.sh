@@ -15,6 +15,8 @@ mkdir -p .dotfiles_back/vscode
 mv -f .zshrc .bashrc .tmux.conf .tmux.conf.local    .gitconfig .vim .vimrc .config/nvim .SpaceVim.d ~/.dotfiles_back
 
 ln -s ~/dotfiles/.zshrc ~/
+rm -rf ~/.oh-my-zsh/custom
+ln -sf ~/dotfiles/custom ~/.oh-my-zsh/
 ln -s ~/dotfiles/.bashrc ~/
 ln -s ~/dotfiles/.tmux.conf ~/
 ln -s ~/dotfiles/.tmux.conf.local ~/
@@ -46,5 +48,4 @@ if [[ `uname -a` =~ 'Darwin' ]];then
     ln -s ~/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
     ln -s ~/dotfiles/vscode/snippets ~/Library/Application\ Support/Code/User/snippets
 fi
-
 

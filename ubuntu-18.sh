@@ -1,12 +1,9 @@
-
-
 apt update -y
-# apt upgrade -y
 
 # python3.7
-if [[ `python3 -V` =~ '3.7' ]];then
-    echo '--------------------install python3.7--------------------'
-fi
+# if [[ `python3 -V` =~ '3.7' ]];then
+#     echo '--------------------install python3.7--------------------'
+# fi
 
 # pip
 if [[ ! `which pip` ]];then
@@ -30,12 +27,11 @@ if [[ ! -e ~/.oh-my-zsh ]];then
 fi
 
 # zsh-completions
-if [[ ! -e ~/.oh-my-zsh/custom/plugins/zsh-completions ]];then
-    cd ~
-    git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
-fi
+# if [[ ! -e ~/.oh-my-zsh/custom/plugins/zsh-completions ]];then
+#     cd ~
+#     git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+# fi
 
-# vim 8
 if [[ ! `nvim -v` =~ '0.3' ]];then
     echo '--------------------install neovim--------------------'
     curl -SsLo /opt/nvim https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage
@@ -44,8 +40,6 @@ if [[ ! `nvim -v` =~ '0.3' ]];then
     # pip3 install neovim
     pip install neovim
 fi
-
-
 
 # percol
 #echo '--------------------install percol--------------------'
@@ -80,7 +74,7 @@ fi
 echo '--------------------install fasd--------------------'
 add-apt-repository ppa:aacebedo/fasd
 apt update
-apt install fasd
+apt install fasd -y
 
 
 echo '================================================================================'
@@ -92,6 +86,3 @@ echo 'Done, after run start_backup then exit and login back...'
 # check version which
 # Oh-my-zsh exit
 # fasd [ENTER]
-
-
-

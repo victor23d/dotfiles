@@ -184,7 +184,7 @@ highlight CursorLineNr guifg=#FF00FF
 highlight CursorLine guifg=#000000
 " highlight CursorLine guibg=#00aaff
 " highlight CursorLine guibg=#ee9900
-highlight CursorLine guibg=#ff0000
+highlight CursorLine guibg=#dd7777
 
 
 " will cause highlight Search and CursorLineNr color invaild
