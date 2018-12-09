@@ -68,33 +68,32 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'Chiel92/vim-autoformat'
 
 
-" Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'Shougo/neosnippet.vim'
-" Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+"" Plug 'Shougo/neosnippet.vim'
+"" Plug 'Shougo/neosnippet-snippets'
+"" 
+"" " language supoort
+"" Plug 'w0rp/ale'
+"" Plug 'autozimu/LanguageClient-neovim'
+"" " Plug 'majutsushi/tagbar'
+"" 
+"" 
+"" " come with deoplete
+"" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"" Plug 'Shougo/context_filetype.vim'
+"" Plug 'Shougo/neopairs.vim'
+"" Plug 'Shougo/echodoc.vim'
+"" Plug 'Shougo/neoinclude.vim'
+"" Plug 'Konfekt/FastFold'
+"" 
+"" 
+"" " language specific
+"" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"" Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+"" Plug 'zchee/deoplete-go', { 'do': 'make'}
+"" " Plug 'jodosha/vim-godebug'
 
-" " language supoort
-" Plug 'w0rp/ale'
-" Plug 'autozimu/LanguageClient-neovim'
-" " Plug 'majutsushi/tagbar'
 
-
-" " come with deoplete
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'Shougo/context_filetype.vim'
-" Plug 'Shougo/neopairs.vim'
-" Plug 'Shougo/echodoc.vim'
-" Plug 'Shougo/neoinclude.vim'
-" Plug 'Konfekt/FastFold'
-
-
-" " language specific
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-" Plug 'zchee/deoplete-go', { 'do': 'make'}
-" " Plug 'jodosha/vim-godebug'
-
-
-" " Plug 'hashivim/vim-terraform.git'
 
 
 
@@ -169,7 +168,7 @@ endif
 " colorscheme solarized
 " colorscheme gruvbox
 " colorscheme desert256
-colorscheme janah
+colorscheme janah-v
 
 " doesn't work
 highlight LineNr ctermfg=grey
@@ -179,6 +178,12 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 highlight Search guibg=peru guifg=wheat
 highlight Search guibg=lightblue guifg=black
 highlight CursorLineNr guifg=#FF00FF
+
+"Denite select line color
+highlight CursorLine guifg=#000000
+" highlight CursorLine guibg=#00aaff
+" highlight CursorLine guibg=#ee9900
+highlight CursorLine guibg=#dd7777
 
 
 " will cause highlight Search and CursorLineNr color invaild
@@ -287,7 +292,12 @@ command B Buffers
 " Plug map
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>d :Denite 
-nnoremap <leader>tn :set norelativenumber<CR>:set nonumber<CR>
+nnoremap <silent> <leader>tn :set invrelativenumber<CR>:set invnumber<CR>
+nnoremap <silent> <Leader>tg :GitGutterSignsToggle<CR>
+nnoremap <silent> <Leader>tl :ALEToggle<CR>
+nnoremap <silent> <Leader>ta :set invrelativenumber<CR>:set invnumber<CR>:GitGutterSignsToggle<CR>:ALEToggle<CR>
+nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
+
 nnoremap <C-p> :History<CR>
 
 
@@ -453,8 +463,8 @@ if exists('g:plugs["deoplete.nvim"]')
     call deoplete#custom#option('smart_case', v:true)
 
     " <C-h>, <BS>: close popup and delete backword char.
-    inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-    inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+    " inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+    " inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
     " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
     autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -517,8 +527,9 @@ if exists('g:plugs["neosnippet.vim"]')
     " \ pumvisible() ? "\<C-n>" :
     " \ pumvisible() ? "\<C-k>" :
 
-    imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
-                \ "\<C-y>" : "\<CR>"
+
+    " use <CR> to select or close complete
+    " imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
 
 
     " For conceal markers. quoto will disappear

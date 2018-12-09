@@ -94,7 +94,6 @@ Plug 'zchee/deoplete-go', { 'do': 'make'}
 " Plug 'jodosha/vim-godebug'
 
 
-" Plug 'hashivim/vim-terraform.git'
 
 
 
