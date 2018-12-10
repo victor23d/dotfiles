@@ -1,4 +1,5 @@
 {
+    "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 16,
     "markdown.preview.fontSize": 18,
     "terminal.integrated.fontSize": 16,

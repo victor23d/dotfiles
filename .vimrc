@@ -7,6 +7,7 @@
 " GVim original setting works
 " set guifont=Consolas:h16:b:cDEFAULT
 set guifont=Iosevka:h16:b:cDEFAULT
+set guifont=Iosevka:h16:cDEFAULT
 " start nvim from powershell to debug
 " do NOT use nvim qt to edit init.vim, it's a bug on windows
 
@@ -16,8 +17,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 
 
@@ -68,6 +69,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'Chiel92/vim-autoformat'
 
 
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -198,7 +200,7 @@ set relativenumber
 set textwidth=0
 set textwidth=999
 
-set ignorecase
+" set ignorecase
 
 
 " show existing tab with 4 spaces width
@@ -273,8 +275,6 @@ inoremap <S-Down> <Esc>Yp
 imap <C-_> <Esc>mtgcc `ta
 nmap <C-_> <Esc>mtgcc `t
 
-nnoremap <M-C-F> :Denite grep<CR>
-
 nnoremap / /\v
 
 cnoremap <S-Insert> +
@@ -292,13 +292,15 @@ command B Buffers
 " Plug map
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>d :Denite 
+nnoremap <leader>F :Denite grep<CR>
+
 nnoremap <silent> <leader>tn :set invrelativenumber<CR>:set invnumber<CR>
 nnoremap <silent> <Leader>tg :GitGutterSignsToggle<CR>
 nnoremap <silent> <Leader>tl :ALEToggle<CR>
 nnoremap <silent> <Leader>ta :set invrelativenumber<CR>:set invnumber<CR>:GitGutterSignsToggle<CR>:ALEToggle<CR>
 nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
-nnoremap <C-p> :History<CR>
+" nnoremap <C-p> :History<CR>
 
 
 
@@ -449,6 +451,76 @@ if exists('g:plugs["denite.nvim"]')
     call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>', 'noremap')
 
     nnoremap <C-p> :<C-u>Denite file_old<CR>
+endif
+
+
+
+if exists('g:plugs["defx.nvim"]')
+autocmd FileType defx call s:defx_my_settings()
+	function! s:defx_my_settings() abort
+	  " Define mappings
+	  nnoremap <silent><buffer><expr> <CR>
+	  \ defx#do_action('open')
+	  nnoremap <silent><buffer><expr> c
+	  \ defx#do_action('copy')
+	  nnoremap <silent><buffer><expr> m
+	  \ defx#do_action('move')
+	  nnoremap <silent><buffer><expr> p
+	  \ defx#do_action('paste')
+	  nnoremap <silent><buffer><expr> l
+	  \ defx#do_action('open')
+	  nnoremap <silent><buffer><expr> E
+	  \ defx#do_action('open', 'vsplit')
+	  nnoremap <silent><buffer><expr> P
+	  \ defx#do_action('open', 'pedit')
+	  nnoremap <silent><buffer><expr> K
+	  \ defx#do_action('new_directory')
+	  nnoremap <silent><buffer><expr> N
+	  \ defx#do_action('new_file')
+	  nnoremap <silent><buffer><expr> d
+	  \ defx#do_action('remove')
+	  nnoremap <silent><buffer><expr> r
+	  \ defx#do_action('rename')
+	  nnoremap <silent><buffer><expr> !
+	  \ defx#do_action('execute_command')
+	  nnoremap <silent><buffer><expr> x
+	  \ defx#do_action('execute_system')
+	  nnoremap <silent><buffer><expr> yy
+	  \ defx#do_action('yank_path')
+	  nnoremap <silent><buffer><expr> .
+	  \ defx#do_action('toggle_ignored_files')
+	  nnoremap <silent><buffer><expr> ;
+	  \ defx#do_action('repeat')
+	  nnoremap <silent><buffer><expr> h
+	  \ defx#do_action('cd', ['..'])
+	  nnoremap <silent><buffer><expr> ~
+	  \ defx#do_action('cd')
+	  nnoremap <silent><buffer><expr> q
+	  \ defx#do_action('quit')
+	  nnoremap <silent><buffer><expr> <Space>
+	  \ defx#do_action('toggle_select') . 'j'
+	  nnoremap <silent><buffer><expr> *
+	  \ defx#do_action('toggle_select_all')
+	  nnoremap <silent><buffer><expr> j
+	  \ line('.') == line('$') ? 'gg' : 'j'
+	  nnoremap <silent><buffer><expr> k
+	  \ line('.') == 1 ? 'G' : 'k'
+	  nnoremap <silent><buffer><expr> <C-l>
+	  \ defx#do_action('redraw')
+	  nnoremap <silent><buffer><expr> <C-g>
+	  \ defx#do_action('print')
+	  nnoremap <silent><buffer><expr> cd
+	  \ defx#do_action('change_vim_cwd')
+  endfunction
+  " I want to explore the folder where the current file is.
+  " Defx `expand('%:p:h')` -search=`expand('%:p')`
+
+  " I want to open defx window like explorer.
+  " Defx -split=vertical -winwidth=50 -direction=topleft
+
+  " I want to open file like vimfiler explorer mode.
+  " nnoremap <silent><buffer><expr> <CR> defx#do_action('drop')
+
 endif
 
 
