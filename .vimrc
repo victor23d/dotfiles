@@ -311,6 +311,9 @@ nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls').
 
 
 
+autocmd BufWrite * set ff=unix
+
+
 
 " --------------------------------------------------------------------------------
 "  Plugin config
@@ -547,7 +550,7 @@ if exists('g:plugs["deoplete.nvim"]')
     set shortmess+=c
 
     " I want to use the auto select feature like |neocomplete|.
-    set completeopt+=noinsert
+    " set completeopt+=noinsert
 
 
 
