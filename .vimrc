@@ -95,6 +95,7 @@ Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nv
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 " Plug 'jodosha/vim-godebug'
 
+Plug 'zchee/deoplete-jedi'
 
 
 
@@ -272,8 +273,11 @@ inoremap <M-Down> <Esc>ddpA
 inoremap <S-Up> <Esc>YP
 inoremap <S-Down> <Esc>Yp
 
-imap <C-_> <Esc>mtgcc `ta
-nmap <C-_> <Esc>mtgcc `t
+" <C-/>
+" can not use noremap
+imap <C-_> <Esc>mtgcc`ta
+nmap <C-_> <Esc>mtgcc`t
+vmap <C-_> mtgc`t
 
 nnoremap / /\v
 
@@ -459,70 +463,70 @@ endif
 
 
 if exists('g:plugs["defx.nvim"]')
-autocmd FileType defx call s:defx_my_settings()
-	function! s:defx_my_settings() abort
-	  " Define mappings
-	  nnoremap <silent><buffer><expr> <CR>
-	  \ defx#do_action('open')
-	  nnoremap <silent><buffer><expr> c
-	  \ defx#do_action('copy')
-	  nnoremap <silent><buffer><expr> m
-	  \ defx#do_action('move')
-	  nnoremap <silent><buffer><expr> p
-	  \ defx#do_action('paste')
-	  nnoremap <silent><buffer><expr> l
-	  \ defx#do_action('open')
-	  nnoremap <silent><buffer><expr> E
-	  \ defx#do_action('open', 'vsplit')
-	  nnoremap <silent><buffer><expr> P
-	  \ defx#do_action('open', 'pedit')
-	  nnoremap <silent><buffer><expr> K
-	  \ defx#do_action('new_directory')
-	  nnoremap <silent><buffer><expr> N
-	  \ defx#do_action('new_file')
-	  nnoremap <silent><buffer><expr> d
-	  \ defx#do_action('remove')
-	  nnoremap <silent><buffer><expr> r
-	  \ defx#do_action('rename')
-	  nnoremap <silent><buffer><expr> !
-	  \ defx#do_action('execute_command')
-	  nnoremap <silent><buffer><expr> x
-	  \ defx#do_action('execute_system')
-	  nnoremap <silent><buffer><expr> yy
-	  \ defx#do_action('yank_path')
-	  nnoremap <silent><buffer><expr> .
-	  \ defx#do_action('toggle_ignored_files')
-	  nnoremap <silent><buffer><expr> ;
-	  \ defx#do_action('repeat')
-	  nnoremap <silent><buffer><expr> h
-	  \ defx#do_action('cd', ['..'])
-	  nnoremap <silent><buffer><expr> ~
-	  \ defx#do_action('cd')
-	  nnoremap <silent><buffer><expr> q
-	  \ defx#do_action('quit')
-	  nnoremap <silent><buffer><expr> <Space>
-	  \ defx#do_action('toggle_select') . 'j'
-	  nnoremap <silent><buffer><expr> *
-	  \ defx#do_action('toggle_select_all')
-	  nnoremap <silent><buffer><expr> j
-	  \ line('.') == line('$') ? 'gg' : 'j'
-	  nnoremap <silent><buffer><expr> k
-	  \ line('.') == 1 ? 'G' : 'k'
-	  nnoremap <silent><buffer><expr> <C-l>
-	  \ defx#do_action('redraw')
-	  nnoremap <silent><buffer><expr> <C-g>
-	  \ defx#do_action('print')
-	  nnoremap <silent><buffer><expr> cd
-	  \ defx#do_action('change_vim_cwd')
-  endfunction
-  " I want to explore the folder where the current file is.
-  " Defx `expand('%:p:h')` -search=`expand('%:p')`
+    autocmd FileType defx call s:defx_my_settings()
+    function! s:defx_my_settings() abort
+        " Define mappings
+        nnoremap <silent><buffer><expr> <CR>
+                    \ defx#do_action('open')
+        nnoremap <silent><buffer><expr> c
+                    \ defx#do_action('copy')
+        nnoremap <silent><buffer><expr> m
+                    \ defx#do_action('move')
+        nnoremap <silent><buffer><expr> p
+                    \ defx#do_action('paste')
+        nnoremap <silent><buffer><expr> l
+                    \ defx#do_action('open')
+        nnoremap <silent><buffer><expr> E
+                    \ defx#do_action('open', 'vsplit')
+        nnoremap <silent><buffer><expr> P
+                    \ defx#do_action('open', 'pedit')
+        nnoremap <silent><buffer><expr> K
+                    \ defx#do_action('new_directory')
+        nnoremap <silent><buffer><expr> N
+                    \ defx#do_action('new_file')
+        nnoremap <silent><buffer><expr> d
+                    \ defx#do_action('remove')
+        nnoremap <silent><buffer><expr> r
+                    \ defx#do_action('rename')
+        nnoremap <silent><buffer><expr> !
+                    \ defx#do_action('execute_command')
+        nnoremap <silent><buffer><expr> x
+                    \ defx#do_action('execute_system')
+        nnoremap <silent><buffer><expr> yy
+                    \ defx#do_action('yank_path')
+        nnoremap <silent><buffer><expr> .
+                    \ defx#do_action('toggle_ignored_files')
+        nnoremap <silent><buffer><expr> ;
+                    \ defx#do_action('repeat')
+        nnoremap <silent><buffer><expr> h
+                    \ defx#do_action('cd', ['..'])
+        nnoremap <silent><buffer><expr> ~
+                    \ defx#do_action('cd')
+        nnoremap <silent><buffer><expr> q
+                    \ defx#do_action('quit')
+        nnoremap <silent><buffer><expr> <Space>
+                    \ defx#do_action('toggle_select') . 'j'
+        nnoremap <silent><buffer><expr> *
+                    \ defx#do_action('toggle_select_all')
+        nnoremap <silent><buffer><expr> j
+                    \ line('.') == line('$') ? 'gg' : 'j'
+        nnoremap <silent><buffer><expr> k
+                    \ line('.') == 1 ? 'G' : 'k'
+        nnoremap <silent><buffer><expr> <C-l>
+                    \ defx#do_action('redraw')
+        nnoremap <silent><buffer><expr> <C-g>
+                    \ defx#do_action('print')
+        nnoremap <silent><buffer><expr> cd
+                    \ defx#do_action('change_vim_cwd')
+    endfunction
+    " I want to explore the folder where the current file is.
+    " Defx `expand('%:p:h')` -search=`expand('%:p')`
 
-  " I want to open defx window like explorer.
-  " Defx -split=vertical -winwidth=50 -direction=topleft
+    " I want to open defx window like explorer.
+    " Defx -split=vertical -winwidth=50 -direction=topleft
 
-  " I want to open file like vimfiler explorer mode.
-  " nnoremap <silent><buffer><expr> <CR> defx#do_action('drop')
+    " I want to open file like vimfiler explorer mode.
+    " nnoremap <silent><buffer><expr> <CR> defx#do_action('drop')
 
 endif
 
@@ -589,9 +593,13 @@ if exists('g:plugs["neosnippet.vim"]')
     " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
     "
     imap <expr><TAB>
-                \ pumvisible() ? "\<C-n><Plug>(neosnippet_expand_or_jump)" :
+                \ pumvisible() ? "\<Plug>(neosnippet_expand_or_jump)" :
                 \ neosnippet#expandable_or_jumpable() ?
                 \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    " imap <expr><TAB>
+    "             \ pumvisible() ? "\<C-n><Plug>(neosnippet_expand_or_jump)" :
+    "             \ neosnippet#expandable_or_jumpable() ?
+    "             \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
     " imap <expr><C-k>
     "             \ neosnippet#expandable_or_jumpable() ?
     "             \    "\<Plug>(neosnippet_expand_or_jump)" : "\<C-y>"
@@ -615,29 +623,39 @@ endif
 
 
 let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-    \ }
+            \ 'ctagstype' : 'go',
+            \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions'
+            \ ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype'
+            \ },
+            \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n'
+            \ },
+            \ 'ctagsbin'  : 'gotags',
+            \ 'ctagsargs' : '-sort -silent'
+            \ }
+
+
+
+if exists('g:plugs["deoplete-jedi"]')
+    " g:deoplete#sources#jedi#enable_typeinfo: Enables type information of completions. If you disable it, you will get the faster results. Default: 1
+    " g:deoplete#sources#jedi#show_docstring: Shows docstring in preview window. Default: 0
+    " g:deoplete#sources#jedi#python_path: Set the Python interpreter path to use for the completion server. It defaults to "python", i.e. the first available python in $PATH. Note: This is different from Neovim's Python (:python) in general.
+    " g:deoplete#sources#jedi#extra_path: A list of extra paths to add to sys.path when performing completions.
+    " g:deoplete#sources#jedi#ignore_errors: Ignore jedi errors for completions. Default: 0
+endif
