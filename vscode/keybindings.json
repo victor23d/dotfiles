@@ -131,6 +131,10 @@
         "command": "cursorWordEndLeft"
     },
     {
+        "key": "ctrl+o",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
         "key": "ctrl+p",
         "command": "extension.vim_ctrl+p",
         "when": "editorTextFocus && vim.active && vim.use<C-k> && !inDebugRepl"
@@ -156,5 +160,141 @@
     {
         "key": "ctrl+/",
         "command": "editor.action.commentLine"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.terminal.deleteWordRight",
+        "when": "terminalFocus"
+    },
+    // Terminal find, next
+    // These are cross powershell and bash
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.terminal.findNext",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "f3",
+        "command": "-workbench.action.terminal.findNext",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "workbench.action.terminal.findNextTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "f3",
+        "command": "-workbench.action.terminal.findNextTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "workbench.action.terminal.findPrevious",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "shift+f3",
+        "command": "-workbench.action.terminal.findPrevious",
+        "when": "terminalFindWidgetFocused"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "workbench.action.terminal.findPreviousTerminalFocus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "shift+f3",
+        "command": "-workbench.action.terminal.findPreviousTerminalFocus",
+        "when": "terminalFocus"
+    },
+
+    // Only apply to powershell
+
+    // copy and paste
+    {
+        "key": "ctrl+insert",
+        "command": "workbench.action.terminal.copySelection",
+        "when": "terminalFocus && terminalTextSelected"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-workbench.action.terminal.copySelection",
+        "when": "terminalFocus && terminalTextSelected"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "workbench.action.terminal.clearSelection",
+        "when": "terminalFocus && terminalTextSelected && !terminalFindWidgetVisible"
+    },
+    {
+        "key": "shift+insert",
+        "command": "workbench.action.terminal.paste",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "-workbench.action.terminal.paste",
+        "when": "terminalFocus"
+    },
+
+    // bash motion and kill
+    // Use <Home> <End> to move in powershell
+    {
+        "key": "ctrl+delete",
+        "command": "-workbench.action.terminal.deleteWordRight",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.terminal.deleteWordLeft",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+backspace",
+        "command": "-workbench.action.terminal.deleteWordLeft",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+home",
+        "command": "-workbench.action.terminal.scrollToTop",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+end",
+        "command": "-workbench.action.terminal.scrollToBottom",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "workbench.action.terminal.moveToLineEnd",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "workbench.action.terminal.moveToLineStart",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "workbench.action.terminal.deleteToLineStart",
+        "when": "terminalFocus"
+    },
+
+    // Esc close terminal
+    {
+        "key": "escape",
+        "command": "-workbench.action.terminal.clearSelection",
+        "when": "terminalFocus && terminalTextSelected && !terminalFindWidgetVisible"
+    },
+    {
+        "key": "escape",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminalFocus"
     }
 ]
+

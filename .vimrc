@@ -99,6 +99,10 @@ Plug 'zchee/deoplete-jedi'
 
 
 
+Plug 'hashivim/vim-terraform'
+
+
+
 
 call plug#end()
 
@@ -228,8 +232,6 @@ endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" maps
-let mapleader = "\<Space>"
 
 " Readline key bindings
 nnoremap <A-1> 1gt
@@ -268,10 +270,12 @@ inoremap <S-CR> <Esc>o
 inoremap <C-j> <Esc>o
 
 
-inoremap <M-Up> <Esc>dd<Up>PA
-inoremap <M-Down> <Esc>ddpA
-inoremap <S-Up> <Esc>YP
-inoremap <S-Down> <Esc>Yp
+inoremap <M-Up> <Esc>dd<Up>P
+nnoremap <M-Up> <Esc>dd<Up>P
+inoremap <M-Down> <Esc>ddp
+nnoremap <M-Down> <Esc>ddp
+inoremap <M-S-Up> <Esc>YP
+inoremap <M-S-Down> <Esc>Yp
 
 " <C-/>
 " can not use noremap
@@ -289,14 +293,27 @@ inoremap <S-Insert> +
 " CWD = Change to Directory of Current file
 command CWD cd %:p:h
 command PWD cd %:p:h
+
+command Marks Denite mark
+command Files Denite file
+command Buffers Denite buffer
+command Reg Denite register
+
+command M Marks
 command F Files
 command B Buffers
+command R Reg
+command G Grep
 
 
-" Plug map
+" leader maps
+let mapleader = "\<Space>"
+
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>d :Denite 
 nnoremap <leader>F :Denite grep<CR>
+nnoremap <leader>m :Denite mark<CR>
+
 
 nnoremap <silent> <leader>tn :set invrelativenumber<CR>:set invnumber<CR>
 nnoremap <silent> <Leader>tg :GitGutterSignsToggle<CR>
