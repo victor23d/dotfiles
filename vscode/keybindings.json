@@ -137,7 +137,7 @@
     {
         "key": "ctrl+p",
         "command": "extension.vim_ctrl+p",
-        "when": "editorTextFocus && vim.active && vim.use<C-k> && !inDebugRepl"
+        "when": "editorTextFocus && vim.active && vim.use<C-p> && !inDebugRepl"
     },
     {
         "key": "ctrl+p",
@@ -165,10 +165,15 @@
         "key": "ctrl+b",
         "command": "-workbench.action.toggleSidebarVisibility"
     },
+
     {
-        "key": "ctrl+k",
-        "command": "workbench.action.terminal.deleteWordRight",
-        "when": "terminalFocus"
+        "key": "ctrl+j",
+        "command": "editor.action.insertLineAfter",
+        "when": "editorTextFocus && vim.active && vim.mode == 'Insert' && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
     },
     // Terminal find, next
     // These are cross powershell and bash
@@ -284,6 +289,11 @@
         "command": "workbench.action.terminal.deleteToLineStart",
         "when": "terminalFocus"
     },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.terminal.deleteWordRight",
+        "when": "terminalFocus"
+    },
 
     // Esc close terminal
     {
@@ -295,6 +305,6 @@
         "key": "escape",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminalFocus"
-    }
+    },
 ]
 
