@@ -219,10 +219,11 @@ export EDITOR=nvim
 export GIT_EDITOR=nvim
 export GOPATH=~/go
 
-PATH="~/miniconda3/bin:$PATH"
-PATH=~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share:$PATH
+PATH=$PATH:~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share
 PATH=$PATH:/usr/local/go/bin
 PATH=$PATH:$GOPATH/bin:~/go/bin
+PATH=$PATH:~/miniconda3/bin
+PATH=$PATH:/snap/bin
 export PATH
 
 

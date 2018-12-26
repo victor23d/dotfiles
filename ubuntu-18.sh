@@ -10,7 +10,8 @@ if [[ ! `which pip` ]];then
 # if [[ ! ` pip --version =~ 18` ]];then
     echo '--------------------install pip--------------------'
     # curl https://bootstrap.pypa.io/get-pip.py | python3       # broken
-    apt install -y python3-venv python3-pip       # very big
+    # apt install -y python3-venv python3-pip       # very big
+    apt install -y python3-pip       # very big
     pip3 install -U pip
 fi
 
