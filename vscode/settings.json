@@ -139,18 +139,9 @@
             "commands": [
                 {
                     "command": "workbench.action.quickOpen",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "ctrl+p",
-            ],
-            "commands": [
-                {
-                    "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+                    // "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
                     // "command": "workbench.action.quickOpenSelectPrevious",
+                    "args": []
                 }
             ]
         },
@@ -209,7 +200,7 @@
             "before": [
                 "ctrl+n",
             ],
-            "command": [
+            "commands": [
                 "selectNextSuggetion"
             ],
         },
