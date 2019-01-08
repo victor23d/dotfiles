@@ -10,8 +10,9 @@ PROMPT='$FG[237]------------------------------------------------------------%{$r
 $FG[032]%~\
 $(git_prompt_info) \
 $FG[105]%(!.#.»)%{$reset_color%} '
+# This is right time, cancel to copy terminal
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
-RPS1='${return_code}'
+# RPS1='${return_code}'
 
 
 # color vars

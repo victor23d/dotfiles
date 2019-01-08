@@ -37,7 +37,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'justinmk/vim-sneak'
 Plug 'justinmk/vim-dirvish'
 Plug 'justinmk/vim-gtfo'
-
+Plug 'kassio/neoterm'
 
 
 Plug 'airblade/vim-gitgutter'
@@ -166,37 +166,6 @@ endif
 " config
 
 
-" colorscheme darkblue
-" colorscheme elflord
-" colorscheme koehler
-" colorscheme murphy
-" colorscheme py
-" colorscheme lucariox
-" colorscheme solarized
-" colorscheme gruvbox
-" colorscheme desert256
-colorscheme janah-v
-
-" doesn't work
-highlight LineNr ctermfg=grey
-highlight Search cterm=NONE ctermfg=grey ctermbg=blue 
-
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-highlight Search guibg=peru guifg=wheat
-highlight Search guibg=lightblue guifg=black
-highlight CursorLineNr guifg=#FF00FF
-
-"Denite select line color
-highlight CursorLine guifg=#000000
-" highlight CursorLine guibg=#00aaff
-" highlight CursorLine guibg=#ee9900
-highlight CursorLine guibg=#dd7777
-
-
-" will cause highlight Search and CursorLineNr color invaild
-" set background=dark
-
-
 set fileencoding=utf-8
 set ff=unix
 set number
@@ -228,10 +197,46 @@ if has("autocmd")
                 \| exe "normal! g'\"" | endif
 endif
 
+set splitbelow
+set splitright
 
+set mouse=a
+
+" colorscheme darkblue
+" colorscheme elflord
+" colorscheme koehler
+" colorscheme murphy
+" colorscheme py
+" colorscheme lucariox
+" colorscheme solarized
+" colorscheme gruvbox
+" colorscheme desert256
+colorscheme janah-v
+
+" doesn't work
+highlight LineNr ctermfg=grey
+highlight Search cterm=NONE ctermfg=grey ctermbg=blue 
+
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+highlight Search guibg=peru guifg=wheat
+highlight Search guibg=lightblue guifg=black
+highlight CursorLineNr guifg=#FF00FF
+
+"Denite select line color
+highlight CursorLine guifg=#000000
+" highlight CursorLine guibg=#00aaff
+" highlight CursorLine guibg=#ee9900
+highlight CursorLine guibg=#dd7777
+
+
+" will cause highlight Search and CursorLineNr color invaild
+" set background=dark
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" leader maps
+let mapleader = "\<Space>"
 
 " Readline key bindings
 nnoremap <A-1> 1gt
@@ -293,6 +298,10 @@ vmap <C-_> mtgc`t
 
 nnoremap / /\v
 
+tnoremap <Esc> <C-\><C-n>
+nnoremap <silent> <leader>` :botright Ttoggle<CR><C-w>j
+nnoremap <silent> <leader>v` :vertical botright Ttoggle<CR><C-w>l
+tnoremap <silent> <leader>` <C-\><C-n> :Ttoggle<CR>
 
 
 " CWD = Change to Directory of Current file
@@ -311,8 +320,6 @@ command R Reg
 command G Grep
 
 
-" leader maps
-let mapleader = "\<Space>"
 
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>d :Denite 
