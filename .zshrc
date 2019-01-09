@@ -226,6 +226,8 @@ PATH=$PATH:~/miniconda3/bin
 PATH=$PATH:/snap/bin
 export PATH
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export FZF_DEFAULT_OPTS='--height 40% --reverse'
 
@@ -339,7 +341,6 @@ function cow(){
 # some shell function will broken # theme refined
 # alias date='date +%Y-%m-%dT%H:%M:%S'
 
-alias pe='percol'
 
 alias mod_ls='lsmod'
 alias mod_ins='insmod'
@@ -366,12 +367,7 @@ if [[ `uname` != 'Linux' ]];then
     MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
     alias updatedb='/usr/libexec/locate.updatedb'
     export PATH
-
+    export MANPATH
     #alias ls='ls -ACGh --color'
-
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 

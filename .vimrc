@@ -165,16 +165,23 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " config
 
+" will cause highlight Search and CursorLineNr color invaild
+" set background=dark
 
+" set autowrite
 set fileencoding=utf-8
 set ff=unix
-set number
-set relativenumber
 
-set textwidth=0
-set textwidth=999
 
-" set ignorecase
+set ignorecase
+set smartcase
+set magic               " Use magic patterns (extended regular expression) default on
+set guioptions=         " remove scrollbars on macvim
+set noshowmode          " don't show mode as airline already does
+set foldmethod=manual   " set folds by syntax of current language
+" can resize windows but can not copy
+" set mouse=a
+set iskeyword+=-        " treat dash separated words as a word text object
 
 
 " show existing tab with 4 spaces width
@@ -183,6 +190,24 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
+set shiftround          " Round indent to multiple of shiftwidth
+set hidden              " enable hidden unsaved buffers
+
+set visualbell
+
+set textwidth=0
+" set textwidth=999
+set wrap                " default on
+" set list
+
+set number
+set relativenumber
+set numberwidth=4
+
+set splitbelow
+set splitright
+
+
 
 
 " will cause paste improper indent
@@ -197,10 +222,7 @@ if has("autocmd")
                 \| exe "normal! g'\"" | endif
 endif
 
-set splitbelow
-set splitright
 
-set mouse=a
 
 " colorscheme darkblue
 " colorscheme elflord
@@ -212,6 +234,8 @@ set mouse=a
 " colorscheme gruvbox
 " colorscheme desert256
 colorscheme janah-v
+" colorscheme one       " atom
+" set background=dark
 
 " doesn't work
 highlight LineNr ctermfg=grey
@@ -229,8 +253,6 @@ highlight CursorLine guifg=#000000
 highlight CursorLine guibg=#dd7777
 
 
-" will cause highlight Search and CursorLineNr color invaild
-" set background=dark
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -296,7 +318,8 @@ imap <C-_> <Esc>mtgcc`ta
 nmap <C-_> <Esc>mtgcc`t
 vmap <C-_> mtgc`t
 
-nnoremap / /\v
+" Use set magic instead
+" nnoremap / /\v
 
 tnoremap <Esc> <C-\><C-n>
 nnoremap <silent> <leader>` :botright Ttoggle<CR><C-w>j
