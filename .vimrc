@@ -271,6 +271,8 @@ nnoremap <A-7> 7gt
 nnoremap <A-8> 8gt
 nnoremap <A-9> 9gt
 
+nnoremap <F2> :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
+vnoremap <F2> y :%s/<C-r>"//gc<Left><Left><Left>
 
 
 " Switch to last-active tab
@@ -320,6 +322,7 @@ vmap <C-_> mtgc`t
 
 " Use set magic instead
 " nnoremap / /\v
+map <silent> <esc> :nohlsearch<cr>
 
 tnoremap <Esc> <C-\><C-n>
 nnoremap <silent> <leader>` :botright Ttoggle<CR><C-w>j

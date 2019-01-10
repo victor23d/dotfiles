@@ -33,6 +33,7 @@ fi
 #     git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 # fi
 
+# nvim
 if [[ ! `nvim -v` =~ '0.3' ]];then
     echo '--------------------install neovim--------------------'
     curl -SsLo /opt/nvim https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage
@@ -49,6 +50,7 @@ fi
 # tmux
 echo '--------------------install tmux--------------------'
 apt install -y tmux
+echo 'set-window-option -g mode-keys vi' > ~/.tmux.conf
 
 # oh-my-tmux
 # if [[ ! -e ~/.tmux ]];then
