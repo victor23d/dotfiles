@@ -124,6 +124,7 @@ if has('nvim')
     set display=lastline,msgsep
 endif
 set encoding=utf-8
+set fileencoding=utf-8
 set fillchars=""
 " set fsync off
 set nofsync
@@ -206,6 +207,8 @@ set numberwidth=4
 
 set splitbelow
 set splitright
+
+set inccommand=split
 
 
 
@@ -715,3 +718,6 @@ if exists('g:plugs["deoplete-jedi"]')
     " g:deoplete#sources#jedi#extra_path: A list of extra paths to add to sys.path when performing completions.
     " g:deoplete#sources#jedi#ignore_errors: Ignore jedi errors for completions. Default: 0
 endif
+
+
+" let g:python3_host_prog = 'PATH/Python37/python.exe'
