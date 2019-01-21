@@ -6,19 +6,19 @@ apt update -y
 # fi
 
 # pip
-if [[ ! `which pip` ]];then
+if [[ ! `command -v pip` ]];then
 # if [[ ! ` pip --version =~ 18` ]];then
     echo '--------------------install pip--------------------'
     # curl https://bootstrap.pypa.io/get-pip.py | python3       # broken
     # apt install -y python3-venv python3-pip       # very big
     apt install -y python3-pip       # very big
+    # neovim
     pip3 install -U pip
 fi
 
 # zsh
 echo '--------------------install zsh--------------------'
 apt install -y zsh
-# chsh -s $(which zsh)
 
 
 # oh-my-zsh
@@ -86,6 +86,5 @@ echo 'Done, after run start_backup then exit and login back...'
 
 
 # TODO
-# check version which
 # Oh-my-zsh exit
 # fasd [ENTER]

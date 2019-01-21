@@ -54,8 +54,6 @@ Plug 'jacoborus/tender.vim'
 " Plug 'rainglow/vim'
 
 
-
-
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'terryma/vim-expand-region'
@@ -67,6 +65,7 @@ Plug 'terryma/vim-multiple-cursors'
 " format
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'Chiel92/vim-autoformat'
+Plug 'elzr/vim-json'
 
 
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -99,7 +98,10 @@ Plug 'zchee/deoplete-jedi'
 
 
 
+Plug 'pearofducks/ansible-vim'
 Plug 'hashivim/vim-terraform'
+Plug 'ekalinin/Dockerfile.vim'
+
 
 
 
@@ -519,6 +521,20 @@ if exists('g:plugs["denite.nvim"]')
     nnoremap <C-p> :<C-u>Denite file_old<CR>
 endif
 
+
+
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+au BufRead,BufNewFile *.yml set filetype=yaml.ansible
+au BufRead,BufNewFile *.yaml set filetype=yaml.ansible
+
+
+if exists('g:plugs["vim-terraform"]')
+    let g:terraform_align=1
+    let g:terraform_fold_sections=1
+    let g:terraform_remap_spacebar=1
+    let g:terraform_commentstring='//%s'
+    let g:terraform_fmt_on_save=1
+endif
 
 
 if exists('g:plugs["defx.nvim"]')

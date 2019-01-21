@@ -293,7 +293,7 @@ alias vn=nv
 
 alias vim=nvim
 alias vimdiff='nvim -d'
-if [[ `which pgcli` ]];then
+if [[ `command -v pgcli` ]];then
     alias psql=pgcli
 fi
 
