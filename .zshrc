@@ -293,6 +293,10 @@ alias vn=nv
 
 alias vim=nvim
 alias vimdiff='nvim -d'
+if [[ `which pgcli` ]];then
+    alias psql=pgcli
+fi
+
 
 #-A	--almost-all
 #-C	 list entries by columns
