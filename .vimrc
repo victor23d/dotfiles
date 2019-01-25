@@ -75,7 +75,7 @@ Plug 'Shougo/neosnippet-snippets'
 
 " language supoort
 Plug 'w0rp/ale'
-Plug 'autozimu/LanguageClient-neovim'
+" Plug 'autozimu/LanguageClient-neovim'
 " Plug 'majutsushi/tagbar'
 
 
@@ -101,6 +101,8 @@ Plug 'zchee/deoplete-jedi'
 Plug 'pearofducks/ansible-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+
 
 
 
