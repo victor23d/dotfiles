@@ -12,12 +12,11 @@ fi
 
 mkdir -p .dotfiles_back/vscode
 
-mv -f .zshrc .bashrc .tmux.conf .tmux.conf.local    .gitconfig .vim .vimrc .config/nvim .SpaceVim.d ~/.dotfiles_back
+mv -f .zshrc .tmux.conf .tmux.conf.local    .gitconfig .vim .vimrc .config/nvim .SpaceVim.d ~/.dotfiles_back
 
 ln -s ~/dotfiles/.zshrc ~/
 rm -rf ~/.oh-my-zsh/custom
 ln -sf ~/dotfiles/custom ~/.oh-my-zsh/
-ln -s ~/dotfiles/.bashrc ~/
 ln -s ~/dotfiles/.tmux.conf ~/
 ln -s ~/dotfiles/.tmux.conf.local ~/
 # ln -s ~/dotfiles/.editrc ~/

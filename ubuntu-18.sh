@@ -49,7 +49,9 @@ fi
 
 # tmux
 echo '--------------------install tmux--------------------'
-apt install -y tmux
+if [[ ! `tmux -V` =~ '2.6' ]];then
+    apt install -y tmux
+fi
 echo 'set-window-option -g mode-keys vi' > ~/.tmux.conf
 
 # oh-my-tmux
