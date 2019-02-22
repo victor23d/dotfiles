@@ -102,6 +102,8 @@ Plug 'pearofducks/ansible-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'modille/groovy.vim'
+
 
 
 
@@ -314,12 +316,17 @@ inoremap <C-CR> <Esc>o
 " inoremap <S-Insert> <C-R>+
 " }
 
+noremap <M-Up> <Esc>dd<Up>P
 inoremap <M-Up> <Esc>dd<Up>P
-nnoremap <M-Up> <Esc>dd<Up>P
+noremap <M-Down> <Esc>ddp
 inoremap <M-Down> <Esc>ddp
-nnoremap <M-Down> <Esc>ddp
-inoremap <M-S-Up> <Esc>YP
-inoremap <M-S-Down> <Esc>Yp
+
+noremap <M-S-Up> <Esc>dd<Up>P
+inoremap <M-S-Up> <Esc>dd<Up>P
+noremap <M-S-Down> <Esc>ddp
+inoremap <M-S-Down> <Esc>ddp
+
+inoremap dd <Esc>dd
 
 " <C-/>
 " can not use noremap
