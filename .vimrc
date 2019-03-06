@@ -326,7 +326,7 @@ inoremap <M-S-Up> <Esc>dd<Up>P
 noremap <M-S-Down> <Esc>ddp
 inoremap <M-S-Down> <Esc>ddp
 
-inoremap dd <Esc>dd
+" inoremap dd <Esc>dd
 
 " <C-/>
 " can not use noremap

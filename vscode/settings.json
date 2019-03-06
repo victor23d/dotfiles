@@ -6,7 +6,7 @@
     "files.autoSave": "afterDelay",
     "typescript.useCodeSnippetsOnMethodSuggest": true,
     "git.ignoreMissingGitWarning": true,
-    "window.zoomLevel": 0.8,
+    "window.zoomLevel": 1,
     "python.autoComplete.addBrackets": true,
     "explorer.confirmDragAndDrop": false,
     "workbench.activityBar.visible": true,
@@ -179,17 +179,6 @@
         },
         {
             "before": [
-                "d",
-                "d"
-            ],
-            "after": [
-                "ctrl+[",
-                "d",
-                "d"
-            ]
-        },
-        {
-            "before": [
                 "ctrl+p",
             ],
             "commands": [
@@ -242,6 +231,7 @@
     "vim.statusBarColors.visualline": "#8800FF",
     "vim.statusBarColors.visualblock": "#8800FF",
     "vim.statusBarColors.replace": "#D08770",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "workbench.iconTheme": "vscode-icons"
 }
 
