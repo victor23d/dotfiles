@@ -98,6 +98,8 @@ Plug 'zchee/deoplete-jedi'
 
 
 
+
+Plug 'andrewstuart/vim-kubernetes'
 Plug 'pearofducks/ansible-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ekalinin/Dockerfile.vim'
@@ -533,8 +535,9 @@ endif
 
 
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
-au BufRead,BufNewFile *.yml set filetype=yaml.ansible
-au BufRead,BufNewFile *.yaml set filetype=yaml.ansible
+" au BufRead,BufNewFile *.yml set filetype=yaml.ansible
+" au BufRead,BufNewFile *.yaml set filetype=yaml.ansible
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 
 if exists('g:plugs["vim-terraform"]')

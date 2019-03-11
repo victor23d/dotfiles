@@ -74,14 +74,15 @@ if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google-cloud-s
 
 
 plugins=(
-#aws
-#common-aliases
+aws
 docker
 docker-compose
 docker-machine
 fasd
 git
 golang
+github
+hub
 node
 npm
 nvm
