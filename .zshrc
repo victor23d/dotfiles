@@ -80,6 +80,7 @@ docker-compose
 docker-machine
 fasd
 git
+git-open
 golang
 github
 hub
@@ -90,6 +91,7 @@ kubectl
 kube-ps1
 # zsh-completions
 terraform
+zsh-autosuggestions
 )
 
 autoload -U compinit && compinit
