@@ -92,7 +92,7 @@ kube-ps1
 kubetail
 # zsh-completions
 terraform
-zsh-autosuggestions
+# zsh-autosuggestions
 )
 
 autoload -U compinit && compinit
