@@ -89,6 +89,7 @@ npm
 nvm
 kubectl
 kube-ps1
+kubetail
 # zsh-completions
 terraform
 zsh-autosuggestions
