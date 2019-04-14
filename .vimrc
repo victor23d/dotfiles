@@ -89,7 +89,9 @@ Plug 'Konfekt/FastFold'
 
 
 " language specific
-Plug 'neoclide/coc.nvim'
+
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
