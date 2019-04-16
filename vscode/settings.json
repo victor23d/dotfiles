@@ -151,8 +151,8 @@
             ],
             "commands": [
                 {
-                    "command": "workbench.action.quickOpenNavigateNextInFilePicker",
-                    // "command": "workbench.action.quickOpenSelectNext",
+                    // "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+                    "command": "workbench.action.quickOpenSelectNext",
                 }
             ]
         },
@@ -185,14 +185,14 @@
                 "selectPrevSuggestion",
             ]
         },
-        {
-            "before": [
-                "ctrl+n",
-            ],
-            "commands": [
-                "selectNextSuggetion"
-            ],
-        },
+        // {
+        //     "before": [
+        //         "ctrl+n",
+        //     ],
+        //     "commands": [
+        //         "selectNextSuggetion"
+        //     ],
+        // },
     ],
     "vim.leader": "<space>",
     "vim.handleKeys": {

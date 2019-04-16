@@ -155,6 +155,11 @@
     },
     {
         "key": "ctrl+n",
+        "command": "extension.vim_ctrl+n",
+        "when": "editorTextFocus && vim.active && vim.use<C-n> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+n",
         "command": "-workbench.action.files.newUntitledFile"
     },
     {
