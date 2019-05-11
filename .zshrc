@@ -83,7 +83,6 @@ git
 git-open
 golang
 github
-hub
 node
 npm
 nvm
