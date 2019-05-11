@@ -36,8 +36,8 @@ fi
 # nvim
 if [[ ! `nvim -v` =~ '0.3' ]];then
     echo '--------------------install neovim--------------------'
-    curl -SsLo /opt/nvim https://github.com/neovim/neovim/releases/download/v0.3.1/nvim.appimage
-    chmod 777 /opt/nvim
+    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+    chmod u+x nvim.appimage
     ln -s /opt/nvim /usr/local/bin/
     # pip3 install neovim
     pip install neovim
