@@ -17,7 +17,7 @@ tar xf node.tar.xz && mv node.tar.xz /t
 
 ln -s /opt/go/bin/* /usr/local/bin/
 ln -s /opt/node/bin/* /usr/local/bin/
-ln -s /hub/bin/* /usr/local/bin/
+ln -s /opt/hub/bin/* /usr/local/bin/
 for bin in /opt/* ;do
     if [[ -f $bin ]];then echo $bin; ln -s /$bin /usr/local/bin/; fi
 done
