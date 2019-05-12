@@ -1,4 +1,5 @@
-apt update -y
+#! /bin/bash
+# apt update -y
 
 # python3.7
 # if [[ `python3 -V` =~ '3.7' ]];then
@@ -7,7 +8,7 @@ apt update -y
 
 # pip
 if [[ ! `command -v pip` ]];then
-# if [[ ! ` pip --version =~ 18` ]];then
+    # if [[ ! ` pip --version =~ 18` ]];then
     echo '--------------------install pip--------------------'
     # curl https://bootstrap.pypa.io/get-pip.py | python3       # broken
     # apt install -y python3-venv python3-pip       # very big
@@ -17,8 +18,10 @@ if [[ ! `command -v pip` ]];then
 fi
 
 # zsh
-echo '--------------------install zsh--------------------'
-apt install -y zsh
+if [[ ! $(zsh --version) ]];then
+    echo '--------------------install zsh--------------------'
+    apt install -y zsh
+fi
 
 
 # oh-my-zsh
@@ -34,7 +37,7 @@ fi
 # fi
 
 # nvim
-if [[ ! `nvim -v` =~ '0.3' ]];then
+if [[ ! `nvim -v` =~ '0.4' ]];then
     echo '--------------------install neovim--------------------'
     curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
     chmod u+x nvim.appimage
@@ -48,8 +51,8 @@ fi
 #pip install percol
 
 # tmux
-echo '--------------------install tmux--------------------'
 if [[ ! `tmux -V` =~ '2.6' ]];then
+    echo '--------------------install tmux--------------------'
     apt install -y tmux
 fi
 echo 'set-window-option -g mode-keys vi' > ~/.tmux.conf
@@ -64,8 +67,10 @@ echo 'set-window-option -g mode-keys vi' > ~/.tmux.conf
 # fi
 
 # not ack2
-echo '--------------------install ag--------------------'
-apt install silversearcher-ag
+if [[ ! $(ag --version) ]];then
+    echo '--------------------install ag--------------------'
+    apt install silversearcher-ag
+fi
 
 
 # fzf
@@ -76,15 +81,16 @@ if [[ ! -e ~/.fzf ]];then
 fi
 
 
-echo '--------------------install fasd--------------------'
-add-apt-repository ppa:aacebedo/fasd
-apt update
-apt install fasd -y
+if [[ ! $(fasd --version) ]];then
+    echo '--------------------install fasd--------------------'
+    add-apt-repository ppa:aacebedo/fasd
+    apt update
+    apt install fasd -y
+fi
 
 
 echo '================================================================================'
 echo 'Done, after run start_backup then exit and login back...'
-
 
 
 # TODO
