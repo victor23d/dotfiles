@@ -346,7 +346,7 @@ function cow(){
 
 # alias grep='grep -P --color=auto'
 # some shell function will broken # theme refined
-# alias date='date +%Y-%m-%dT%H:%M:%S'
+alias date='date +%Y-%m-%dT%H:%M:%S'
 
 
 alias mod_ls='lsmod'
