@@ -1,0 +1,6 @@
+.vim/.netrwhist
+.vim/pack/*
+.vim/plugged/*
+
+.zprofile
+.profile

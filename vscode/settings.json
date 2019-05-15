@@ -1,0 +1,237 @@
+{
+    "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "markdown.preview.fontSize": 18,
+    "terminal.integrated.fontSize": 16,
+    "files.autoSave": "afterDelay",
+    "typescript.useCodeSnippetsOnMethodSuggest": true,
+    "git.ignoreMissingGitWarning": true,
+    "window.zoomLevel": 1,
+    "python.autoComplete.addBrackets": true,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.activityBar.visible": true,
+    "editor.wordWrap": "off",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "u"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "undo"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-r>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility",
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "m"
+            ],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "h"
+            ],
+            "commands": [
+                ":nohlsearch",
+            ]
+        },
+        {
+            "before": [
+                "Z",
+                "Z"
+            ],
+            "commands": [
+                ":wq"
+            ]
+        },
+        {
+            "before": [
+                "j"
+            ],
+            "after": [
+                "g",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "k"
+            ],
+            "after": [
+                "g",
+                "k"
+            ],
+        },
+        {
+            "before": [
+                "down"
+            ],
+            "after": [
+                "g",
+                "down"
+            ],
+        },
+        {
+            "before": [
+                "up"
+            ],
+            "after": [
+                "g",
+                "up"
+            ],
+        },
+        {
+            "before": [
+                "+"
+            ],
+            "commands": [
+                "editor.action.smartSelect.grow"
+            ],
+        },
+        {
+            "before": [
+                "_"
+            ],
+            "commands": [
+                "editor.action.smartSelect.shrink"
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "`"
+            ],
+            "commands": [
+                "workbench.action.terminal.toggleTerminal"
+            ],
+        },
+        {
+            "before": [
+                "ctrl+p",
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.quickOpen",
+                    // "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+                    // "command": "workbench.action.quickOpenSelectPrevious",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "ctrl+n",
+            ],
+            "commands": [
+                {
+                    // "command": "workbench.action.quickOpenNavigateNextInFilePicker",
+                    "command": "workbench.action.quickOpenSelectNext",
+                }
+            ]
+        },
+    ],
+    // "vim.enableNeovim": true,
+    "vim.easymotionMarkerHeight": 18,
+    "vim.easymotionMarkerFontSize": "18",
+    // "vim.neovimPath": "nvim",
+    "vim.easymotion": true,
+    "vim.sneak": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": false,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "ctrl+j",
+            ],
+            "after": [
+                "ctrl+[",
+                "o",
+            ]
+        },
+        {
+            "before": [
+                "ctrl+p",
+            ],
+            "commands": [
+                "selectPrevSuggestion",
+            ]
+        },
+        // {
+        //     "before": [
+        //         "ctrl+n",
+        //     ],
+        //     "commands": [
+        //         "selectNextSuggetion"
+        //     ],
+        // },
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-e>": false,
+        "<C-/>": true,
+        "<C-]>": true,
+        // "<C-p>": true,
+    },
+    "vim.searchHighlightColor": "rgba(150, 150, 255, 0.6)",
+    "vim.changeWordIncludesWhitespace": false,
+    "vim.disableExtension": false,
+    // Langague specific option
+    // Golang
+    "go.useCodeSnippetsOnFunctionSuggest": true,
+    "workbench.sideBar.location": "left",
+    // "vim.debug.loggingLevel": "debug",
+    // airline
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors.normal": [
+        "#8FBCBB",
+        "#000000"
+        // "#434C5E"
+    ],
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#8FBCBB",
+        "statusBar.noFolderBackground": "#8FBCBB",
+        "statusBar.debuggingBackground": "#8FBCBB",
+        "statusBar.foreground": "#000000"
+    },
+    "vim.statusBarColors.insert": [
+        "#007ACC",
+        "#FFFFFF"
+    ],
+    "vim.statusBarColors.visual": "#8800FF",
+    "vim.statusBarColors.visualline": "#8800FF",
+    "vim.statusBarColors.visualblock": "#8800FF",
+    "vim.statusBarColors.replace": "#D08770",
+    "explorer.confirmDelete": false,
+    "workbench.iconTheme": "vscode-icons"
+}
+
