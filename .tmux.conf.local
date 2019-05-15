@@ -357,3 +357,5 @@ set -gu prefix2
 
 # Disable C-b C-c to create a new session
 unbind C-c
+
+run-shell ~/dotfiles/vendor/tmux-resurrect/resurrect.tmux
