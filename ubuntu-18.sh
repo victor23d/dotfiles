@@ -54,8 +54,8 @@ fi
 if [[ ! `tmux -V` =~ '2.6' ]];then
     echo '--------------------install tmux--------------------'
     apt install -y tmux
+    # echo 'set-window-option -g mode-keys vi' > ~/.tmux.conf
 fi
-echo 'set-window-option -g mode-keys vi' > ~/.tmux.conf
 
 # oh-my-tmux
 # if [[ ! -e ~/.tmux ]];then
