@@ -15,8 +15,6 @@ mkdir -p .dotfiles_back/vscode
 mv -f .zshrc .tmux.conf .tmux.conf.local    .gitconfig .vim .vimrc .config/nvim .SpaceVim.d ~/.dotfiles_back
 
 ln -s ~/dotfiles/.zshrc ~/
-rm -rf ~/.oh-my-zsh/custom
-ln -sf ~/dotfiles/custom ~/.oh-my-zsh/
 ln -s ~/dotfiles/.tmux.conf ~/
 ln -s ~/dotfiles/.tmux.conf.local ~/
 # ln -s ~/dotfiles/.editrc ~/
@@ -26,6 +24,8 @@ ln -s ~/dotfiles/.vim ~/
 ln -s ~/dotfiles/.vimrc ~/
 ln -s ~/dotfiles/.config/nvim ~/.config/
 ln -s ~/dotfiles/.SpaceVim.d ~/
+
+cp -r ~/dotfiles/custom ~/.oh-my-zsh/
 
 if [[ -e ~/.SpaceVim ]];then
     rm -rf ~/.vim
