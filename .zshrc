@@ -83,6 +83,7 @@ git
 git-open
 golang
 github
+minikube
 node
 npm
 nvm
