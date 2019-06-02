@@ -113,6 +113,10 @@ if [ -e ~/.local/bin/aws_zsh_completer.sh ];then
 fi
 
 
+#git hub conflict
+# unalias git
+
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
