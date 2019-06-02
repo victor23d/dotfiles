@@ -11,6 +11,7 @@
     "explorer.confirmDragAndDrop": false,
     "workbench.activityBar.visible": true,
     "editor.wordWrap": "off",
+    "shellcheck.run": "onType" // also: "onSave"
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
