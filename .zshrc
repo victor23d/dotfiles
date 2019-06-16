@@ -83,6 +83,7 @@ git
 git-open
 golang
 github
+helm
 minikube
 node
 npm
