@@ -335,9 +335,9 @@ inoremap <M-S-Down> <Esc>ddp
 
 " <C-/>
 " can not use noremap
-imap <C-_> <Esc>mtgcc`ta
-nmap <C-_> <Esc>mtgcc`t
-vmap <C-_> mtgc`t
+imap <C-_> <Esc>mtgcc`taj
+nmap <C-_> <Esc>mtgcc`tj
+vmap <C-_> mtgc`tj
 
 " Use set magic instead
 " nnoremap / /\v
