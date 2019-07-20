@@ -751,4 +751,11 @@ if exists('g:plugs["deoplete-jedi"]')
 endif
 
 
+
+
+
+".ideavim
+" map <F2> :action RenameElement<CR>
+
+
 " let g:python3_host_prog = 'PATH/Python37/python.exe'
