@@ -77,7 +77,6 @@ plugins=(
 aws
 docker
 docker-compose
-docker-machine
 fasd
 git
 git-open
@@ -88,6 +87,7 @@ minikube
 node
 npm
 nvm
+pip
 kubectl
 kube-ps1
 kubetail
