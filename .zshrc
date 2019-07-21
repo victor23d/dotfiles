@@ -297,14 +297,13 @@ alias rm='echo "================================================================
 alias ls='ls -ACGhX --file-type --time-style=iso --color=tty --group-directories-first'
 alias sl=ls
 alias ks=ls
-alias nv=nvim
-alias vn=nv
-
 alias vim=nvim
 alias vimdiff='nvim -d'
 if [[ `command -v pgcli` ]];then
     alias psql=pgcli
 fi
+
+alias h=helm
 
 
 #-A	--almost-all
