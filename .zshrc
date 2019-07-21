@@ -115,7 +115,7 @@ fi
 
 
 #git hub conflict
-# unalias git
+unalias git
 
 
 # User configuration
