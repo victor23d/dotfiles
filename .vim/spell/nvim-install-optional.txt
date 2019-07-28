@@ -1,0 +1,6 @@
+
+If :set spell does not work, create the C:/Users/foo/AppData/Local/nvim/site/spell folder. You can then copy your spell files over (for English, located here and here);
+For Pythonlugins you need theynvim module. "Virtual envs" are recommended. After activating the virtual env doip installynvim (in both). Edit your init.vim so that it contains theath to the env's Python executable:
+let g:python3_host_prog='C:/Users/foo/Envs/neovim3/Scripts/python.exe'
+let g:python_host_prog='C:/Users/foo/Envs/neovim/Scripts/python.exe'
+Run :checkhealth and read :helprovider-python.
