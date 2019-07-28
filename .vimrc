@@ -196,6 +196,7 @@ endif
 
 " set autowrite
 set fileencoding=utf-8
+set termencoding=utf-8
 set ff=unix
 
 
