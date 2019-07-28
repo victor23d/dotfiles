@@ -237,6 +237,9 @@ set splitright
 set inccommand=split
 
 
+set spell spelllang=en_us
+" [s ]s z= zg
+
 
 
 " will cause paste improper indent
