@@ -51,6 +51,7 @@ Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'fenetikm/falcon'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'jacoborus/tender.vim'
+Plug 'mhartington/oceanic-next'
 " Plug 'rainglow/vim'
 
 
@@ -60,6 +61,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
 
+Plug 'ryanoasis/vim-devicons'
 
 
 " format
@@ -91,6 +93,12 @@ Plug 'Konfekt/FastFold'
 " language specific
 
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+
+Plug 'othree/yajs.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'othree/html5.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
@@ -167,6 +175,12 @@ set wildmenu
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim option
 
+
+" for vim 8
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 if has('nvim')
     set termguicolors
     set shada=!,'100,<50,s10,h
@@ -225,7 +239,7 @@ set inccommand=split
 
 
 " will cause paste improper indent
-set nopaste
+" set nopaste
 
 " will cause <C-e> <C-a> don't work
 " set paste
@@ -247,8 +261,16 @@ endif
 " colorscheme solarized
 " colorscheme gruvbox
 " colorscheme desert256
-colorscheme janah-v
+" colorscheme janah-v
 " colorscheme one       " atom
+colorscheme OceanicNext
+
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+let g:airline_theme='oceanicnext'
+
+
+
 " set background=dark
 
 " doesn't work
@@ -295,6 +317,8 @@ if !exists('g:lasttab')
 endif
 nmap <Leader><tab> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
+
+set pastetoggle=<Leader>p
 
 
 " Move
@@ -657,6 +681,42 @@ if exists('g:plugs["deoplete.nvim"]')
     highlight Pmenu ctermbg=8 guibg=#606060
     highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
     highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
+
+
+    " for more details about my neovim setup see:
+    " http://afnan.io/2018-04-12/my-neovim-development-setup/
+    
+    " deoplete options
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_smart_case = 1
+    
+    " disable autocomplete by default
+    let b:deoplete_disable_auto_complete=1 
+    let g:deoplete_disable_auto_complete=1
+    call deoplete#custom#buffer_option('auto_complete', v:false)
+    
+    if !exists('g:deoplete#omni#input_patterns')
+        let g:deoplete#omni#input_patterns = {}
+    endif
+    
+    " Disable the candidates in Comment/String syntaxes.
+    call deoplete#custom#source('_',
+                \ 'disabled_syntaxes', ['Comment', 'String'])
+    
+    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+    
+    " set sources
+    let g:deoplete#sources = {}
+    let g:deoplete#sources.cpp = ['LanguageClient']
+    let g:deoplete#sources.python = ['LanguageClient']
+    let g:deoplete#sources.python3 = ['LanguageClient']
+    let g:deoplete#sources.rust = ['LanguageClient']
+    let g:deoplete#sources.c = ['LanguageClient']
+    let g:deoplete#sources.vim = ['vim']
+
+
+
+
 endif
 
 
