@@ -274,6 +274,9 @@ let g:oceanic_next_terminal_italic = 1
 let g:airline_theme='oceanicnext'
 
 
+highlight Normal guifg=#dadada ctermfg=253 guibg=#000000 gui=NONE cterm=NONE
+" highlight Comment guifg=#585858 ctermfg=240 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+" highlight Comment guifg=#666666 ctermfg=240 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
 " set background=dark
 
