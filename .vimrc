@@ -42,6 +42,11 @@ Plug 'kassio/neoterm'
 
 
 Plug 'airblade/vim-gitgutter'
+Plug 'AndrewRadev/linediff.vim'
+Plug 'chrisbra/vim-diff-enhanced'
+
+
+
 " Plug 'SirVer/ultisnips'
 
 
@@ -71,6 +76,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'elzr/vim-json'
 
 
+" Shougo's Dark Powered Vim
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
@@ -270,6 +276,14 @@ endif
 " colorscheme janah-v
 " colorscheme one       " atom
 colorscheme OceanicNext
+
+
+if &diff
+    colorscheme janah-v
+endif
+au FilterWritePre * if &diff | colorscheme janah-v | endif
+
+
 
 let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
