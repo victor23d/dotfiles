@@ -23,6 +23,7 @@ Plug 'mhinz/vim-startify'
 
 
 " utils
+" git
 Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
