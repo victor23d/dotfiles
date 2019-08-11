@@ -7,6 +7,7 @@
 " GVim original setting works
 " set guifont=Consolas:h16:b:cDEFAULT
 set guifont=Iosevka:h16:b:cDEFAULT
+set guifont=Iosevka:h16:cDEFAULT
 " start nvim from powershell to debug
 " do NOT use nvim qt to edit init.vim, it's a bug on windows
 
@@ -14,32 +15,67 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'scrooloose/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf.vim'
+
+" Start cow
 Plug 'mhinz/vim-startify'
 
 
-" utils
+" common utils
+" git
 Plug 'tpope/vim-fugitive'
+
+" Defaults everyone can agree on
 " Plug 'tpope/vim-sensible'
+
+" change such surroundings in pairs
 Plug 'tpope/vim-surround'
+
+" gcc to comment out
 Plug 'tpope/vim-commentary'
+
 " Plug 'tomtom/tcomment_vim'
+
+" alias []
+Plug 'tpope/vim-unimpaired'
+
+"sugar shell commands
 Plug 'tpope/vim-eunuch'
 
-Plug 'tpope/vim-unimpaired'
+" . repeat plug
+Plug 'tpope/vim-repeat'
+
+" enhances netrw
+Plug 'tpope/vim-vinegar'
+
+" automatically adjusts 'shiftwidth' and 'expandtab'
+Plug 'tpope/vim-sleuth'
+
+" automatic closing pairs
 Plug 'Raimondi/delimitMate'
 
-
+" s motion
 Plug 'justinmk/vim-sneak'
-Plug 'justinmk/vim-dirvish'
+
+" Directory viewer :dir
+" Plug 'justinmk/vim-dirvish'
+
+" go to file/term gof got
 Plug 'justinmk/vim-gtfo'
 
+" Wrapper of some :terminal functions.
+Plug 'kassio/neoterm'
 
-
+" git sign column
 Plug 'airblade/vim-gitgutter'
+
+Plug 'AndrewRadev/linediff.vim'
+Plug 'chrisbra/vim-diff-enhanced'
+
+
 " Plug 'SirVer/ultisnips'
 
 
@@ -50,49 +86,39 @@ Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'fenetikm/falcon'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'jacoborus/tender.vim'
+Plug 'mhartington/oceanic-next'
 " Plug 'rainglow/vim'
 
 
-
-
+" Align center
 Plug 'junegunn/goyo.vim'
+
+" work with goyo
 Plug 'junegunn/limelight.vim'
+
+
+" expend + _
 Plug 'terryma/vim-expand-region'
-Plug 'easymotion/vim-easymotion'
+
+" visual <C-n>
 Plug 'terryma/vim-multiple-cursors'
 
+" leader leader motion
+Plug 'easymotion/vim-easymotion'
 
+" Icon
+" Plug 'ryanoasis/vim-devicons'
 
 " format
+
+" Useful
 Plug 'michaeljsmith/vim-indent-object'
+
+" au BufWrite * :Autoformat makes use of external formatting programs
 Plug 'Chiel92/vim-autoformat'
 
-
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-"" Plug 'Shougo/neosnippet.vim'
-"" Plug 'Shougo/neosnippet-snippets'
-"" 
-"" " language supoort
-"" Plug 'w0rp/ale'
-"" Plug 'autozimu/LanguageClient-neovim'
-"" " Plug 'majutsushi/tagbar'
-"" 
-"" 
-"" " come with deoplete
-"" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"" Plug 'Shougo/context_filetype.vim'
-"" Plug 'Shougo/neopairs.vim'
-"" Plug 'Shougo/echodoc.vim'
-"" Plug 'Shougo/neoinclude.vim'
-"" Plug 'Konfekt/FastFold'
-"" 
-"" 
-"" " language specific
-"" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-"" Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-"" Plug 'zchee/deoplete-go', { 'do': 'make'}
-"" " Plug 'jodosha/vim-godebug'
-
+" Missing Github https://github.com/elzr/vim-jsjon
+Plug 'elzr/vim-json'
 
 
 
@@ -101,13 +127,13 @@ call plug#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Differences between Nvim and Vim			       *vim-differences*<Paste>
+" Differences between Nvim and Vim                 *vim-differences*<Paste>
 syntax on
 syntax enable
 filetype plugin indent on
 set autoindent
 set autoread
-set backspace=2 " 2	same as ":set backspace=indent,eol,start"
+set backspace=2 " 2 same as ":set backspace=indent,eol,start"
 "set backupdir=.,$XDG_DATA_HOME/nvim/backup
 set belloff=all
 set complete=.,w,b,u,t
@@ -117,6 +143,7 @@ if has('nvim')
     set display=lastline,msgsep
 endif
 set encoding=utf-8
+set fileencoding=utf-8
 set fillchars=""
 " set fsync off
 set nofsync
@@ -148,6 +175,12 @@ set wildmenu
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nvim option
 
+
+" for vim 8
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 if has('nvim')
     set termguicolors
     set shada=!,'100,<50,s10,h
@@ -157,6 +190,71 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " config
+
+" will cause highlight Search and CursorLineNr color invaild
+" set background=dark
+
+" set autowrite
+set fileencoding=utf-8
+set termencoding=utf-8
+set ff=unix
+
+
+set ignorecase
+set smartcase
+set magic               " Use magic patterns (extended regular expression) default on
+set guioptions=         " remove scrollbars on macvim
+set noshowmode          " don't show mode as airline already does
+set foldmethod=manual   " set folds by syntax of current language
+" can resize windows but can not copy
+" set mouse=a
+set iskeyword+=-        " treat dash separated words as a word text object
+
+
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+set shiftround          " Round indent to multiple of shiftwidth
+set hidden              " enable hidden unsaved buffers
+
+set visualbell
+
+set textwidth=0
+" set textwidth=999
+set wrap                " default on
+" set list
+
+set number
+set relativenumber
+set numberwidth=4
+
+set splitbelow
+set splitright
+
+set inccommand=split
+
+
+" set spell spelllang=en_us
+set nospell
+" [s ]s z= zg
+
+
+
+" will cause paste improper indent
+" set nopaste
+
+" will cause <C-e> <C-a> don't work
+" set paste
+
+" jump to the last position when reopening a file
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+                \| exe "normal! g'\"" | endif
+endif
+
 
 
 " colorscheme darkblue
@@ -168,11 +266,32 @@ endif
 " colorscheme solarized
 " colorscheme gruvbox
 " colorscheme desert256
-colorscheme janah-v
+" colorscheme janah-v
+" colorscheme one       " atom
+colorscheme OceanicNext
+
+
+if &diff
+    colorscheme janah-v
+endif
+au FilterWritePre * if &diff | colorscheme janah-v | endif
+
+
+
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+let g:airline_theme='oceanicnext'
+
+
+highlight Normal guifg=#dadada ctermfg=253 guibg=#000000 gui=NONE cterm=NONE
+" highlight Comment guifg=#585858 ctermfg=240 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+" highlight Comment guifg=#666666 ctermfg=240 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+
+" set background=dark
 
 " doesn't work
 highlight LineNr ctermfg=grey
-highlight Search cterm=NONE ctermfg=grey ctermbg=blue 
+highlight Search cterm=NONE ctermfg=grey ctermbg=blue
 
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 highlight Search guibg=peru guifg=wheat
@@ -186,46 +305,11 @@ highlight CursorLine guifg=#000000
 highlight CursorLine guibg=#dd7777
 
 
-" will cause highlight Search and CursorLineNr color invaild
-" set background=dark
-
-
-set fileencoding=utf-8
-set ff=unix
-set number
-set relativenumber
-
-set textwidth=0
-set textwidth=999
-
-set ignorecase
-
-
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
-
-
-" will cause paste improper indent
-set nopaste
-
-" will cause <C-e> <C-a> don't work
-" set paste
-
-" jump to the last position when reopening a file
-if has("autocmd")
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-                \| exe "normal! g'\"" | endif
-endif
-
-
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" maps
+
+" leader maps
 let mapleader = "\<Space>"
 
 " Readline key bindings
@@ -239,6 +323,8 @@ nnoremap <A-7> 7gt
 nnoremap <A-8> 8gt
 nnoremap <A-9> 9gt
 
+nnoremap <F2> :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
+vnoremap <F2> y :%s/<C-r>"//gc<Left><Left><Left>
 
 
 " Switch to last-active tab
@@ -247,6 +333,8 @@ if !exists('g:lasttab')
 endif
 nmap <Leader><tab> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
+
+" set pastetoggle=<Leader>p
 
 
 " Move
@@ -261,44 +349,76 @@ inoremap <C-u> <Esc>d0s
 
 " <S-CR> works in mintty but not in iTerm2
 inoremap <S-CR> <Esc>o
+inoremap <C-CR> <Esc>o
 
-inoremap <C-j> <Esc>o
+" {
+" a data file
+" inoremap <S-CR> <Esc>o
 
+" inoremap <C-j> <Esc>o
 
-inoremap <M-Up> <Esc>dd<Up>PA
-inoremap <M-Down> <Esc>ddpA
-inoremap <S-Up> <Esc>YP
-inoremap <S-Down> <Esc>Yp
+" cnoremap <S-Insert> <C-R>+
+" inoremap <S-Insert> <C-R>+
+" }
 
-imap <C-_> <Esc>mtgcc `ta
-nmap <C-_> <Esc>mtgcc `t
+noremap <M-Up> <Esc>dd<Up>P
+inoremap <M-Up> <Esc>dd<Up>P
+noremap <M-Down> <Esc>ddp
+inoremap <M-Down> <Esc>ddp
 
-nnoremap <M-C-F> :Denite grep<CR>
+noremap <M-S-Up> <Esc>dd<Up>P
+inoremap <M-S-Up> <Esc>dd<Up>P
+noremap <M-S-Down> <Esc>ddp
+inoremap <M-S-Down> <Esc>ddp
 
-nnoremap / /\v
+" inoremap dd <Esc>dd
 
-cnoremap <S-Insert> +
-inoremap <S-Insert> +
+" <C-/>
+" can not use noremap
+imap <C-_> <Esc>mtgcc`tja
+nmap <C-_> <Esc>mtgcc`tj
+vmap <C-_> mtgc`tj
 
+" Use set magic instead
+" nnoremap / /\v
+map <silent> <esc> :nohlsearch<cr>
+
+tnoremap <Esc> <C-\><C-n>
+nnoremap <silent> <leader>` :botright Ttoggle<CR><C-w>j
+nnoremap <silent> <leader>v` :vertical botright Ttoggle<CR><C-w>l
+tnoremap <silent> <leader>` <C-\><C-n> :Ttoggle<CR>
 
 
 " CWD = Change to Directory of Current file
 command CWD cd %:p:h
 command PWD cd %:p:h
+
+command Marks Denite mark
+command Files Denite file
+command Buffers Denite buffer
+command Reg Denite register
+
+command M Marks
 command F Files
 command B Buffers
+command R Reg
+command G Grep
 
 
-" Plug map
+
 nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <leader>d :Denite 
+nnoremap <leader>d :Denite
+nnoremap <leader>F :Denite grep<CR>
+nnoremap <leader>m :Denite mark<CR>
+
+
 nnoremap <silent> <leader>tn :set invrelativenumber<CR>:set invnumber<CR>
 nnoremap <silent> <Leader>tg :GitGutterSignsToggle<CR>
 nnoremap <silent> <Leader>tl :ALEToggle<CR>
 nnoremap <silent> <Leader>ta :set invrelativenumber<CR>:set invnumber<CR>:GitGutterSignsToggle<CR>:ALEToggle<CR>
 nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
-nnoremap <C-p> :History<CR>
+" nnoremap <C-p> :History<CR>
 
 
 
@@ -307,6 +427,10 @@ nnoremap <C-p> :History<CR>
 " http://vim.wikia.com/wiki/256_colors_in_vim
 " set t_Co=256
 
+
+
+autocmd BufWrite * set ff=unix
+" au BufWrite * :Autoformat
 
 
 
@@ -347,6 +471,7 @@ if exists('g:plugs["nerdtree"]')
     " resolve :E conflict
     command E Ex
 
+    " UTF-8 Unicode text
     let g:NERDTreeDirArrowExpandable = '▸'
     let g:NERDTreeDirArrowCollapsible = '▾'
 
@@ -391,178 +516,10 @@ endif
 
 
 
-if exists('g:plugs["Limelight"]')
-    " Color name (:help cterm-colors) or ANSI code
-    let g:limelight_conceal_ctermfg = 'gray'
-    let g:limelight_conceal_ctermfg = 240
-
-    " Color name (:help gui-colors) or RGB color
-    let g:limelight_conceal_guifg = 'DarkGray'
-    let g:limelight_conceal_guifg = '#777777'
-
-    " Default: 0.5
-    let g:limelight_default_coefficient = 0.7
-
-    " Number of preceding/following paragraphs to include (default: 0)
-    let g:limelight_paragraph_span = 1
-
-    " Beginning/end of paragraph
-    "   When there's no empty line between the paragraphs
-    "   and each paragraph starts with indentation
-    let g:limelight_bop = '^\s'
-    let g:limelight_eop = '\ze\n^\s'
-
-    " Highlighting priority (default: 10)
-    "   Set it to -1 not to overrule hlsearch
-    let g:limelight_priority = -1
-
-    Goyo.vim integration
-
-    autocmd! User GoyoEnter Limelight
-    autocmd! User GoyoLeave Limelight!
-
-endif
 
 
-
-if exists('g:plugs["denite.nvim"]')
-    " reset 50% winheight on window resize
-    augroup deniteresize
-        autocmd!
-        autocmd VimResized,VimEnter * call denite#custom#option('default',
-                    \'winheight', winheight(0) / 2)
-    augroup end
-
-    call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
-    call denite#custom#map('insert', '<C-[>', '<denite:enter_mode:normal>', 'noremap')
-    call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>', 'noremap')
-    call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
-    call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
-    call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-    call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-    " call denite#custom#map('insert', '<CR>', '<denite:do_action:tabopen>', 'noremap')
-    call denite#custom#map('normal', '<Esc>', '<NOP>', 'noremap')
-    call denite#custom#map('normal', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
-    call denite#custom#map('normal', '<Down>', '<denite:move_to_next_line>', 'noremap')
-    " call denite#custom#map('normal', '<CR>', '<denite:do_action:tabopen>', 'noremap')
-
-    call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>', 'noremap')
-
-    nnoremap <C-p> :<C-u>Denite file_old<CR>
-endif
+".ideavim
+" map <F2> :action RenameElement<CR>
 
 
-
-
-if exists('g:plugs["deoplete.nvim"]')
-    " Enable deoplete when InsertEnter.
-    let g:deoplete#enable_at_startup = 0
-    autocmd InsertEnter * call deoplete#enable()
-
-    " Use smartcase.
-    call deoplete#custom#option('smart_case', v:true)
-
-    " <C-h>, <BS>: close popup and delete backword char.
-    " inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-    " inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
-
-    " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-    let g:neosnippet#enable_completed_snippet = 1
-
-    " I want to silence the |ins-completion-menu| messages in the command line
-    " You can disable the messages through the 'shortmess' option.
-    set shortmess+=c
-
-    " I want to use the auto select feature like |neocomplete|.
-    set completeopt+=noinsert
-
-
-
-    " I want to close the preview window after completion is done.
-    autocmd CompleteDone * silent! pclose!
-    " Or
-    autocmd InsertLeave * silent! pclose!
-
-    " control the colors used for popup menu using highlight
-    highlight Pmenu ctermbg=8 guibg=#606060
-    highlight PmenuSel ctermbg=1 guifg=#dddd00 guibg=#1f82cd
-    highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
-endif
-
-
-
-
-if exists('g:plugs["deoplete-go"]')
-    " TODO
-
-    let g:deoplete#sources#go#gocode_binary = ''
-    let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-
-    " deoplete.nvim recommend
-    set completeopt+=noselect
-endif
-
-
-if exists('g:plugs["neosnippet.vim"]')
-    " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-    " imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    " smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    " xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-    " SuperTab like snippets behavior.
-    " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-    "
-    imap <expr><TAB>
-                \ pumvisible() ? "\<C-n><Plug>(neosnippet_expand_or_jump)" :
-                \ neosnippet#expandable_or_jumpable() ?
-                \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-    " imap <expr><C-k>
-    "             \ neosnippet#expandable_or_jumpable() ?
-    "             \    "\<Plug>(neosnippet_expand_or_jump)" : "\<C-y>"
-    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-                \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-    " It can write in this way
-    " \ pumvisible() ? "\<C-n>" :
-    " \ pumvisible() ? "\<C-k>" :
-
-
-    " use <CR> to select or close complete
-    " imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ?
-
-
-    " For conceal markers. quoto will disappear
-    " if has('conceal')
-    "     set conceallevel=2 concealcursor=niv
-    " endif
-endif
-
-
-let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-    \ }
+" let g:python3_host_prog = 'PATH/python3/python3.exe'

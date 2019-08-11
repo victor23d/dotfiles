@@ -15,36 +15,65 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'scrooloose/nerdtree'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'junegunn/fzf.vim'
+
+" Start cow
 Plug 'mhinz/vim-startify'
 
 
-" utils
+" common utils
 " git
 Plug 'tpope/vim-fugitive'
+
+" Defaults everyone can agree on
 " Plug 'tpope/vim-sensible'
+
+" change such surroundings in pairs
 Plug 'tpope/vim-surround'
+
+" gcc to comment out
 Plug 'tpope/vim-commentary'
+
 " Plug 'tomtom/tcomment_vim'
+
+" alias []
+Plug 'tpope/vim-unimpaired'
+
+"sugar shell commands
 Plug 'tpope/vim-eunuch'
 
-Plug 'tpope/vim-unimpaired'
+" . repeat plug
+Plug 'tpope/vim-repeat'
+
+" enhances netrw
+Plug 'tpope/vim-vinegar'
+
+" automatically adjusts 'shiftwidth' and 'expandtab'
+Plug 'tpope/vim-sleuth'
+
+" automatic closing pairs
 Plug 'Raimondi/delimitMate'
 
-
+" s motion
 Plug 'justinmk/vim-sneak'
-Plug 'justinmk/vim-dirvish'
+
+" Directory viewer :dir
+" Plug 'justinmk/vim-dirvish'
+
+" go to file/term gof got
 Plug 'justinmk/vim-gtfo'
+
+" Wrapper of some :terminal functions.
 Plug 'kassio/neoterm'
 
-
+" git sign column
 Plug 'airblade/vim-gitgutter'
+
 Plug 'AndrewRadev/linediff.vim'
 Plug 'chrisbra/vim-diff-enhanced'
-
 
 
 " Plug 'SirVer/ultisnips'
@@ -61,30 +90,51 @@ Plug 'mhartington/oceanic-next'
 " Plug 'rainglow/vim'
 
 
+" Align center
 Plug 'junegunn/goyo.vim'
+
+" work with goyo
 Plug 'junegunn/limelight.vim'
+
+
+" expend + _
 Plug 'terryma/vim-expand-region'
-Plug 'easymotion/vim-easymotion'
+
+" visual <C-n>
 Plug 'terryma/vim-multiple-cursors'
 
-Plug 'ryanoasis/vim-devicons'
+" leader leader motion
+Plug 'easymotion/vim-easymotion'
 
+" Icon
+" Plug 'ryanoasis/vim-devicons'
 
 " format
+
+" Useful
 Plug 'michaeljsmith/vim-indent-object'
+
+" au BufWrite * :Autoformat makes use of external formatting programs
 Plug 'Chiel92/vim-autoformat'
+
+" Missing Github https://github.com/elzr/vim-jsjon
 Plug 'elzr/vim-json'
 
 
 " Shougo's Dark Powered Vim
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 
 " language supoort
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 " Plug 'autozimu/LanguageClient-neovim'
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+
+" tags TODO
+" Plug 'ludovicchabant/vim-gutentags'
 " Plug 'majutsushi/tagbar'
 
 
@@ -99,21 +149,24 @@ Plug 'Konfekt/FastFold'
 
 " language specific
 
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-
 Plug 'othree/yajs.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/html5.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+
+" :Go command
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+
+" Not support Go > 1.8. module
+" Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+" recommended fork
+" Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+
 " Plug 'jodosha/vim-godebug'
-
-Plug 'zchee/deoplete-jedi'
-
 
 
 Plug 'andrewstuart/vim-kubernetes'
@@ -133,13 +186,13 @@ call plug#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Differences between Nvim and Vim			       *vim-differences*<Paste>
+" Differences between Nvim and Vim                 *vim-differences*<Paste>
 syntax on
 syntax enable
 filetype plugin indent on
 set autoindent
 set autoread
-set backspace=2 " 2	same as ":set backspace=indent,eol,start"
+set backspace=2 " 2 same as ":set backspace=indent,eol,start"
 "set backupdir=.,$XDG_DATA_HOME/nvim/backup
 set belloff=all
 set complete=.,w,b,u,t
@@ -184,7 +237,7 @@ set wildmenu
 
 " for vim 8
 if (has("termguicolors"))
-  set termguicolors
+    set termguicolors
 endif
 
 if has('nvim')
@@ -297,7 +350,7 @@ highlight Normal guifg=#dadada ctermfg=253 guibg=#000000 gui=NONE cterm=NONE
 
 " doesn't work
 highlight LineNr ctermfg=grey
-highlight Search cterm=NONE ctermfg=grey ctermbg=blue 
+highlight Search cterm=NONE ctermfg=grey ctermbg=blue
 
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 highlight Search guibg=peru guifg=wheat
@@ -340,7 +393,7 @@ endif
 nmap <Leader><tab> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
-set pastetoggle=<Leader>p
+" set pastetoggle=<Leader>p
 
 
 " Move
@@ -354,7 +407,7 @@ inoremap <C-u> <Esc>d0s
 
 
 " <S-CR> works in mintty but not in iTerm2
-" inoremap <S-CR> <Esc>o
+inoremap <S-CR> <Esc>o
 inoremap <C-CR> <Esc>o
 
 " {
@@ -381,7 +434,7 @@ inoremap <M-S-Down> <Esc>ddp
 
 " <C-/>
 " can not use noremap
-imap <C-_> <Esc>mtgcc`taj
+imap <C-_> <Esc>mtgcc`tja
 nmap <C-_> <Esc>mtgcc`tj
 vmap <C-_> mtgc`tj
 
@@ -413,7 +466,7 @@ command G Grep
 
 
 nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <leader>d :Denite 
+nnoremap <leader>d :Denite
 nnoremap <leader>F :Denite grep<CR>
 nnoremap <leader>m :Denite mark<CR>
 
@@ -436,6 +489,7 @@ nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls').
 
 
 autocmd BufWrite * set ff=unix
+" au BufWrite * :Autoformat
 
 
 
@@ -521,6 +575,7 @@ endif
 
 
 
+" work with goyo
 if exists('g:plugs["Limelight"]')
     " Color name (:help cterm-colors) or ANSI code
     let g:limelight_conceal_ctermfg = 'gray'
@@ -705,36 +760,36 @@ if exists('g:plugs["deoplete.nvim"]')
     highlight PmenuSbar ctermbg=0 guibg=#d6d6d6
 
 
-"""    " for more details about my neovim setup see:
-"""    " http://afnan.io/2018-04-12/my-neovim-development-setup/
-"""    
-"""    " deoplete options
-"""    let g:deoplete#enable_at_startup = 1
-"""    let g:deoplete#enable_smart_case = 1
-"""    
-"""    " disable autocomplete by default
-"""    let b:deoplete_disable_auto_complete=1 
-"""    let g:deoplete_disable_auto_complete=1
-"""    call deoplete#custom#buffer_option('auto_complete', v:false)
-"""    
-"""    if !exists('g:deoplete#omni#input_patterns')
-"""        let g:deoplete#omni#input_patterns = {}
-"""    endif
-"""    
-"""    " Disable the candidates in Comment/String syntaxes.
-"""    call deoplete#custom#source('_',
-"""                \ 'disabled_syntaxes', ['Comment', 'String'])
-"""    
-"""    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-"""    
-"""    " set sources
-"""    let g:deoplete#sources = {}
-"""    let g:deoplete#sources.cpp = ['LanguageClient']
-"""    let g:deoplete#sources.python = ['LanguageClient']
-"""    let g:deoplete#sources.python3 = ['LanguageClient']
-"""    let g:deoplete#sources.rust = ['LanguageClient']
-"""    let g:deoplete#sources.c = ['LanguageClient']
-"""    let g:deoplete#sources.vim = ['vim']
+    """    " for more details about my neovim setup see:
+    """    " http://afnan.io/2018-04-12/my-neovim-development-setup/
+    """
+    """    " deoplete options
+    """    let g:deoplete#enable_at_startup = 1
+    """    let g:deoplete#enable_smart_case = 1
+    """
+    """    " disable autocomplete by default
+    """    let b:deoplete_disable_auto_complete=1
+    """    let g:deoplete_disable_auto_complete=1
+    """    call deoplete#custom#buffer_option('auto_complete', v:false)
+    """
+    """    if !exists('g:deoplete#omni#input_patterns')
+    """        let g:deoplete#omni#input_patterns = {}
+    """    endif
+    """
+    """    " Disable the candidates in Comment/String syntaxes.
+    """    call deoplete#custom#source('_',
+    """                \ 'disabled_syntaxes', ['Comment', 'String'])
+    """
+    """    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+    """
+    """    " set sources
+    """    let g:deoplete#sources = {}
+    """    let g:deoplete#sources.cpp = ['LanguageClient']
+    """    let g:deoplete#sources.python = ['LanguageClient']
+    """    let g:deoplete#sources.python3 = ['LanguageClient']
+    """    let g:deoplete#sources.rust = ['LanguageClient']
+    """    let g:deoplete#sources.c = ['LanguageClient']
+    """    let g:deoplete#sources.vim = ['vim']
 
 
 

@@ -74,7 +74,7 @@ if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then source '/opt/google-cloud-s
 
 
 plugins=(
-aws
+# aws
 docker
 docker-compose
 fasd
