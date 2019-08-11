@@ -1,13 +1,14 @@
 #move to /etc/netplan/
-network:    
-  version: 2    
-  renderer: networkd    
-  ethernets:    
-    enp0s3:    
-      addresses:    
-        - 10.2.21.1/16    
-      gateway4: 10.2.2.2    
-      nameservers:    
-          addresses: [10.2.2.2, 8.8.8.8]    
-    enp0s8:    
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+      addresses:
+        - 10.2.21.1/16
+      # gateway4: 10.2.2.2
+      gateway4: 10.2.7.1
+      nameservers:
+        addresses: [208.67.222.222, 8.8.8.8]
+    enp0s8:
       dhcp4: true
