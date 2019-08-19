@@ -31,7 +31,11 @@
   let s:base00=['#000000', '253']
   let s:base01=['#343d46', '237']
   let s:base02=['#4f5b66', '240']
+
   let s:base03=['#65737e', '243']
+  "vvv comment
+  let s:base03=['#bbddbb', '243']
+
   let s:base04=['#a7adba', '145']
   let s:base05=['#c0c5ce', '251']
   let s:base06=['#cdd3de', '252']

@@ -463,6 +463,9 @@ command B Buffers
 command R Reg
 command G Grep
 
+command BS :mksession! ~/vim_session <cr> " Quick write session with F2
+command BR :source ~/vim_session <cr>     " And load session with F3
+
 
 
 nnoremap <leader>e :NERDTreeToggle<CR>
