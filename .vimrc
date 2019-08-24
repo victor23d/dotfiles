@@ -385,6 +385,8 @@ nnoremap <A-9> 9gt
 nnoremap <F2> :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
 vnoremap <F2> y :%s/<C-r>"//gc<Left><Left><Left>
 
+nnoremap <F5>  :GoRun % <CR>
+
 
 " Switch to last-active tab
 if !exists('g:lasttab')
@@ -456,6 +458,7 @@ command Marks Denite mark
 command Files Denite file
 command Buffers Denite buffer
 command Reg Denite register
+command Grep Denite grep
 
 command M Marks
 command F Files
@@ -468,8 +471,8 @@ command BR :source ~/vim_session <cr>     " And load session with F3
 
 
 
-nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <leader>d :Denite
+nnoremap <leader>e :Vex<CR>
+nnoremap <leader>d :Denite 
 nnoremap <leader>F :Denite grep<CR>
 nnoremap <leader>m :Denite mark<CR>
 
@@ -750,6 +753,7 @@ if exists('g:plugs["deoplete.nvim"]')
     " I want to use the auto select feature like |neocomplete|.
     " set completeopt+=noinsert
 
+    set completeopt=menu,noinsert
 
 
     " I want to close the preview window after completion is done.
@@ -809,7 +813,7 @@ if exists('g:plugs["deoplete-go"]')
     let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
     " deoplete.nvim recommend
-    set completeopt+=noselect
+    " set completeopt+=noselect
 endif
 
 
