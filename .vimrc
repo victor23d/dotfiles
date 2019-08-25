@@ -364,7 +364,7 @@ highlight CursorLine guifg=#000000
 " highlight CursorLine guibg=#00aaff
 " highlight CursorLine guibg=#ee9900
 highlight CursorLine guibg=#dd7777
-highlight MatchParen cterm=bold ctermbg=yellow ctermfg=black guibg=reverse guifg=reverse 
+highlight MatchParen cterm=bold ctermbg=yellow ctermfg=black guibg=black guifg=#dddd00 gui=bold
 hi Cursor gui=reverse guibg=NONE guifg=NONE
 hi CursorLine gui=reverse
 
