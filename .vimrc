@@ -48,7 +48,7 @@ Plug 'tpope/vim-eunuch'
 " . repeat plug
 Plug 'tpope/vim-repeat'
 
-" enhances netrw
+" enhances netrw tree explorer
 Plug 'tpope/vim-vinegar'
 
 " automatically adjusts 'shiftwidth' and 'expandtab'
@@ -87,6 +87,7 @@ Plug 'fenetikm/falcon'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'jacoborus/tender.vim'
 Plug 'mhartington/oceanic-next'
+Plug 'cocopon/iceberg.vim'
 " Plug 'rainglow/vim'
 
 
@@ -363,6 +364,9 @@ highlight CursorLine guifg=#000000
 " highlight CursorLine guibg=#00aaff
 " highlight CursorLine guibg=#ee9900
 highlight CursorLine guibg=#dd7777
+highlight MatchParen cterm=bold ctermbg=yellow ctermfg=black guibg=reverse guifg=reverse 
+hi Cursor gui=reverse guibg=NONE guifg=NONE
+hi CursorLine gui=reverse
 
 
 
@@ -452,8 +456,8 @@ tnoremap <silent> <leader>` <C-\><C-n> :Ttoggle<CR>
 
 
 " CWD = Change to Directory of Current file
-command CWD cd %:p:h
 command PWD cd %:p:h
+command CWD cd %:p:h
 
 command Marks Denite mark
 command Files Denite file
@@ -518,6 +522,16 @@ if exists('g:plugs["vim-airline"]')
     " set runtimepath^=~/.vim/pack/foo/start/ctrlp.vim
     let g:ctrlp_cmd = 'CtrlPMRU'
 endif
+
+
+" tree explorer
+if exists('g:plugs["vim-vinegar"]')
+    " 0 same, 1 horizontally, 2 vertically, 3 tab
+    let g:netrw_browse_split = 3
+endif
+
+
+
 
 
 if exists('g:plugs["nerdtree"]')
