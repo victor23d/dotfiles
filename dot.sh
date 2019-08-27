@@ -26,7 +26,7 @@ ln -s ~/dotfiles/.config/nvim ~/.config/
 ln -s ~/dotfiles/.SpaceVim.d ~/
 # ln -s ~/dotfiles/.zprofile ~/
 
-# ln -s ~/dotfiles/.cobra ~/
+# ln -s ~/dotfiles/.cobra.yaml ~/
 
 cp -r ~/dotfiles/custom ~/.oh-my-zsh/
 
