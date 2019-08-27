@@ -168,7 +168,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " recommended fork
 " Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
-" Plug 'jodosha/vim-godebug'
+Plug 'jodosha/vim-godebug'
 
 
 Plug 'andrewstuart/vim-kubernetes'
@@ -223,7 +223,7 @@ set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
 set shortmess=filnxtToOF
 set showcmd
 set sidescroll=1
-set smarttab
+" set smarttab
 set tabpagemax=50
 set tags=./tags;,tags
 set ttimeoutlen=50
@@ -500,6 +500,7 @@ nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls').
 
 
 autocmd BufWrite * set ff=unix
+autocmd BufWrite * :retab
 " au BufWrite * :Autoformat
 
 
@@ -911,6 +912,9 @@ endif
 
 
 
+
+" ensure no tab
+set tabstop=4 shiftwidth=4 expandtab
 
 
 ".ideavim

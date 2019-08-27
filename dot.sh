@@ -26,6 +26,8 @@ ln -s ~/dotfiles/.config/nvim ~/.config/
 ln -s ~/dotfiles/.SpaceVim.d ~/
 # ln -s ~/dotfiles/.zprofile ~/
 
+# ln -s ~/dotfiles/.cobra ~/
+
 cp -r ~/dotfiles/custom ~/.oh-my-zsh/
 
 if [[ -e ~/.SpaceVim ]];then
