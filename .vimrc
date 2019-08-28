@@ -131,7 +131,7 @@ Plug 'Shougo/neosnippet-snippets'
 " language supoort
 " Plug 'w0rp/ale'
 Plug 'dense-analysis/ale'
-" Plug 'autozimu/LanguageClient-neovim'
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 " tags TODO
