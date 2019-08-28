@@ -2,7 +2,6 @@ author: victor23d <victor6742x@gmail.com>
 license:
   header: This file is part of {{ .appName }}.
   text: |
-    {{ .copyright }}
 
     Copyright [2019] [victor23d]
     
