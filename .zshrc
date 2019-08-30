@@ -305,6 +305,9 @@ if [[ `command -v pgcli` ]];then
 fi
 
 alias h=helm
+alias helm3=helm
+
+alias gpg=gpg2
 
 
 #-A	--almost-all
