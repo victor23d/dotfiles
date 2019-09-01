@@ -227,6 +227,7 @@ fi
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 export GOPATH=~/go
+export GIT_SSL_NO_VERIFY=true
 
 PATH=$PATH:~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share
 PATH=$PATH:/opt
@@ -310,19 +311,19 @@ alias helm3=helm
 alias gpg=gpg2
 
 
-#-A	--almost-all
-#-C	 list entries by columns
-#-G	--no-group in a long listing, don't print group names(small screen)
-#-L	--dereference show information  for  the  file the link references
+#-A --almost-all
+#-C  list entries by columns
+#-G --no-group in a long listing, don't print group names(small screen)
+#-L --dereference show information  for  the  file the link references
 #Do Not Use L ,if I want to delete a @, I rm the real file
-#-X	 sort alphabetically by entry extension
-#-x	 list entries by lines instead of by columns
-#-F	--classify append indicator (one of */=>@|) to entries
-#--file-tye	like -F, except do not append '*'
+#-X  sort alphabetically by entry extension
+#-x  list entries by lines instead of by columns
+#-F --classify append indicator (one of */=>@|) to entries
+#--file-tye like -F, except do not append '*'
 #
 #
 #
-# to use default ls 	 \ls
+# to use default ls      \ls
 
 
 alias c='fasd_cd -d'
