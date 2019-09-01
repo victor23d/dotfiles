@@ -227,7 +227,7 @@ fi
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 export GOPATH=~/go
-export GIT_SSL_NO_VERIFY=true
+
 
 PATH=$PATH:~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share
 PATH=$PATH:/opt
@@ -266,7 +266,19 @@ extract () {
     esac
 }
 
-#my server ip
+
+# export GIT_SSL_NO_VERIFY=true
+
+# MY_PROXY=gateway7
+if [[ $MY_PROXY != '' ]];then
+    export GOPROXY="https://goproxy.io"
+    # export GOPROXY=https://mirrors.aliyun.com/goproxy/
+    export http_proxy="socks5:/$MY_PROXY:1080"
+    export https_proxy="socks5://$MY_PROXY:1080"
+
+fi
+
+
 
 
 #color
@@ -386,5 +398,14 @@ if [[ `uname` != 'Linux' ]];then
     export PATH
     export MANPATH
     #alias ls='ls -ACGh --color'
+fi
+
+# WSL
+if [[ `uname -a` =~ "Microsoft" ]];then
+    export ADMIN=/mnt/c/Users/Administrator
+    # PS
+    $env:GOPROXY='https://goproxy.io'
+    http_proxy='socks5://gateway7:1080'
+    https_proxy='socks5://gateway7:1080'
 fi
 
