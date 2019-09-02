@@ -229,8 +229,8 @@ export GIT_EDITOR=nvim
 export GOPATH=~/go
 
 
-PATH=$PATH:~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share
-PATH=$PATH:/opt
+PATH=$PATH:~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share:/usr/local/bin/shell
+PATH=$PATH:/opt:/opt/shell
 PATH=$PATH:/usr/local/go/bin
 PATH=$PATH:$GOPATH/bin:~/go/bin
 PATH=$PATH:~/miniconda3/bin
