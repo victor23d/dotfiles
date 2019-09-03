@@ -269,6 +269,8 @@ extract () {
 
 # export GIT_SSL_NO_VERIFY=true
 
+export GOPROXY="https://goproxy.io"
+
 # MY_PROXY=gateway7
 if [[ $MY_PROXY != '' ]];then
     export GOPROXY="https://goproxy.io"
