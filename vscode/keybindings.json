@@ -311,5 +311,9 @@
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminalFocus"
     },
+    {
+        "key": "ctrl+alt+s",
+        "command": "workbench.action.openSettings2"
+    },
 ]
 
