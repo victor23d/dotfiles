@@ -163,10 +163,6 @@
         "command": "-workbench.action.files.newUntitledFile"
     },
     {
-        "key": "ctrl+/",
-        "command": "editor.action.commentLine"
-    },
-    {
         "key": "ctrl+b",
         "command": "-workbench.action.toggleSidebarVisibility"
     },
@@ -314,6 +310,11 @@
     {
         "key": "ctrl+alt+s",
         "command": "workbench.action.openSettings2"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "multiCommand.commentAndDown",
+        "when": "editorTextFocus"
     },
 ]
 

@@ -1,8 +1,8 @@
 {
     "editor.fontFamily": "Consolas, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 20,
-    "markdown.preview.fontSize": 20,
-    "terminal.integrated.fontSize": 20,
+    "editor.fontSize": 16,
+    "markdown.preview.fontSize": 18,
+    "terminal.integrated.fontSize": 18,
     "typescript.useCodeSnippetsOnMethodSuggest": true,
     "git.ignoreMissingGitWarning": true,
     "window.zoomLevel": 1,
@@ -12,6 +12,15 @@
     "shellcheck.useWSL": true,
     "editor.wordWrap": "on",
     "workbench.editor.enablePreview": true,
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.commentAndDown",
+            "sequence": [
+                "editor.action.commentLine",
+                "cursorDown",
+            ]
+        },
+    ]
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -234,8 +243,9 @@
     "vim.statusBarColors.replace": "#D08770",
     "explorer.confirmDelete": false,
     "workbench.iconTheme": "vscode-icons",
-    "workbench.colorTheme": "Default High Contrast",
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
+
+
 }
 
