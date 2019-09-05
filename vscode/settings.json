@@ -20,7 +20,7 @@
                 "cursorDown",
             ]
         },
-    ]
+    ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -245,6 +245,7 @@
     "workbench.iconTheme": "vscode-icons",
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
+    "files.autoSave": "onFocusChange",
 
 
 }

@@ -314,6 +314,7 @@ alias ls='ls -ACGhX --file-type --time-style=iso --color=tty --group-directories
 alias sl=ls
 alias ks=ls
 alias vim=nvim
+alias vi=nvim
 alias vimdiff='nvim -d'
 if [[ `command -v pgcli` ]];then
     alias psql=pgcli
