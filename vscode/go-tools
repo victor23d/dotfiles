@@ -1,5 +1,3 @@
-
-
  github.com/mdempsky/gocode
  github.com/uudashr/gopkgs/cmd/gopkgs
  github.com/ramya-rao-a/go-outline
@@ -18,8 +16,5 @@
  github.com/davidrjenni/reftools/cmd/fillstruct
  github.com/haya14busa/goplay/cmd/goplay
  github.com/godoctor/godoctor
-
  golang.org/x/tools/cmd/goimports
  golang.org/x/tools/cmd/gopls
-
-
