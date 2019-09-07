@@ -1,0 +1,8 @@
+" https://github.com/JetBrains/ideavim
+" Features list
+" https://github.com/JetBrains/ideavim/blob/master/src/com/maddyhome/idea/vim/package-info.java"
+source ~/.vimrc
+set multiple-cursors
+set surround
+set multiple-cursors
+set commentary

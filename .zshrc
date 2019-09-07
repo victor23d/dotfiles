@@ -409,7 +409,7 @@ if [[ `uname -a` =~ "Microsoft" ]];then
     # fix git window file mode
     git config --global core.fileMode false
     # PS
-    $env:GOPROXY='https://goproxy.io'
+    # $env:GOPROXY='https://goproxy.io'
     http_proxy='socks5://gateway7:1080'
     https_proxy='socks5://gateway7:1080'
 fi

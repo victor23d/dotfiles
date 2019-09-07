@@ -22,6 +22,7 @@ ln -s ~/dotfiles/.tmux.conf.local ~/
 ln -s ~/dotfiles/.gitconfig ~/
 ln -s ~/dotfiles/.vim ~/
 ln -s ~/dotfiles/.vimrc ~/
+ln -s ~/dotfiles/.ideavimrc ~/
 ln -s ~/dotfiles/.config/nvim ~/.config/
 ln -s ~/dotfiles/.SpaceVim.d ~/
 # ln -s ~/dotfiles/.zprofile ~/
