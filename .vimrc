@@ -142,7 +142,7 @@ Plug 'dense-analysis/ale'
 " come with deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/context_filetype.vim'
-Plug 'Shougo/neopairs.vim'
+" Plug 'Shougo/neopairs.vim'
 " :E bug"
 Plug 'Shougo/echodoc.vim'
 Plug 'Shougo/neoinclude.vim'
@@ -421,12 +421,11 @@ inoremap <C-CR> <Esc>o
 " a data file
 " inoremap <S-CR> <Esc>o
 
-" inoremap <C-j> <Esc>o
 
-" cnoremap <S-Insert> <C-R>+
-" inoremap <S-Insert> <C-R>+
 " }
 
+inoremap <End> <Esc>o
+inoremap <Home> <Esc>o
 noremap <M-Up> <Esc>dd<Up>P
 inoremap <M-Up> <Esc>dd<Up>P
 noremap <M-Down> <Esc>ddp

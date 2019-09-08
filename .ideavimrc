@@ -6,3 +6,15 @@ set multiple-cursors
 set surround
 set multiple-cursors
 set commentary
+
+" :actionlist [pattern]
+" :action {name}
+nnoremap ]l :action GotoNextError<CR>
+nnoremap [l :action GotoPreviousError<CR>
+nnoremap + :action TableResult.GrowSelection<CR>
+nnoremap _ :action EditorUnSelectWord<CR>
+
+inoremap <C-y> <C-[>a
+nnoremap <leader>` :action ActivateTerminalToolWindow<CR>
+nnoremap <space>l :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>l :action ActivateTerminalToolWindow<CR>
