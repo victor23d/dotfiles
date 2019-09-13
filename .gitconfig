@@ -6,5 +6,7 @@
 [core]
 	quotepath = off
 	editor = nvim
+	# fileMode = false # windows
+
 [gpg]
 	program = gpg2.
