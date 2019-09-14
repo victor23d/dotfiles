@@ -1,5 +1,7 @@
 #! /bin/bash
-# apt update -y
+
+set -ex
+apt update -y
 
 # python3.7
 # if [[ `python3 -V` =~ '3.7' ]];then
@@ -88,6 +90,14 @@ if [[ ! $(fasd --version) ]];then
     apt install fasd -y
 fi
 
+if [[ `which fd` ]];then
+    echo '--------------------install fd--------------------'
+    wget https://github.com/sharkdp/fd/releases/download/v7.3.0/fd_7.3.0_amd64.deb
+    dpkg -i fd_7.3.0_amd64.deb  # adapt version number and architecture
+    mv fd_7.3.0_amd64.deb /t
+
+fi
+
 
 echo '================================================================================'
 echo 'Done, after run start_backup then exit and login back...'
@@ -96,3 +106,4 @@ echo 'Done, after run start_backup then exit and login back...'
 # TODO
 # Oh-my-zsh exit
 # fasd [ENTER]
+
