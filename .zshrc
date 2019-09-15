@@ -269,12 +269,12 @@ extract () {
 
 # export GIT_SSL_NO_VERIFY=true
 
-export GOPROXY="https://goproxy.io"
+# export GOPROXY="https://goproxy.io"
+export GOPRIVATE="https://github.${MY_COMPANY}.com"
 
 # MY_PROXY=gateway7
 if [[ $MY_PROXY != '' ]];then
-    export GOPROXY="https://goproxy.io"
-    # export GOPROXY=https://mirrors.aliyun.com/goproxy/
+    # export GOPROXY="https://goproxy.io"
     export http_proxy="socks5:/$MY_PROXY:1080"
     export https_proxy="socks5://$MY_PROXY:1080"
 

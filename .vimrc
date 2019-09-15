@@ -121,6 +121,8 @@ Plug 'Chiel92/vim-autoformat'
 " Missing Github https://github.com/elzr/vim-jsjon
 Plug 'elzr/vim-json'
 
+" Uncover usage problems in your writing
+Plug 'reedes/vim-wordy'
 
 " Shougo's Dark Powered Vim
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -298,8 +300,9 @@ set splitright
 set inccommand=split
 
 
-" set spell spelllang=en_us
-set nospell
+set spell spelllang=en_us
+" set nospell
+" keymap
 " [s ]s z= zg
 
 
