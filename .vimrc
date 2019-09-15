@@ -6,7 +6,7 @@
 "
 " GVim original setting works
 " set guifont=Consolas:h16:b:cDEFAULT
-set guifont=Iosevka:h16:b:cDEFAULT
+" set guifont=Iosevka:h16:b:cDEFAULT "bold
 set guifont=Iosevka:h16:cDEFAULT
 " start nvim from powershell to debug
 " do NOT use nvim qt to edit init.vim, it's a bug on windows
