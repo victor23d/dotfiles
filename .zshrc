@@ -270,7 +270,8 @@ extract () {
 # export GIT_SSL_NO_VERIFY=true
 
 # export GOPROXY="https://goproxy.io"
-export GOPRIVATE="https://github.${MY_COMPANY}.com"
+# must add /*, do not add https://
+export GOPRIVATE="github.${MY_COMPANY}.com/*"
 
 # MY_PROXY=gateway7
 if [[ $MY_PROXY != '' ]];then
