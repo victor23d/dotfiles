@@ -1,15 +1,8 @@
-" GVim
-" Doesn't work, don't know why
-" let g:Guifont="DejaVu Sans Mono for Powerline:h16"
-" let g:guifont='Consolas:h16:b:cDEFAULT'
-" GuiFont Consolas:h12
-"
-" GVim original setting works
-" set guifont=Consolas:h16:b:cDEFAULT
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h20
+set guifont=Iosevka:h20:cDEFAULT,Yahei\ Consolas\ Hybrid:h20:cDEFAULT
 " set guifont=Iosevka:h16:b:cDEFAULT "bold
-set guifont=Iosevka:h16:cDEFAULT
+
 " start nvim from powershell to debug
-" do NOT use nvim qt to edit init.vim, it's a bug on windows
 
 call plug#begin('~/.vim/plugged')
 
@@ -300,7 +293,8 @@ set splitright
 set inccommand=split
 
 
-set spell spelllang=en_us
+" only in text file, md, txt
+" set spell spelllang=en_us
 " set nospell
 " keymap
 " [s ]s z= zg
@@ -507,6 +501,8 @@ nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls').
 autocmd BufWrite * set ff=unix
 autocmd BufWrite * :retab
 " au BufWrite * :Autoformat
+au BufNewFile,BufRead *.md set filetype=text
+au BufNewFile,BufRead *.txt set filetype=text
 
 
 
