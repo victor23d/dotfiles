@@ -125,6 +125,7 @@ Plug 'Shougo/neosnippet-snippets'
 
 " language supoort
 " Plug 'w0rp/ale'
+Plug 'mechatroner/rainbow_csv'
 Plug 'dense-analysis/ale'
 " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
