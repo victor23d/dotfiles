@@ -446,13 +446,15 @@ vmap <C-_> mtgc`tj
 " nnoremap / /\v
 map <silent> <esc> :nohlsearch<cr>
 
-tnoremap <Esc> <C-\><C-n>
-nnoremap <silent> <leader>` :botright Ttoggle<CR><C-w>j
-nnoremap <silent> <leader>v` :vertical botright Ttoggle<CR><C-w>l
-tnoremap <silent> <leader>` <C-\><C-n> :Ttoggle<CR>
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+    nnoremap <silent> <leader>` :botright Ttoggle<CR><C-w>j
+    nnoremap <silent> <leader>v` :vertical botright Ttoggle<CR><C-w>l
+    tnoremap <silent> <leader>` <C-\><C-n> :Ttoggle<CR>
 
-nnoremap <silent> <F12> :botright Ttoggle<CR><C-w>j
-tnoremap <silent> <F12> <C-\><C-n> :Ttoggle<CR>
+    nnoremap <silent> <F12> :botright Ttoggle<CR><C-w>j
+    tnoremap <silent> <F12> <C-\><C-n> :Ttoggle<CR>
+endif
 
 
 " CWD = Change to Directory of Current file
