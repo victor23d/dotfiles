@@ -94,6 +94,7 @@ kubetail
 # zsh-completions
 terraform
 # zsh-autosuggestions
+zsh-syntax-highlighting
 )
 
 autoload -U compinit && compinit
@@ -303,6 +304,19 @@ fi
 
 
 export LS_COLORS
+
+
+# zsh-syntax-highlighting
+# https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+# ZSH_HIGHLIGHT_STYLES[]
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=141'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=114'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=215,bold'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=215'
+ZSH_HIGHLIGHT_STYLES[comment]='fg=39'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='bg=57'
 
 ########################################
 #alias

@@ -99,6 +99,15 @@ if [[ `which fd` ]];then
 fi
 
 
+
+# Rust
+# cd /opt
+# curl -L https://github.com/sharkdp/bat/releases/download/v0.12.1/bat-v0.12.1-x86_64-unknown-linux-gnu.tar.gz -o bat.tar.gz
+# tar xf bat.tar.gz
+# mv bat
+
+
+
 echo '================================================================================'
 echo 'Done, after run start_backup then exit and login back...'
 

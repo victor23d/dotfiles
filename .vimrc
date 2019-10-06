@@ -504,8 +504,10 @@ nnoremap <silent><expr> <Leader>th (&hls && v:hlsearch ? ':nohls' : ':set hls').
 autocmd BufWrite * set ff=unix
 autocmd BufWrite * :retab
 " au BufWrite * :Autoformat
-au BufNewFile,BufRead *.md set filetype=text
+" au BufNewFile,BufRead *.md set filetype=text
 au BufNewFile,BufRead *.txt set filetype=text
+
+au BufNewFile,BufRead *.md set spell
 
 
 
