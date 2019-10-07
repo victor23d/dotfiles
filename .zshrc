@@ -438,6 +438,7 @@ alias se_restorecon='restorecon'
 alias info='info --vi-keys'
 
 alias du='du --time'
+alias ag='ag -i --hidden' #case-insensitive including .dir
 
 
 

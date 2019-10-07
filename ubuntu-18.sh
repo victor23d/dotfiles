@@ -75,6 +75,14 @@ if [[ ! $(ag --version) ]];then
 fi
 
 
+if [[ ! $(rg --version) ]];then
+    echo '--------------------install rc--------------------'
+    curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+    sudo dpkg -i ripgrep_11.0.2_amd64.deb
+    mv ripgrep_11.0.2_amd64.deb /t
+fi
+
+
 # fzf
 if [[ ! -e ~/.fzf ]];then
     echo '--------------------install fzf--------------------'
