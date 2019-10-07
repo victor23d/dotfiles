@@ -358,6 +358,8 @@ alias helm3=helm
 
 alias gpg=gpg2
 
+alias bat=b
+
 
 #-A --almost-all
 #-C  list entries by columns
