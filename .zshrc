@@ -311,12 +311,30 @@ export LS_COLORS
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 # https://misc.flogisoft.com/bash/tip_colors_and_formatting
 # ZSH_HIGHLIGHT_STYLES[]
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=141'
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=114'
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=215,bold'
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=215'
-ZSH_HIGHLIGHT_STYLES[comment]='fg=39'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=114' #light green
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=114' #light green
+ZSH_HIGHLIGHT_STYLES[command]='fg=114' #light green
+ZSH_HIGHLIGHT_STYLES[function]='fg=40' #green
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=40' #green
+
+ZSH_HIGHLIGHT_STYLES[path]='fg=207' #pink
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=141' #purple
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=140' #purple
+ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=226' #yellow
+
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=cyan'
+
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=215,bold' #orange
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=215' #orange
+
+ZSH_HIGHLIGHT_STYLES[comment]='fg=14' #blue
+ZSH_HIGHLIGHT_STYLES[default]='fg=39' #blue
+# ZSH_HIGHLIGHT_STYLES[default]='fg=14' #light blue
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=57'
 ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='bg=57'
+ZSH_HIGHLIGHT_STYLES[command-substitution]='fg=57'
+
 
 ########################################
 #alias
