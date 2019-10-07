@@ -373,7 +373,7 @@ alias helm3=helm
 
 alias gpg=gpg2
 
-alias bat=b
+alias b=bat
 
 
 #-A --almost-all
