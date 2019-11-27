@@ -93,6 +93,7 @@ kube-ps1
 kubetail
 # zsh-completions
 terraform
+vault
 # zsh-autosuggestions
 zsh-syntax-highlighting
 )
