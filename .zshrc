@@ -237,6 +237,7 @@ PATH=$PATH:/usr/local/go/bin
 PATH=$PATH:$GOPATH/bin:~/go/bin
 PATH=$PATH:~/miniconda3/bin
 PATH=$PATH:/snap/bin
+PATH=$PATH:~/.serverless/bin
 export PATH
 
 export NVM_DIR="$HOME/.nvm"
