@@ -100,7 +100,7 @@ zsh-syntax-highlighting
 
 autoload -U compinit && compinit
 
-# source
+# source tab
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,10 +110,13 @@ source $ZSH/oh-my-zsh.sh
 if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then source '/opt/google-cloud-sdk/completion.zsh.inc'; fi
 
 
-
 if [ -e ~/.local/bin/aws_zsh_completer.sh ];then
     source ~/.local/bin/aws_zsh_completer.sh
 fi
+
+
+# sls
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 
 
 #git hub conflict
@@ -154,50 +157,6 @@ fi
 
 
 ### ######################################## percol
-### #For zsh users, command versions are here (ppkill accepts options like -9).
-### 
-### function ppgrep() {
-###     if [[ $1 == "" ]]; then
-###         PERCOL=percol
-###     else
-###         PERCOL="percol --query $1"
-###     fi
-###     ps aux | eval $PERCOL | awk '{ print $2 }'
-### }
-### 
-### function ppkill() {
-###     if [[ $1 =~ "^-" ]]; then
-###         QUERY=""            # options only
-###     else
-###         QUERY=$1            # with a query
-###         [[ $# > 0 ]] && shift
-###     fi
-###     ppgrep $QUERY | xargs kill $*
-### }
-### 
-### #zsh history search
-### 
-### #In your .zshrc, put the lines below.
-### 
-### function exists { which $1 &> /dev/null }
-### 
-### if exists percol; then
-###     function percol_select_history() {
-###         local tac
-###         exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-###         BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
-###         CURSOR=$#BUFFER         # move cursor
-###         zle -R -c               # refresh
-###     }
-### 
-###     zle -N percol_select_history
-###     bindkey '^R' percol_select_history
-### fi
-### 
-### #Then, you can display and search your zsh histories incrementally by pressing Ctrl + r key.
-
-
-
 
 ########################################fzf
 
@@ -217,10 +176,6 @@ fi
 if [[ "${terminfo[kcbt]}" != "" ]]; then
     bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
 fi
-
-
-
-
 
 
 ########################################
@@ -396,26 +351,6 @@ alias b=bat
 alias c='fasd_cd -d'
 # `-d` option present for bash completion
 # function fasd_cd is defined in posix-alias
-
-
-# alias cd='cs'
-
-function cs () {
-    builtin cd "$@" && ls
-}
-
-function cs2() {
-    new_directory="$*";
-    if [ $# -eq 0 ]; then 
-        new_directory=${HOME};
-    fi;
-    builtin cd "${new_directory}" && ls
-}
-
-
-function cow(){
-    cowsay $1|lolcat
-}
 
 
 
