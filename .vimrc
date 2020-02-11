@@ -507,8 +507,16 @@ autocmd BufWrite * :retab
 " au BufWrite * :Autoformat
 " au BufNewFile,BufRead *.md set filetype=text
 au BufNewFile,BufRead *.txt set filetype=text
-
+autocmd BufNewFile,BufRead *.hcl   set filetype=tf
 au BufNewFile,BufRead *.md set spell
+au BufRead * if search('的', 'nw') | setlocal ft=ch | endif
+au BufRead * if search('，', 'nw') | setlocal ft=ch | endif
+au BufRead * if search('。', 'nw') | setlocal ft=ch | endif
+au BufRead * if search('不', 'nw') | setlocal ft=ch | endif
+au BufNewFile,BufRead .vimrc set ft=vim
+
+" commentstring
+autocmd FileType tf setlocal commentstring=//\ %s
 
 
 

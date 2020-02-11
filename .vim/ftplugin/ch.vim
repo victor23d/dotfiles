@@ -1,0 +1,2 @@
+" vvv
+set nospell
