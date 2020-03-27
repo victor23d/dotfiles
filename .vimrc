@@ -1,5 +1,7 @@
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h20
-set guifont=Iosevka:h20:cDEFAULT,Yahei\ Consolas\ Hybrid:h20:cDEFAULT
+" set guifont=Iosevka:h20:cDEFAULT,Yahei\ Consolas\ Hybrid:h20:cDEFAULT
+set guifont=YaHei\ Consolas\ Icon\ Hybrid:h20
+set guifontwide=YaHei\ Consolas\ Icon\ Hybrid:h20
 " set guifont=Iosevka:h16:b:cDEFAULT "bold
 
 " start nvim from powershell to debug
@@ -937,3 +939,5 @@ set tabstop=4 shiftwidth=4 expandtab
 
 
 " let g:python3_host_prog = 'PATH/python3/python3.exe'
+" let g:python3_host_prog='C:\python3\python'
+
