@@ -184,6 +184,8 @@ fi
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 export GOPATH=~/go
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
 
 
 PATH=$PATH:~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share:/usr/local/bin/shell
@@ -322,7 +324,7 @@ alias vim=nvim
 alias vi=nvim
 alias vimdiff='nvim -d'
 if [[ `command -v pgcli` ]];then
-    alias psql=pgcli
+    # alias psql=pgcli
 fi
 
 alias h=helm
@@ -331,6 +333,7 @@ alias helm3=helm
 alias gpg=gpg2
 
 alias b=bat
+alias sls=serverless
 
 
 #-A --almost-all
