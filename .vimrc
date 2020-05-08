@@ -10,8 +10,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'scrooloose/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'junegunn/fzf.vim'
 
@@ -37,14 +37,14 @@ Plug 'tpope/vim-commentary'
 " alias []
 Plug 'tpope/vim-unimpaired'
 
-"sugar shell commands
-Plug 'tpope/vim-eunuch'
+"sugar shell commands rm
+" Plug 'tpope/vim-eunuch'
 
 " . repeat plug
 Plug 'tpope/vim-repeat'
 
 " enhances netrw tree explorer
-Plug 'tpope/vim-vinegar'
+" Plug 'tpope/vim-vinegar'
 
 " automatically adjusts 'shiftwidth' and 'expandtab'
 Plug 'tpope/vim-sleuth'
@@ -90,7 +90,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'junegunn/goyo.vim'
 
 " work with goyo
-Plug 'junegunn/limelight.vim'
+" Plug 'junegunn/limelight.vim'
 
 
 " expend + _
@@ -100,7 +100,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'terryma/vim-multiple-cursors'
 
 " leader leader motion
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 
 " Icon
 " Plug 'ryanoasis/vim-devicons'
@@ -122,13 +122,13 @@ Plug 'reedes/vim-wordy'
 " Shougo's Dark Powered Vim
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
 
 " language supoort
 " Plug 'w0rp/ale'
 Plug 'mechatroner/rainbow_csv'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
@@ -139,37 +139,37 @@ Plug 'dense-analysis/ale'
 
 " come with deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/context_filetype.vim'
+" Plug 'Shougo/context_filetype.vim'
 " Plug 'Shougo/neopairs.vim'
 " :E bug"
-Plug 'Shougo/echodoc.vim'
-Plug 'Shougo/neoinclude.vim'
-Plug 'Konfekt/FastFold'
+" Plug 'Shougo/echodoc.vim'
+" Plug 'Shougo/neoinclude.vim'
+" Plug 'Konfekt/FastFold'
 
 
 " language specific
 
-Plug 'othree/yajs.vim'
-Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'othree/yajs.vim'
+" Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/html5.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 
-Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+" Plug 'deoplete-plugins/deoplete-jedi'
+" Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 
 " :Go command
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Not support Go > 1.8. module
 " Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 " recommended fork
 " Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
-Plug 'jodosha/vim-godebug'
+" Plug 'jodosha/vim-godebug'
 
 
-Plug 'andrewstuart/vim-kubernetes'
+" Plug 'andrewstuart/vim-kubernetes'
 Plug 'pearofducks/ansible-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'ekalinin/Dockerfile.vim'
@@ -481,7 +481,8 @@ command BR :source ~/vim_session <cr>     " And load session with F3
 
 
 
-nnoremap <leader>e :Vex<CR>
+" nnoremap <leader>e :Vex<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader>d :Denite 
 nnoremap <leader>F :Denite grep<CR>
 nnoremap <leader>m :Denite mark<CR>
@@ -650,6 +651,7 @@ endif
 
 
 if exists('g:plugs["denite.nvim"]')
+
     " reset 50% winheight on window resize
     augroup deniteresize
         autocmd!
@@ -657,22 +659,37 @@ if exists('g:plugs["denite.nvim"]')
                     \'winheight', winheight(0) / 2)
     augroup end
 
-    call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
-    call denite#custom#map('insert', '<C-[>', '<denite:enter_mode:normal>', 'noremap')
-    call denite#custom#map('insert', '<C-t>', '<denite:do_action:tabopen>', 'noremap')
-    call denite#custom#map('insert', '<C-s>', '<denite:do_action:split>', 'noremap')
-    call denite#custom#map('insert', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
-    call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-    call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-    " call denite#custom#map('insert', '<CR>', '<denite:do_action:tabopen>', 'noremap')
-    call denite#custom#map('normal', '<Esc>', '<NOP>', 'noremap')
-    call denite#custom#map('normal', '<C-v>', '<denite:do_action:vsplit>', 'noremap')
-    call denite#custom#map('normal', '<Down>', '<denite:move_to_next_line>', 'noremap')
-    " call denite#custom#map('normal', '<CR>', '<denite:do_action:tabopen>', 'noremap')
+    " call denite#custom#option('_', { 'start_filter': v:true })
+    " Define mappings
+    autocmd FileType denite call s:denite_my_settings()
+    function! s:denite_my_settings() abort
+        nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+        nnoremap <silent><buffer><expr> <C-s> denite#do_map('do_action', 'split')
+        nnoremap <silent><buffer><expr> <C-v> denite#do_map('do_action', 'vsplit')
+        nnoremap <silent><buffer><expr> <C-t> denite#do_map('do_action', 'tabopen')
+        nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action', 'tabopen')
+        nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
+        nnoremap <silent><buffer> <C-n> <Esc> :call cursor(line('.')+1,0)<CR>
+        nnoremap <silent><buffer> <C-p> <Esc> :call cursor(line('.')-1,0)<CR>
+        nnoremap <silent><buffer><expr> q denite#do_map('quit')
+        nnoremap <silent><buffer><expr> <C-c> denite#do_map('quit')
+        nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
+        nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j')
+        nnoremap <silent><buffer><expr> <Esc> denite#do_map('enter_mode', 'normal')
+        nnoremap <silent><buffer><expr> <C-[> denite#do_map('enter_mode', 'normal')
 
-    call denite#custom#map('normal', 'dw', '<denite:delete_word_after_caret>', 'noremap')
+    endfunction
+    
+    call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
+          \ [ '.git/', '.ropeproject/', '__pycache__/', 'node_modules', 'vendor',
+          \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+    call denite#custom#source(
+    \ '_', 'matchers', ['matcher/regexp'])
 
-    nnoremap <C-p> :<C-u>Denite file_old<CR>
+    call denite#custom#var('_', 'command',
+    \ ['\ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
+    nnoremap <C-p> :<C-u>Denite file/old<CR>
 endif
 
 
@@ -690,77 +707,6 @@ if exists('g:plugs["vim-terraform"]')
     let g:terraform_commentstring='//%s'
     let g:terraform_fmt_on_save=1
 endif
-
-
-"if exists('g:plugs["defx.nvim"]')
-"    autocmd FileType defx call s:defx_my_settings()
-"    function! s:defx_my_settings() abort
-"        " Define mappings
-"        nnoremap <silent><buffer><expr> <CR>
-"                    \ defx#do_action('open')
-"        nnoremap <silent><buffer><expr> Y
-"                    \ defx#do_action('copy')
-"        nnoremap <silent><buffer><expr> m
-"                    \ defx#do_action('move')
-"        nnoremap <silent><buffer><expr> p
-"                    \ defx#do_action('paste')
-"        nnoremap <silent><buffer><expr> l
-"                    \ defx#do_action('open')
-"        nnoremap <silent><buffer><expr> E
-"                    \ defx#do_action('open', 'vsplit')
-"        nnoremap <silent><buffer><expr> P
-"                    \ defx#do_action('open', 'pedit')
-"        nnoremap <silent><buffer><expr> K
-"                    \ defx#do_action('new_directory')
-"        nnoremap <silent><buffer><expr> N
-"                    \ defx#do_action('new_file')
-"        nnoremap <silent><buffer><expr> d
-"                    \ defx#do_action('remove')
-"        nnoremap <silent><buffer><expr> r
-"                    \ defx#do_action('rename')
-"        nnoremap <silent><buffer><expr> !
-"                    \ defx#do_action('execute_command')
-"        nnoremap <silent><buffer><expr> x
-"                    \ defx#do_action('execute_system')
-"        nnoremap <silent><buffer><expr> yy
-"                    \ defx#do_action('yank_path')
-"        nnoremap <silent><buffer><expr> .
-"                    \ defx#do_action('toggle_ignored_files')
-"        nnoremap <silent><buffer><expr> ;
-"                    \ defx#do_action('repeat')
-"        nnoremap <silent><buffer><expr> h
-"                    \ defx#do_action('cd', ['..'])
-"        nnoremap <silent><buffer><expr> ~
-"                    \ defx#do_action('cd')
-"        nnoremap <silent><buffer><expr> q
-"                    \ defx#do_action('quit')
-"        nnoremap <silent><buffer><expr> <Space>
-"                    \ defx#do_action('toggle_select') . 'j'
-"        nnoremap <silent><buffer><expr> *
-"                    \ defx#do_action('toggle_select_all')
-"        nnoremap <silent><buffer><expr> j
-"                    \ line('.') == line('$') ? 'gg' : 'j'
-"        nnoremap <silent><buffer><expr> k
-"                    \ line('.') == 1 ? 'G' : 'k'
-"        nnoremap <silent><buffer><expr> <C-l>
-"                    \ defx#do_action('redraw')
-"        nnoremap <silent><buffer><expr> <C-g>
-"                    \ defx#do_action('print')
-"        nnoremap <silent><buffer><expr> cd
-"                    \ defx#do_action('change_vim_cwd')
-"    endfunction
-"    " I want to explore the folder where the current file is.
-"    " Defx `expand('%:p:h')` -search=`expand('%:p')`
-"
-"    " I want to open defx window like explorer.
-"    " Defx -split=vertical -winwidth=50 -direction=topleft
-"
-"    " I want to open file like vimfiler explorer mode.
-"    " nnoremap <silent><buffer><expr> <CR> defx#do_action('drop')
-"
-"endif
-
-
 
 
 if exists('g:plugs["deoplete.nvim"]')
@@ -830,9 +776,6 @@ if exists('g:plugs["deoplete.nvim"]')
     """    let g:deoplete#sources.rust = ['LanguageClient']
     """    let g:deoplete#sources.c = ['LanguageClient']
     """    let g:deoplete#sources.vim = ['vim']
-
-
-
 
 endif
 
