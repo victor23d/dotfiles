@@ -123,7 +123,7 @@ Plug 'reedes/vim-wordy'
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/neosnippet.vim'
-" Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neosnippet-snippets' "must together
 
 " language supoort
 " Plug 'w0rp/ale'
@@ -157,6 +157,8 @@ Plug 'othree/html5.vim'
 
 " Plug 'deoplete-plugins/deoplete-jedi'
 " Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+" Plug 'zchee/deoplete-clang'
+
 
 " :Go command
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -883,4 +885,7 @@ set tabstop=4 shiftwidth=4 expandtab
 
 " let g:python3_host_prog = 'PATH/python3/python3.exe'
 " let g:python3_host_prog='C:\python3\python'
+let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-6.0/lib/libclang.so.1'
+let g:deoplete#sources#clang#clang_header='/usr/lib/llvm-6.0/lib/clang'
+
 
