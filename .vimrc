@@ -122,8 +122,8 @@ Plug 'reedes/vim-wordy'
 " Shougo's Dark Powered Vim
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'Shougo/neosnippet.vim'
-" Plug 'Shougo/neosnippet-snippets' "must together
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets' "must together
 
 " language supoort
 " Plug 'w0rp/ale'
