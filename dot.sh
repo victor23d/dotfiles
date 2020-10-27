@@ -1,4 +1,5 @@
 #! /bin/bash
+set -ex
 
 cd ~
 
@@ -12,7 +13,7 @@ fi
 
 mkdir -p .dotfiles_back/vscode
 
-mv -f .zshrc .tmux.conf .tmux.conf.local    .gitconfig .vim .vimrc .config/nvim .SpaceVim.d ~/.dotfiles_back
+mv -f .zshrc .tmux.conf .tmux.conf.local .editrc .inputrc .gitconfig .vim .vimrc .ideavimrc .config/nvim .SpaceVim.d ~/.dotfiles_back || true
 
 ln -s ~/dotfiles/.zshrc ~/
 ln -s ~/dotfiles/.tmux.conf ~/
