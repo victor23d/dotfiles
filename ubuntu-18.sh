@@ -29,7 +29,7 @@ fi
 # oh-my-zsh
 if [[ ! -e ~/.oh-my-zsh ]];then
     echo '--------------------install oh-my-zsh--------------------'
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # zsh-completions
@@ -106,6 +106,10 @@ if [[ `which fd` ]];then
 
 fi
 
+# if [[ `which go` ]];then
+#     echo '--------------------install go--------------------'
+#     snap install go --classic
+# fi
 
 
 # Rust
