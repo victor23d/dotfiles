@@ -79,7 +79,6 @@ docker
 docker-compose
 fasd
 git
-git-open
 golang
 github
 helm
