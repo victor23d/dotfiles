@@ -80,7 +80,6 @@ docker-compose
 fasd
 git
 golang
-github
 helm
 minikube
 node
@@ -116,10 +115,6 @@ fi
 
 # sls
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
-
-
-#git hub conflict
-unalias git
 
 
 # User configuration
