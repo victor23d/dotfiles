@@ -190,6 +190,7 @@ PATH=$PATH:~/miniconda3/bin
 PATH=$PATH:/snap/bin
 PATH=$PATH:~/.serverless/bin
 PATH=$PATH:/opt/node/bin
+PATH=$PATH:~/.krew/bin
 export PATH
 
 export NVM_DIR="$HOME/.nvm"
