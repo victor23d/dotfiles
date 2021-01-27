@@ -21,7 +21,7 @@ Plug 'mhinz/vim-startify'
 
 " common utils
 " git
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 " Defaults everyone can agree on
 " Plug 'tpope/vim-sensible'
