@@ -181,6 +181,8 @@ export GOPATH=~/go
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
+export PYENV_ROOT="$HOME/.pyenv"
+
 
 PATH=$PATH:~/.local/bin:~/.local/share:/usr/local/bin:/usr/local/share:/usr/local/bin/shell
 PATH=$PATH:/opt:/opt/shell
@@ -191,7 +193,13 @@ PATH=$PATH:/snap/bin
 PATH=$PATH:~/.serverless/bin
 PATH=$PATH:/opt/node/bin
 PATH=$PATH:~/.krew/bin
+PATH=$PYENV_ROOT/bin:$PATH
+
 export PATH
+
+# eval should after PATH
+eval "$(pyenv init -)"
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -272,7 +280,6 @@ fi
 if [[ $TERM == 'xterm-256' ]];then
     LS_COLORS=$LS_COLORS:'di=0;034:' ;
 fi
-
 
 
 
@@ -375,6 +382,7 @@ alias info='info --vi-keys'
 
 alias du='du --time'
 alias ag='ag -i --hidden' #case-insensitive including .dir
+
 
 
 

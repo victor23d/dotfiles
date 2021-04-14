@@ -2,11 +2,23 @@
 
 set -ex
 apt update -y
+apt upgrade -y
 
 # python3.7
 # if [[ `python3 -V` =~ '3.7' ]];then
 #     echo '--------------------install python3.7--------------------'
 # fi
+echo 'install pyenv'
+# https://github.com/pyenv/pyenv/wiki#suggested-build-environment
+apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+cd ~/.pyenv && src/configure && make -C src && cd ~
+# pyenv install 3.8.8
+# pyenv global 3.8.8
+
+# use pyenv
+# apt install python3.8
+# apt install python3.8-venv
 
 # pip
 if [[ ! `command -v pip` ]];then
