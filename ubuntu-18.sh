@@ -87,12 +87,12 @@ if [[ ! $(ag --version) ]];then
 fi
 
 
-if [[ ! $(rg --version) ]];then
-    echo '--------------------install rc--------------------'
-    curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
-    sudo dpkg -i ripgrep_11.0.2_amd64.deb
-    mv ripgrep_11.0.2_amd64.deb /t
-fi
+# if [[ ! $(rg --version) ]];then
+    # echo '--------------------install rc--------------------'
+    # curl -LO https://github.com/BurntSushi/ripgrep/releases/download/11.0.2/ripgrep_11.0.2_amd64.deb
+    # sudo dpkg -i ripgrep_11.0.2_amd64.deb
+    # mv ripgrep_11.0.2_amd64.deb /t
+# fi
 
 
 # fzf
@@ -110,13 +110,12 @@ if [[ ! $(fasd --version) ]];then
     apt install fasd -y
 fi
 
-if [[ `which fd` ]];then
-    echo '--------------------install fd--------------------'
-    wget https://github.com/sharkdp/fd/releases/download/v7.3.0/fd_7.3.0_amd64.deb
-    dpkg -i fd_7.3.0_amd64.deb  # adapt version number and architecture
-    mv fd_7.3.0_amd64.deb /t
-
-fi
+# if [[ `which fd` ]];then
+    # echo '--------------------install fd--------------------'
+    # wget https://github.com/sharkdp/fd/releases/download/v7.3.0/fd_7.3.0_amd64.deb
+    # dpkg -i fd_7.3.0_amd64.deb  # adapt version number and architecture
+    # mv fd_7.3.0_amd64.deb /t
+# fi
 
 # if [[ `which go` ]];then
 #     echo '--------------------install go--------------------'
